@@ -24,6 +24,61 @@
     - 마이 페이지 전환
     - 돌아가기
 
-feat: 기능 개발, ui 구현<br>
-fix: 오류 수정<br>
-chore: 그 외
+### 깃허브 규칙
+
+feat : 새로운 기능 추가
+
+fix : 버그 수정
+
+chore : 그외 자잘한 수정
+
+### 브랜치 명
+
+```kotlin
+git checkout -b feature/기능명
+// feature/signin
+// feature/mypage
+// feature/home
+// feature/category
+// feature/navigation
+```
+
+### Code Convention
+
+변수명 : 카멜케이스
+
+함수명
+
+- 카멜케이스
+- 동사부터
+- showToast()
+
+**id값**
+
+- 스네이크(tv_safs)
+
+tv_confirm
+
+TextView: tv
+
+ImageView: iv
+
+Button: btn
+
+ConstraintLayout: 
+
+EditText: et
+
+**resources**
+
+ic_logo.png
+
+bg_btn_pink
+
+**string**
+
+ex) 버튼에 들어가는 text
+
+→ btn_위치_기능
+
+텍스트뷰: 위치_text
