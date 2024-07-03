@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.menujo.data.UserInfo
 import com.example.menujo.data.UserManager
+import com.google.android.material.appbar.MaterialToolbar
 
 const val EXTRA_STRING_USER_NAME = "user_name"
 
@@ -131,5 +132,15 @@ class MyPageActivity : AppCompatActivity() {
             "321321",
             listOf("매운맛", "밥")
         ))
+        initToolbar()
+    }
+
+    private fun initToolbar(){
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_my_page)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = ""
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 }
