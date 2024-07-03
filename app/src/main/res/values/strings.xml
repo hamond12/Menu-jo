@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">MenuJo</string>
 
-<!--  MainPageActivity  -->
-    <string name="MAIN_KOREANFOOD">한식</string>
+    <!--  MainPageActivity  -->
+    <string name="main_koreanfood">한식</string>
+    <string name="main_chinedefood">중식</string>
+    <string name="main_westernfood">양식</string>
+    <string name="main_japanesefood">일식</string>
+
+    <string name="main_catagory">카테고리 선택</string>
 
 
-<!--  DetailPageActivity  -->
+    <!--  DetailPageActivity  -->
+
 
 <!--  SignInActivity  -->
     <string name="tv_signin_id">아이디</string>
@@ -15,8 +21,10 @@
     <string name="btn_signin_signin">로그인</string>
     <string name="btn_signin_signup">회원가입</string>
 
+    <!--  SignInActivity  -->
+
     <!--  SignUpActivity  -->
 
-<!--  MyPageActivity  -->
+    <!--  MyPageActivity  -->
 
 </resources>
