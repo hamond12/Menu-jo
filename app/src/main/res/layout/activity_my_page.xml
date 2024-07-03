@@ -7,4 +7,146 @@
     android:layout_height="match_parent"
     tools:context=".MyPageActivity">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_my_page"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/baseline_arrow_back_ios_new_24" />
+
+    <ImageView
+        android:id="@+id/iv_user_image"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_my_page_img"
+        android:clipToOutline="true"
+        android:src="@drawable/img_user_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_my_page" />
+
+    <TextView
+        android:id="@+id/tv_label_my_page_user_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="닉네임"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@id/iv_user_image"
+        app:layout_constraintTop_toBottomOf="@id/iv_user_image"
+        tools:layout_editor_absoluteX="50dp" />
+
+    <TextView
+        android:id="@+id/tv_my_page_user_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tv_label_my_page_user_name"
+        app:layout_constraintTop_toTopOf="@id/tv_label_my_page_user_name"
+        tools:text="seojeongu" />
+
+    <TextView
+        android:id="@+id/tv_label_my_page_user_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="아이디"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@id/tv_label_my_page_user_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_my_page_user_name"
+        tools:layout_editor_absoluteX="50dp" />
+
+    <TextView
+        android:id="@+id/tv_my_page_user_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_medium"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/tv_my_page_user_name"
+        app:layout_constraintTop_toTopOf="@id/tv_label_my_page_user_id"
+        tools:text="jeongu123" />
+
+    <TextView
+        android:id="@+id/tv_label_my_page_preferred_food"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="선호 음식"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@id/tv_label_my_page_user_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_my_page_user_id"
+        tools:layout_editor_absoluteX="50dp" />
+
+    <TextView
+        android:id="@+id/tv_my_page_tag_1"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_tag_red"
+        android:elevation="2dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:gravity="center"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_label_my_page_preferred_food"
+        app:layout_constraintStart_toStartOf="@id/tv_my_page_user_id"
+        app:layout_constraintTop_toTopOf="@id/tv_label_my_page_preferred_food"
+        tools:text="매운맛" />
+
+    <TextView
+        android:id="@+id/tv_my_page_tag_2"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_tag_white"
+        android:elevation="2dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:gravity="center"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/tv_my_page_tag_1"
+        app:layout_constraintTop_toTopOf="@id/tv_my_page_tag_1"
+        tools:text="밥" />
+
+    <TextView
+        android:id="@+id/tv_my_page_tag_3"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_tag_dark_brown"
+        android:elevation="2dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:gravity="center"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/tv_my_page_tag_2"
+        app:layout_constraintTop_toTopOf="@id/tv_my_page_tag_2"
+        tools:text="고기" />
+
+    <ImageView
+        android:layout_width="98dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_logo_horizontal"
+        android:contentDescription="하단 로고 이미지"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
