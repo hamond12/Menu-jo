@@ -1,10 +1,12 @@
 package com.example.menujo
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.menujo.data.UserInfo
@@ -49,60 +51,72 @@ class MyPageActivity : AppCompatActivity() {
         val tagCount = user.tags.size
 
         when (tagCount) {
-            1 -> {
-                tvTag01.apply {
-                    visibility = View.VISIBLE
-                    text = user.tags[0]
-                    setBackgroundResource(applyBackgroundByTag(user.tags[0]))
-                }
-            }
+            1 -> setTag(tvTag01, 0)
             2 -> {
-                tvTag01.apply {
-                    visibility = View.VISIBLE
-                    text = user.tags[0]
-                    setBackgroundResource(applyBackgroundByTag(user.tags[0]))
-                }
-                tvTag02.apply {
-                    visibility = View.VISIBLE
-                    text = user.tags[1]
-                    setBackgroundResource(applyBackgroundByTag(user.tags[1]))
-                }
+                setTag(tvTag01, 0)
+                setTag(tvTag02, 1)
             }
             3 -> {
-                tvTag01.apply {
-                    visibility = View.VISIBLE
-                    text = user.tags[0]
-                    setBackgroundResource(applyBackgroundByTag(user.tags[0]))
-                }
-                tvTag02.apply {
-                    visibility = View.VISIBLE
-                    text = user.tags[1]
-                    setBackgroundResource(applyBackgroundByTag(user.tags[1]))
-                }
-                tvTag03.apply {
-                    visibility = View.VISIBLE
-                    text = user.tags[2]
-                    setBackgroundResource(applyBackgroundByTag(user.tags[2]))
-                }
+                setTag(tvTag01, 0)
+                setTag(tvTag02, 1)
+                setTag(tvTag03, 2)
             }
             else -> return
+        }
+    }
+
+    private fun setTag(textView: TextView, index: Int) {
+        textView.apply {
+            visibility = View.VISIBLE
+            text = user.tags[index]
+            setTextColor(ContextCompat.getColor(context, applyTextColor(user.tags[index])))
+            setBackgroundResource(applyBackgroundByTag(user.tags[index]))
+        }
+    }
+
+    private fun applyTextColor(tag: String): Int {
+        return when (tag) {
+            "고기" -> R.color.white
+            "해산물" -> R.color.black
+            "밥" -> R.color.black
+            "면" -> R.color.black
+            "빵" -> R.color.white
+            "매운맛" -> R.color.white
+            "중간맛" -> R.color.white
+            "순한맛" -> R.color.black
+            "야채" -> R.color.white
+            "과일" -> R.color.black
+            else -> R.color.white
         }
     }
 
     private fun applyBackgroundByTag(tag: String): Int {
         return when (tag) {
             "고기" -> R.drawable.bg_tag_dark_brown
-            "해산물" -> R.drawable.bg_tag_dark_brown
+            "해산물" -> R.drawable.bg_tag_skyblue
             "밥" -> R.drawable.bg_tag_white
-            "면" -> R.drawable.bg_tag_dark_brown
-            "빵" -> R.drawable.bg_tag_dark_brown
+            "면" -> R.drawable.bg_tag_basic
+            "빵" -> R.drawable.bg_tag_brown
             "매운맛" -> R.drawable.bg_tag_red
-            "중간맛" -> R.drawable.bg_tag_dark_brown
-            "순한맛" -> R.drawable.bg_tag_dark_brown
-            "야채" -> R.drawable.bg_tag_dark_brown
-            "과일" -> R.drawable.bg_tag_dark_brown
+            "중간맛" -> R.drawable.bg_tag_orange
+            "순한맛" -> R.drawable.bg_tag_yellow
+            "야채" -> R.drawable.bg_tag_green
+            "과일" -> R.drawable.bg_tag_pink
             else -> R.drawable.bg_tag_white
         }
+//        return when (tag) {
+//            "고기" -> R.style.tag_bg_dark_brown
+//            "해산물" -> R.style.tag_bg_skyblue
+//            "밥" -> R.style.tag_bg_white
+//            "면" -> R.style.tag_bg_basic
+//            "빵" -> R.style.tag_bg_brown
+//            "매운맛" -> R.style.tag_bg_red
+//            "중간맛" -> R.style.tag_bg_orange
+//            "순한맛" -> R.style.tag_bg_yellow
+//            "야채" -> R.style.tag_bg_green
+//            "과일" -> R.style.tag_bg_pink
+//            else -> R.style.tag_bg_white
+//        }
     }
 
     private fun initUserData() {
