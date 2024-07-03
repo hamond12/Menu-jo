@@ -25,9 +25,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:layout_marginStart="40dp"
         android:text="@string/tv_signin_id"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        style="@style/text_sign_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_signin_logo_vertical" />
 
@@ -36,21 +36,20 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:ems="14"
-        android:inputType="text"
         android:hint="@string/et_signin_id"
+        android:inputType="text"
+        style="@style/text_sign_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_signin_id"
         app:layout_constraintTop_toBottomOf="@+id/tv_signin_id" />
 
     <TextView
         android:id="@+id/tv_signin_pwd"
+        style="@style/text_sign_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/tv_signin_pwd"
-        android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/et_signin_id"
         app:layout_constraintTop_toBottomOf="@+id/et_signin_id" />
 
@@ -60,30 +59,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:ems="14"
-        android:inputType="numberPassword"
         android:hint="@string/et_signin_pwd"
+        android:inputType="numberPassword"
+        style="@style/text_sign_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_signin_pwd"
         app:layout_constraintTop_toBottomOf="@+id/tv_signin_pwd" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_signin_signin"
-        style="@style/AppButtonPrimary"
-        android:layout_width="0dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="64dp"
         android:text="@string/btn_signin_signin"
+        style="@style/btn_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_signin_pwd" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_signin_signup"
-        style="@style/AppButtonPrimary"
-        android:layout_width="0dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="12dp"
         android:text="@string/btn_signin_signup"
+        style="@style/btn_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_signin_signin" />
@@ -94,9 +88,8 @@
         android:layout_height="40dp"
         android:layout_marginTop="90dp"
         android:src="@drawable/ic_logo_horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
