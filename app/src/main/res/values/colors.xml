@@ -11,4 +11,11 @@
     <color name="dark_brown">#7E2600</color>
     <color name="green">#1BBC01</color>
     <color name="pink">#FFA4A4</color>
+    <color name="light_pink">#FFD9CC</color>
+    <color name="dark_gray">#5C5C5C</color>
+    <color name="gray">#8B8B8B</color>
+    <color name="light_gray">#C2C2C2</color>
+    <color name="white_gray">#F4F4F4</color>
+
+
 </resources>
