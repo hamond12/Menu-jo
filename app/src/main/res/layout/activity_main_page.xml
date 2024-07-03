@@ -7,18 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".SignInActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
 
     <TextView
         android:id="@+id/catagory"
         style="@style/titletext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/main_catagory"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 
     <ImageView
@@ -104,43 +107,36 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_japanesefood" />
 
 
-
-
     <!-- 네비게이트 -->
-    <TextView
-        android:id="@+id/tv_navigation_home"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:gravity="center"
-        android:padding="5dp"
-        android:text="홈"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_navigation_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="68dp"
         android:gravity="center"
         android:padding="5dp"
         android:text="디테일"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_navigation_home" />
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_navigation_my_page"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_navigation_my_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="40dp"
         android:gravity="center"
         android:padding="5dp"
         android:text="마이"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_navigation_detail" />
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_navigation_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_navigation_detail"
+        app:layout_constraintTop_toTopOf="@+id/tv_navigation_detail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
