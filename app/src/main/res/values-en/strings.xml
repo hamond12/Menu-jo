@@ -1,5 +1,4 @@
-<resources>
-    <string name="app_name">MenuJo</string>ㄴㅅㄱ
+<?xml version="1.0" encoding="utf-8"?>
 
 <!--  MainPageActivity  -->
 
@@ -11,4 +10,4 @@
 
 <!--  MyPageActivity  -->
 
-</resources>
+<resources></resources>
