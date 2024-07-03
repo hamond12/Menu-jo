@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MenuJo</string>
 
-<!--  MainPageActivity  -->
+    <!--  MainPageActivity  -->
+    <string name="MAIN_KOREANFOOD">KoreanFood</string>
 
-<!--  DetailPageActivity  -->
+    <!--  DetailPageActivity  -->
 
-<!--  SignInActivity  -->
+    <!--  SignInActivity  -->
 
-<!--  SignUpActivity  -->
+    <!--  SignUpActivity  -->
 
-<!--  MyPageActivity  -->
+    <!--  MyPageActivity  -->
 
-<resources></resources>
+</resources>

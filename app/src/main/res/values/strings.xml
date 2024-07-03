@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">MenuJo</string>ㄴㅅㄱ
+    <string name="app_name">MenuJo</string>
 
 <!--  MainPageActivity  -->
+    <string name="MAIN_KOREANFOOD">한식</string>
+
 
 <!--  DetailPageActivity  -->
 

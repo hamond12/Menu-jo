@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".SignInActivity">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_logo_horizontal"
+        tools:ignore="MissingConstraints" />
+
+
+
+
+
+    <!-- 네이게이트 바-->
     <TextView
         android:id="@+id/tv_navigation_home"
         android:layout_width="40dp"
