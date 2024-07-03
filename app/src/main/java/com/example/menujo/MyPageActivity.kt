@@ -1,8 +1,9 @@
 package com.example.menujo
 
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,7 @@ class MyPageActivity : AppCompatActivity() {
         }
         initUserData()
         setLayout()
+        signOut()
     }
 
     private fun setLayout() {
@@ -103,6 +105,16 @@ class MyPageActivity : AppCompatActivity() {
             "야채" -> R.drawable.bg_tag_green
             "과일" -> R.drawable.bg_tag_pink
             else -> R.drawable.bg_tag_white
+        }
+    }
+
+    private fun signOut() {
+        val btnSignOut = findViewById<Button>(R.id.btn_sign_out)
+        btnSignOut.setOnClickListener {
+            val intent = Intent(this, MainPageActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.putExtra("sign_out", true)
+            startActivity(intent)
         }
     }
 
