@@ -3,7 +3,7 @@
 
     <!--  MainPageActivity  -->
     <string name="main_koreanfood">한식</string>
-    <string name="main_chinedefood">중식</string>
+    <string name="main_chinesefood">중식</string>
     <string name="main_westernfood">양식</string>
     <string name="main_japanesefood">일식</string>
 
