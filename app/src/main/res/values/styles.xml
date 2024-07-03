@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  MainPageActivity  -->
+    <style name="titletext">
+        <item name="android:textSize">42sp</item>
+        <item name="fontFamily">@font/pretendard_bold</item>
+    </style>
+
+
+    <!--  DetailPageActivity  -->
+
+    <!--  SignInActivity  -->
+
+    <!--  SignUpActivity  -->
+
+    <!--  MyPageActivity  -->
+</resources>
