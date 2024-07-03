@@ -25,7 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="아이디"
+        android:text="@string/tv_signin_id"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
         android:layout_marginTop="4dp"
         android:ems="14"
         android:inputType="text"
-        android:hint="아이디를 입력해주세요."
+        android:hint="@string/et_signin_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_signin_id"
         app:layout_constraintTop_toBottomOf="@+id/tv_signin_id" />
@@ -48,7 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="비밀번호"
+        android:text="@string/tv_signin_pwd"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/et_signin_id"
@@ -61,15 +61,37 @@
         android:layout_marginTop="4dp"
         android:ems="14"
         android:inputType="numberPassword"
-        android:hint="비밀번호를 입력해주세요."
+        android:hint="@string/et_signin_pwd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_signin_pwd"
         app:layout_constraintTop_toBottomOf="@+id/tv_signin_pwd" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_signin_signin"
+        style="@style/AppButtonPrimary"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/btn_signin_signin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_signin_pwd" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_signin_signup"
+        style="@style/AppButtonPrimary"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/btn_signin_signup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_signin_signin" />
+
     <ImageView
         android:id="@+id/iv_signin_logo_horizontal"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="40dp"
         android:layout_marginTop="90dp"
         android:src="@drawable/ic_logo_horizontal"
         app:layout_constraintStart_toStartOf="parent"
