@@ -3,7 +3,7 @@
 
     <!--  MainPageActivity  -->
     <string name="main_koreanfood">한식</string>
-    <string name="main_chinedefood">중식</string>
+    <string name="main_chinesefood">중식</string>
     <string name="main_westernfood">양식</string>
     <string name="main_japanesefood">일식</string>
 
@@ -11,6 +11,42 @@
 
 
     <!--  DetailPageActivity  -->
+
+
+    <!--  SignInActivity  -->
+    <string name="tv_signin_id">아이디</string>
+    <string name="et_signin_id">아이디를 입력해주세요</string>
+    <string name="tv_signin_pwd">비밀번호</string>
+    <string name="et_signin_pwd">비밀번호를 입력해주세요</string>
+    <string name="btn_signin_signin">로그인</string>
+    <string name="btn_signin_signup">회원가입</string>
+
+    <string name="tv_signup_name">닉네임</string>
+    <string name="et_signup_name">영어로만 2자리 이상 입력해주세요</string>
+    <string name="tv_signup_id">아이디</string>
+    <string name="et_signup_id">영어+숫자 7자리 이상 입력해주세요</string>
+    <string name="tv_signup_pwd">비밀번호</string>
+    <string name="et_signup_pwd">숫자로만 7자리 이상 입력해주세요</string>
+    <string name="tv_signup_cb_title">선호 음식</string>
+    <string name="cb_meat">고기</string>
+    <string name="cb_seafood">해산물</string>
+    <string name="rb_rice">밥</string>
+    <string name="rb_noodle">면</string>
+    <string name="rb_bread">빵</string>
+    <string name="rb_vegetable">야채</string>
+    <string name="rb_fruit">과일</string>
+    <string name="rb_spicy">매운맛</string>
+    <string name="rb_normal">중간맛</string>
+    <string name="rb_mild">순한맛</string>
+
+
+    <string name="btn_signup_signin">돌아가기</string>
+    <string name="btn_signup_signup">회원가입</string>
+
+    <string name="toast_signup_name">닉네임을 입력해주세요</string>
+    <string name="toast_signup_id">아이디를 입력해주세요</string>
+    <string name="toast_signup_pwd">비밀번호를 입력해주세요</string>
+
 
     <!--  SignInActivity  -->
 
