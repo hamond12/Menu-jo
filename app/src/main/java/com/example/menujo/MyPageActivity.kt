@@ -104,19 +104,6 @@ class MyPageActivity : AppCompatActivity() {
             "과일" -> R.drawable.bg_tag_pink
             else -> R.drawable.bg_tag_white
         }
-//        return when (tag) {
-//            "고기" -> R.style.tag_bg_dark_brown
-//            "해산물" -> R.style.tag_bg_skyblue
-//            "밥" -> R.style.tag_bg_white
-//            "면" -> R.style.tag_bg_basic
-//            "빵" -> R.style.tag_bg_brown
-//            "매운맛" -> R.style.tag_bg_red
-//            "중간맛" -> R.style.tag_bg_orange
-//            "순한맛" -> R.style.tag_bg_yellow
-//            "야채" -> R.style.tag_bg_green
-//            "과일" -> R.style.tag_bg_pink
-//            else -> R.style.tag_bg_white
-//        }
     }
 
     private fun initUserData() {
