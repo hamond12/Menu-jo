@@ -3,6 +3,7 @@ package com.example.menujo
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -28,11 +29,16 @@ class SignUpActivity : AppCompatActivity() {
         val etId = findViewById<EditText>(R.id.et_signup_id)
         val etPwd = findViewById<EditText>(R.id.et_signup_pwd)
         val btnSignUp = findViewById<Button>(R.id.btn_signup_signup)
+        val cb1 = findViewById<CheckBox>(R.id.cb_meat)
+        val cb2 = findViewById<CheckBox>(R.id.cb_seafood)
 
         //회원가입데이터
         val nameData = etName.text
         val idData = etId.text
         val pwdData = etPwd.text
+
+        cb1.isChecked
+
 
         //라디오버튼
 //        rgGender.setOnCheckedChangeListener { radioGroup, checkedId ->
