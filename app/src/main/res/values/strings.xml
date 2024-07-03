@@ -1,14 +1,21 @@
 <resources>
-    <string name="app_name">MenuJo</string>ㄴㅅㄱ
+    <string name="app_name">MenuJo</string>
 
-<!--  MainPageActivity  -->
+    <!--  MainPageActivity  -->
+    <string name="main_koreanfood">한식</string>
+    <string name="main_chinedefood">중식</string>
+    <string name="main_westernfood">양식</string>
+    <string name="main_japanesefood">일식</string>
 
-<!--  DetailPageActivity  -->
+    <string name="main_catagory">카테고리 선택</string>
 
-<!--  SignInActivity  -->
 
-<!--  SignUpActivity  -->
+    <!--  DetailPageActivity  -->
 
-<!--  MyPageActivity  -->
+    <!--  SignInActivity  -->
+
+    <!--  SignUpActivity  -->
+
+    <!--  MyPageActivity  -->
 
 </resources>

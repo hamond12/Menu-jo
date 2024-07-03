@@ -1,13 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MenuJo</string>
 
-<!--  MainPageActivity  -->
+    <!--  MainPageActivity  -->
+    <string name="main_koreanfood">KoreanFood</string>
+    <string name="main_chinedefood">ChineseFood</string>
+    <string name="main_westernfood">WesternFood</string>
+    <string name="main_japanesefood">JapaneseFood</string>
 
-<!--  DetailPageActivity  -->
+    <string name="main_catagory">Select category</string>
 
-<!--  SignInActivity  -->
+    <!--  DetailPageActivity  -->
 
-<!--  SignUpActivity  -->
+    <!--  SignInActivity  -->
 
-<!--  MyPageActivity  -->
+    <!--  SignUpActivity  -->
 
-<resources></resources>
+    <!--  MyPageActivity  -->
+
+</resources>

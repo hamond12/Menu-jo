@@ -13,6 +13,8 @@ class MainPageActivity : AppCompatActivity() {
         navigate()
     }
 
+
+    //네비게이트 바
     private fun navigate() {
         val homeMenu = findViewById<TextView>(R.id.tv_navigation_home)
         val detailMenu = findViewById<TextView>(R.id.tv_navigation_detail)
