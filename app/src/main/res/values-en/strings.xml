@@ -8,8 +8,23 @@
     <string name="main_japanesefood">JapaneseFood</string>
 
     <string name="main_catagory">Select category</string>
+    <string name="main_sir">%s sir</string>
+
+    <string name="main_snackbar_not_full">If you\'re not hungry right now</string>
+    <string name="main_snackbar_not_curious">If you\'re not curious about us</string>
+    <string name="main_snackbar_dawn">If it\'s dawn </string>
+    <string name="main_snackbar_diet">If you\'re on a diet</string>
+    <string name="main_snackbar_bbb">bbb</string>
 
     <!--  DetailPageActivity  -->
+    <string name="detail_menu_list_title">%s list</string>
+    <string name="detail_menu_recommend">Today\'s recommended menu</string>
+    <string name="detail_menu_name">menu name</string>
+    <string name="detail_menu_introduce">menu introduce</string>
+    <string name="detail_menu_another">Check out our other menus!</string>
+
+
+
 
     <!--  SignInActivity  -->
 
