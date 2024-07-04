@@ -50,7 +50,7 @@
 
     <style name="text_sign_hint">
         <item name="android:textSize">14sp</item>
-        <item name="android:ems">19</item>
+        <item name="android:ems">17</item>
         <item name="android:textColor">@color/gray</item>
 
     </style>
