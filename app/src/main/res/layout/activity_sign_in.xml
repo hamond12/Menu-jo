@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="70dp"
-        android:text="@string/tv_sign_id"
+        android:text="@string/common_id"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_signin_logo_vertical" />
 
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="30dp"
-        android:hint="@string/et_signin_id"
+        android:hint="@string/common_set_id"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="@+id/tv_signin_id"
         app:layout_constraintTop_toBottomOf="@+id/tv_signin_id" />
@@ -54,7 +54,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/tv_sign_pwd"
+        android:text="@string/common_pwd"
         app:layout_constraintStart_toStartOf="@+id/et_signin_id"
         app:layout_constraintTop_toBottomOf="@+id/et_signin_id" />
 
@@ -64,7 +64,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:hint="@string/et_signin_pwd"
+        android:hint="@string/common_set_pwd"
         android:inputType="numberPassword"
         app:layout_constraintStart_toStartOf="@+id/tv_signin_pwd"
         app:layout_constraintTop_toBottomOf="@+id/tv_signin_pwd" />
@@ -73,7 +73,7 @@
         android:id="@+id/btn_signin_signin"
         style="@style/btn_default"
         android:layout_marginTop="50dp"
-        android:text="@string/btn_signin_signin"
+        android:text="@string/common_signin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_signin_pwd" />
@@ -81,7 +81,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_signin_signup"
         style="@style/btn_default"
-        android:text="@string/btn_signin_signup"
+        android:text="@string/common_signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_signin_signin" />
