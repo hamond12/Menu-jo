@@ -8,11 +8,9 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.core.view.ViewCompat.*
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlin.random.Random
@@ -43,6 +41,7 @@ class MainPageActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.ib_japanesefood).setOnClickListener {
             initImageButton(it)
         }
+        //animation test
     }
 
     private fun showsnackbar()
@@ -138,6 +137,9 @@ class MainPageActivity : AppCompatActivity() {
             val intent = Intent(this, MyPageActivity::class.java)
             intent.putExtra("userID",user_Name)
             startActivity(intent)
+
+            overridePendingTransition(R.anim.main_to_mypage, R.anim.main_none)
+
         }
     }
 
