@@ -36,7 +36,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="100dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="70dp"
         android:text="@string/common_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -89,9 +89,7 @@
         android:id="@+id/btn_signin_signup"
         style="@style/btn_default"
         android:text="@string/common_signup"
-
         app:layout_constraintEnd_toEndOf="@+id/et_signin_pwd"
-        app:layout_constraintStart_toEndOf="@+id/btn_signin_signin"
         app:layout_constraintTop_toBottomOf="@+id/et_signin_pwd" />
 
     <ImageView

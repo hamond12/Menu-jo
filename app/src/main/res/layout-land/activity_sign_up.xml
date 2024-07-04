@@ -20,10 +20,11 @@
         android:id="@+id/iv_signup_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/ic_logo_nontext"
         app:layout_constraintEnd_toEndOf="@+id/tv_signup_favorite_sub"
         app:layout_constraintStart_toStartOf="@+id/tv_signup_favorite_title"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_signup" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_signup_name"
@@ -229,9 +230,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_signup_signup"
         style="@style/btn_default"
-        android:layout_marginBottom="20dp"
         android:text="@string/common_signup"
-        app:layout_constraintBottom_toTopOf="@+id/iv_signin_logo_horizontal"
         app:layout_constraintEnd_toEndOf="@+id/et_signup_pwd"
         app:layout_constraintStart_toStartOf="@+id/et_signup_pwd"
         app:layout_constraintTop_toBottomOf="@+id/et_signup_pwd" />
