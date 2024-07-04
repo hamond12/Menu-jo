@@ -1,5 +1,7 @@
 package com.example.menujo.data
 
+import com.example.menujo.R
+
 object FoodManager {
 
     private val foodList = initFoodData()
@@ -9,7 +11,7 @@ object FoodManager {
             FoodInfo(
                 "koreanFood",
                 1,
-                null,
+                R.drawable.img_bibimbap,
                 "피자",
                 "피자는 이렇게 생겼습니다.",
                 listOf("매운맛", "고기", "해산물")
@@ -17,7 +19,7 @@ object FoodManager {
             FoodInfo(
                 "koreanFood",
                 2,
-                null,
+                R.drawable.img_bibimbap,
                 "햄버거",
                 "햄버거는 이렇게 생겼습니다.",
                 listOf("순한맛", "밥")
@@ -25,7 +27,7 @@ object FoodManager {
             FoodInfo(
                 "koreanFood",
                 3,
-                null,
+                R.drawable.img_bibimbap,
                 "치킨",
                 "치킨은 이렇게 생겼습니다.",
                 listOf("중간맛", "야채")
@@ -33,7 +35,7 @@ object FoodManager {
             FoodInfo(
                 "koreanFood",
                 4,
-                null,
+                R.drawable.img_jjimdak,
                 "햄",
                 "햄은 이렇게 생겼습니다.",
                 listOf("매운맛", "고기", "해산물")
@@ -41,7 +43,7 @@ object FoodManager {
             FoodInfo(
                 "koreanFood",
                 5,
-                null,
+                R.drawable.img_jjimdak,
                 "스테이크",
                 "스테이크는 이렇게 생겼습니다.",
                 listOf("순한맛", "밥")
@@ -49,7 +51,7 @@ object FoodManager {
             FoodInfo(
                 "chineseFood",
                 1,
-                null,
+                R.drawable.ic_jjambbong,
                 "샐러드",
                 "샐러드는 이렇게 생겼습니다.",
                 listOf("중간맛", "야채")
@@ -57,7 +59,7 @@ object FoodManager {
             FoodInfo(
                 "chineseFood",
                 2,
-                null,
+                R.drawable.ic_jajangmyeon,
                 "커피",
                 "커피는 이렇게 생겼습니다.",
                 listOf("매운맛", "고기", "해산물")
@@ -65,7 +67,7 @@ object FoodManager {
             FoodInfo(
                 "chineseFood",
                 3,
-                null,
+                R.drawable.ic_jajangmyeon,
                 "케이크",
                 "케이크는 이렇게 생겼습니다.",
                 listOf("중간맛")
@@ -73,7 +75,7 @@ object FoodManager {
             FoodInfo(
                 "chineseFood",
                 4,
-                null,
+                R.drawable.ic_jajangmyeon,
                 "아이스크림",
                 "아이스크림은 이렇게 생겼습니다.",
                 listOf("매운맛", "고기", "해산물")
@@ -81,7 +83,7 @@ object FoodManager {
             FoodInfo(
                 "chineseFood",
                 5,
-                null,
+                R.drawable.ic_jajangmyeon,
                 "초밥",
                 "초밥은 이렇게 생겼습니다.",
                 listOf("순한맛", "밥")
@@ -89,7 +91,7 @@ object FoodManager {
             FoodInfo(
                 "westernFood",
                 1,
-                null,
+                R.drawable.img_aglio_olio,
                 "라면",
                 "라면은 이렇게 생겼습니다.",
                 listOf("순한맛", "고기", "빵")
@@ -97,7 +99,7 @@ object FoodManager {
             FoodInfo(
                 "westernFood",
                 2,
-                null,
+                R.drawable.img_aglio_olio,
                 "피자",
                 "피자는 이렇게 생겼습니다.",
                 listOf("매운맛", "고기", "해산물")
@@ -105,7 +107,7 @@ object FoodManager {
             FoodInfo(
                 "westernFood",
                 3,
-                null,
+                R.drawable.img_aglio_olio,
                 "햄버거",
                 "햄버거는 이렇게 생겼습니다.",
                 listOf("순한맛", "밥")
@@ -113,7 +115,7 @@ object FoodManager {
             FoodInfo(
                 "westernFood",
                 4,
-                null,
+                R.drawable.img_pizza,
                 "치킨",
                 "치킨은 이렇게 생겼습니다.",
                 listOf("중간맛", "야채")
@@ -121,7 +123,7 @@ object FoodManager {
             FoodInfo(
                 "westernFood",
                 5,
-                null,
+                R.drawable.img_pizza,
                 "햄",
                 "햄은 이렇게 생겼습니다.",
                 listOf("순한맛", "고기", "빵")
@@ -129,7 +131,7 @@ object FoodManager {
             FoodInfo(
                 "japaneseFood",
                 1,
-                null,
+                R.drawable.img_ramen,
                 "스테이크",
                 "스테이크는 이렇게 생겼습니다.",
                 listOf("매운맛", "고기", "해산물")
@@ -137,7 +139,7 @@ object FoodManager {
             FoodInfo(
                 "japaneseFood",
                 2,
-                null,
+                R.drawable.img_ramen,
                 "샐러드",
                 "샐러드는 이렇게 생겼습니다.",
                 listOf("순한맛", "밥")
@@ -145,7 +147,7 @@ object FoodManager {
             FoodInfo(
                 "japaneseFood",
                 3,
-                null,
+                R.drawable.img_ramen,
                 "커피",
                 "커피는 이렇게 생겼습니다.",
                 listOf("순한맛", "고기", "빵")
@@ -153,7 +155,7 @@ object FoodManager {
             FoodInfo(
                 "japaneseFood",
                 4,
-                null,
+                R.drawable.img_sushi,
                 "케이크",
                 "케이크는 이렇게 생겼습니다.",
                 listOf("매운맛", "고기", "해산물")
@@ -161,7 +163,7 @@ object FoodManager {
             FoodInfo(
                 "japaneseFood",
                 5,
-                null,
+                R.drawable.img_sushi,
                 "아이스크림",
                 "아이스크림은 이렇게 생겼습니다.",
                 listOf("순한맛", "밥")

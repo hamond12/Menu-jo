@@ -83,7 +83,7 @@ class FoodListActivity : AppCompatActivity() {
         val tvDetailTag2 = findViewById<TextView>(R.id.tv_detail_tag_2)
         val tvDetailTag3 = findViewById<TextView>(R.id.tv_detail_tag_3)
 
-        recommendImg.setImageResource(R.drawable.ic_jjambbong)
+        recommendImg.setImageResource(randomFood.image)
         tvRecommendMenuName.text = randomFood.name
         tvRecommendMenuIntroduce.text = randomFood.introduce
 
@@ -114,7 +114,7 @@ class FoodListActivity : AppCompatActivity() {
         val tvFood1Tag2 = findViewById<TextView>(R.id.tv_food_1_tag_2)
         val tvFood1Tag3 = findViewById<TextView>(R.id.tv_food_1_tag_3)
 
-        ivFood1.setImageResource(R.drawable.ic_jjambbong)
+        ivFood1.setImageResource(filteredList[0].image)
         tvFoodName1.text = filteredList[0].name
         tvFoodIntroduce1.text = filteredList[0].introduce
         val tagCount1 = filteredList[0].tags.size
@@ -139,7 +139,7 @@ class FoodListActivity : AppCompatActivity() {
         val tvFood2Tag2 = findViewById<TextView>(R.id.tv_food_2_tag_2)
         val tvFood2Tag3 = findViewById<TextView>(R.id.tv_food_2_tag_3)
 
-        ivFood2.setImageResource(R.drawable.ic_jjambbong)
+        ivFood2.setImageResource(filteredList[1].image)
         tvFoodName2.text = filteredList[1].name
         tvFoodIntroduce2.text = filteredList[1].introduce
         val tagCount2 = filteredList[1].tags.size
@@ -164,7 +164,7 @@ class FoodListActivity : AppCompatActivity() {
         val tvFood3Tag2 = findViewById<TextView>(R.id.tv_food_3_tag_2)
         val tvFood3Tag3 = findViewById<TextView>(R.id.tv_food_3_tag_3)
 
-        ivFood3.setImageResource(R.drawable.ic_jjambbong)
+        ivFood3.setImageResource(filteredList[2].image)
         tvFoodName3.text = filteredList[2].name
         tvFoodIntroduce3.text = filteredList[2].introduce
         val tagCount3 = filteredList[2].tags.size
@@ -189,7 +189,7 @@ class FoodListActivity : AppCompatActivity() {
         val tvFood4Tag2 = findViewById<TextView>(R.id.tv_food_4_tag_2)
         val tvFood4Tag3 = findViewById<TextView>(R.id.tv_food_4_tag_3)
 
-        ivFood4.setImageResource(R.drawable.ic_jjambbong)
+        ivFood4.setImageResource(filteredList[3].image)
         tvFoodName4.text = filteredList[3].name
         tvFoodIntroduce4.text = filteredList[3].introduce
         val tagCount4 = filteredList[3].tags.size
