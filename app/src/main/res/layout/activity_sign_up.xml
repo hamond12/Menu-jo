@@ -109,101 +109,101 @@
         style="@style/text_sign_hint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="10dp"
         android:text="@string/tv_signup_favorite_sub"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_signup_favorite_title"
+        app:layout_constraintEnd_toEndOf="@+id/et_signup_pwd"
+        app:layout_constraintStart_toEndOf="@+id/tv_signup_favorite_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_signup_favorite_title" />
+
+
+    <CheckBox
+        android:id="@+id/cb_meat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cb_meat"
+        app:layout_constraintBottom_toTopOf="@+id/cb_seafood"
+        app:layout_constraintEnd_toStartOf="@+id/cb_rice"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@+id/tv_signup_favorite_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_signup_favorite_title" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup_favorite_title"
+        app:layout_constraintVertical_chainStyle="packed" />
 
+    <CheckBox
+        android:id="@+id/cb_seafood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cb_seafood"
+        app:layout_constraintBottom_toTopOf="@+id/cb_vegetable"
+        app:layout_constraintStart_toStartOf="@+id/cb_meat"
+        app:layout_constraintTop_toBottomOf="@+id/cb_meat" />
 
-<!--    <CheckBox-->
-<!--        android:id="@+id/cb_meat"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:text="@string/cb_meat"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/cb_seafood"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/cb_rice"-->
-<!--        app:layout_constraintHorizontal_bias="0.5"-->
-<!--        app:layout_constraintHorizontal_chainStyle="spread"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_signup_favorite_sub"-->
-<!--        app:layout_constraintVertical_chainStyle="packed" />-->
+    <CheckBox
+        android:id="@+id/cb_vegetable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cb_vegetable"
+        app:layout_constraintStart_toStartOf="@+id/cb_seafood"
+        app:layout_constraintTop_toBottomOf="@+id/cb_seafood" />
 
-<!--    <CheckBox-->
-<!--        android:id="@+id/cb_seafood"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/cb_seafood"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/cb_vegetable"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/cb_meat"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/cb_meat" />-->
+    <CheckBox
+        android:id="@+id/cb_rice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cb_rice"
+        app:layout_constraintBottom_toTopOf="@+id/cb_noodle"
+        app:layout_constraintEnd_toStartOf="@+id/cb_spicy"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cb_meat"
+        app:layout_constraintTop_toTopOf="@+id/cb_meat"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-<!--    <CheckBox-->
-<!--        android:id="@+id/cb_vegetable"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/cb_vegetable"-->
-<!--        app:layout_constraintBottom_toBottomOf="btn_signup_signup"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/cb_seafood"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/cb_seafood" />-->
+    <CheckBox
+        android:id="@+id/cb_noodle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cb_noodle"
+        app:layout_constraintBottom_toTopOf="@+id/cb_bread"
+        app:layout_constraintStart_toStartOf="@+id/cb_rice"
+        app:layout_constraintTop_toBottomOf="@+id/cb_rice" />
 
-<!--    <CheckBox-->
-<!--        android:id="@+id/cb_rice"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/cb_rice"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/cb_noodle"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/cb_spicy"-->
-<!--        app:layout_constraintHorizontal_bias="0.5"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/cb_meat"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/cb_meat"-->
-<!--        app:layout_constraintVertical_chainStyle="packed" />-->
+    <CheckBox
+        android:id="@+id/cb_bread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cb_bread"
+        app:layout_constraintStart_toStartOf="@+id/cb_noodle"
+        app:layout_constraintTop_toBottomOf="@+id/cb_noodle" />
 
-<!--    <CheckBox-->
-<!--        android:id="@+id/cb_noodle"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/cb_noodle"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/cb_bread"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/cb_rice"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/cb_rice" />-->
+    <CheckBox
+        android:id="@+id/cb_spicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cb_spicy"
+        app:layout_constraintBottom_toTopOf="@+id/cb_normal"
+        app:layout_constraintEnd_toEndOf="@+id/tv_signup_favorite_sub"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cb_rice"
+        app:layout_constraintTop_toTopOf="@+id/cb_rice"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-<!--    <CheckBox-->
-<!--        android:id="@+id/cb_bread"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/cb_bread"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/cb_noodle"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/cb_noodle" />-->
+    <CheckBox
+        android:id="@+id/cb_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cb_normal"
+        app:layout_constraintBottom_toTopOf="@+id/cb_mild"
+        app:layout_constraintStart_toStartOf="@+id/cb_spicy"
+        app:layout_constraintTop_toBottomOf="@+id/cb_spicy" />
 
-<!--    <CheckBox-->
-<!--        android:id="@+id/cb_spicy"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/cb_spicy"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/cb_normal"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/tv_signup_favorite_sub"-->
-<!--        app:layout_constraintHorizontal_bias="0.5"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/cb_rice"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/cb_rice"-->
-<!--        app:layout_constraintVertical_chainStyle="packed" />-->
-
-<!--    <CheckBox-->
-<!--        android:id="@+id/cb_normal"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/cb_normal"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/cb_mild"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/cb_spicy"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/cb_spicy" />-->
-
-<!--    <CheckBox-->
-<!--        android:id="@+id/cb_mild"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/cb_mild"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/cb_normal"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/cb_normal" />-->
+    <CheckBox
+        android:id="@+id/cb_mild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cb_mild"
+        app:layout_constraintStart_toStartOf="@+id/cb_normal"
+        app:layout_constraintTop_toBottomOf="@+id/cb_normal" />
 
 
     <!--    <CheckBox-->

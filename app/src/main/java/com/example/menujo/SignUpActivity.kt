@@ -3,6 +3,7 @@ package com.example.menujo
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -30,19 +31,17 @@ class SignUpActivity : AppCompatActivity() {
         val etId = findViewById<EditText>(R.id.et_signup_id)
         val etPwd = findViewById<EditText>(R.id.et_signup_pwd)
         val btnSignUp = findViewById<Button>(R.id.btn_signup_signup)
-
-//        val checklist = listOf(
-//            findViewById<CheckBox>(R.id.cb_meat),
-//            findViewById<CheckBox>(R.id.cb_seafood),
-//            findViewById<CheckBox>(R.id.cb_rice),
-//            findViewById<CheckBox>(R.id.cb_noodle),
-//            findViewById<CheckBox>(R.id.cb_bread),
-//            findViewById<CheckBox>(R.id.cb_noodle),
-//            findViewById<CheckBox>(R.id.cb_noodle),
-//            findViewById<CheckBox>(R.id.cb_noodle),
-//            findViewById<CheckBox>(R.id.cb_noodle),
-//            findViewById<CheckBox>(R.id.cb_noodle),
-//            )
+        val checklist = listOf(
+            findViewById<CheckBox>(R.id.cb_meat),
+            findViewById<CheckBox>(R.id.cb_seafood),
+            findViewById<CheckBox>(R.id.cb_vegetable),
+            findViewById<CheckBox>(R.id.cb_rice),
+            findViewById<CheckBox>(R.id.cb_noodle),
+            findViewById<CheckBox>(R.id.cb_bread),
+            findViewById<CheckBox>(R.id.cb_spicy),
+            findViewById<CheckBox>(R.id.cb_normal),
+            findViewById<CheckBox>(R.id.cb_mild)
+            )
 
         var checkCount = 0
 
@@ -65,36 +64,29 @@ class SignUpActivity : AppCompatActivity() {
 //        }
 
         //체크박스 예외처리
-//        checklist.forEach { i ->
-//            i.setOnClickListener {
-//                if (i.isChecked) {
-//                    checkCount++
-//                    if (checkCount == 2) {
-//                        Toast.makeText(this, "최대 2개까지 선택 가능합니다", Toast.LENGTH_SHORT).show()
-//                        for (i in checklist) {
-//                            if (!i.isChecked) i.isEnabled = false
-//                        }
-//                    }
-//                } else {
-//                    checkCount--
-//                    for (i in checklist) {
-//                        if (!i.isChecked) i.isEnabled = true
-//                    }
-//                }
-//            }
-//        }
+        checklist.forEach { i ->
+            i.setOnClickListener {
+                if (i.isChecked) {
+                    checkCount++
+                    if (checkCount == 3) {
+                        Toast.makeText(this, "최대 3개까지 선택 가능합니다", Toast.LENGTH_SHORT).show()
+                        for (i in checklist) {
+                            if (!i.isChecked) i.isEnabled = false
+                        }
+                    }
+                } else {
+                    checkCount--
+                    for (i in checklist) {
+                        if (!i.isChecked) i.isEnabled = true
+                    }
+                }
+            }
+        }
 
 
 //        if (checkCount >= 2) checklist.forEach { it = false }
 
 
-        //라디오버튼
-//        rgGender.setOnCheckedChangeListener { radioGroup, checkedId ->
-//            when (checkedId) {
-//                R.id.rb_male -> genderData = "남성"
-//                R.id.rb_female -> genderData = "여성"
-//            }
-//        }
 
         //회원가입버튼
         btnSignUp.setOnClickListener {
