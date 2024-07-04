@@ -4,14 +4,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.RadioGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 
 class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,15 +32,62 @@ class SignUpActivity : AppCompatActivity() {
         val etId = findViewById<EditText>(R.id.et_signup_id)
         val etPwd = findViewById<EditText>(R.id.et_signup_pwd)
         val btnSignUp = findViewById<Button>(R.id.btn_signup_signup)
-        val cb1 = findViewById<CheckBox>(R.id.cb_meat)
-        val cb2 = findViewById<CheckBox>(R.id.cb_seafood)
+
+//        val checklist = listOf(
+//            findViewById<CheckBox>(R.id.cb_meat),
+//            findViewById<CheckBox>(R.id.cb_seafood),
+//            findViewById<CheckBox>(R.id.cb_rice),
+//            findViewById<CheckBox>(R.id.cb_noodle),
+//            findViewById<CheckBox>(R.id.cb_bread),
+//            findViewById<CheckBox>(R.id.cb_noodle),
+//            findViewById<CheckBox>(R.id.cb_noodle),
+//            findViewById<CheckBox>(R.id.cb_noodle),
+//            findViewById<CheckBox>(R.id.cb_noodle),
+//            findViewById<CheckBox>(R.id.cb_noodle),
+//            )
+
+        var checkCount = 0
 
         //회원가입데이터
         val nameData = etName.text
         val idData = etId.text
         val pwdData = etPwd.text
 
-        cb1.isChecked
+        //체크박스 결과담기
+//        var checkChange = CompoundButton.OnCheckedChangeListener {_,isChecked ->
+//        checklist[1].setOnClickListener() {
+//            if (checkCount >= 2) {Toast.makeText(this, "최대 3개까지 선택 가능합니다", Toast.LENGTH_SHORT).show()
+//            when(checklist[i]){
+//                    cbMeat.isChecked -> checkCount += 1
+//                    cbSeaFood.isChecked -> checkCount += 1
+//                    cbRice.isChecked -> checkCount += 1
+//                    cbNoodle.isChecked -> checkCount += 1
+//                }
+//            }
+//        }
+
+        //체크박스 예외처리
+//        checklist.forEach { i ->
+//            i.setOnClickListener {
+//                if (i.isChecked) {
+//                    checkCount++
+//                    if (checkCount == 2) {
+//                        Toast.makeText(this, "최대 2개까지 선택 가능합니다", Toast.LENGTH_SHORT).show()
+//                        for (i in checklist) {
+//                            if (!i.isChecked) i.isEnabled = false
+//                        }
+//                    }
+//                } else {
+//                    checkCount--
+//                    for (i in checklist) {
+//                        if (!i.isChecked) i.isEnabled = true
+//                    }
+//                }
+//            }
+//        }
+
+
+//        if (checkCount >= 2) checklist.forEach { it = false }
 
 
         //라디오버튼
