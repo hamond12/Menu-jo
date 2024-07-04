@@ -76,7 +76,7 @@ class MainPageActivity : AppCompatActivity() {
     private fun initImageButton(view: View) {
         when (view.getId()) {
             R.id.ib_koreanfood -> {
-                val intent = Intent(this, DetailActivity::class.java)
+                val intent = Intent(this, FoodListActivity::class.java)
                 intent.putExtra("food", "koreanFood")
                 startActivity(intent)
             }
