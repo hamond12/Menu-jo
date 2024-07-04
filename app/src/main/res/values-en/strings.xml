@@ -16,5 +16,9 @@
     <!--  SignUpActivity  -->
 
     <!--  MyPageActivity  -->
+    <string name="iv_description_user_profile">user profile image</string>
+    <string name="btn_label_sign_out">Sign Out</string>
+    <string name="iv_description_bottom_logo">bottom logo image</string>
+    <string name="toast_sign_in_first">Please Sign In first</string>
 
 </resources>

@@ -53,5 +53,9 @@
     <!--  SignUpActivity  -->
 
     <!--  MyPageActivity  -->
+    <string name="iv_description_user_profile">유저 프로필 이미지</string>
+    <string name="btn_label_sign_out">로그아웃</string>
+    <string name="iv_description_bottom_logo">하단 로고 이미지</string>
+    <string name="toast_sign_in_first">먼저 로그인을 해주세요</string>
 
 </resources>

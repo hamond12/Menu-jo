@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -24,21 +25,28 @@ class MyPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_my_page)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.my_page)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        initUserData()
         setLayout()
         signOut()
     }
 
     private fun setLayout() {
+        initToolbar()
         // TODO: 유저 이름을 intent로 전달받기
-        val userName = intent.getStringExtra(EXTRA_STRING_USER_NAME) ?: "aaaaa"
-        user = UserManager.getUserByName(userName)!!
-        setUserInfo()
+        val userName = intent.getStringExtra(EXTRA_STRING_USER_NAME) ?: "ddddd"
+
+        if (userName != null) {
+            user = UserManager.getUserByName(userName)!!
+            setUserInfo()
+        } else {
+            Toast.makeText(this, getString(R.string.toast_sign_in_first), Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setUserInfo() {
@@ -117,22 +125,6 @@ class MyPageActivity : AppCompatActivity() {
             intent.putExtra("sign_out", true)
             startActivity(intent)
         }
-    }
-
-    private fun initUserData() {
-        UserManager.saveUser(UserInfo(
-            "aaa123",
-            "aaaaa",
-            "123123",
-            listOf("매운맛", "고기", "해산물")
-        ))
-        UserManager.saveUser(UserInfo(
-            "bbb123",
-            "bbbbb",
-            "321321",
-            listOf("매운맛", "밥")
-        ))
-        initToolbar()
     }
 
     private fun initToolbar(){
