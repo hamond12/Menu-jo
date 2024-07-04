@@ -2,15 +2,20 @@
 <resources>
 
     <!--  MainPageActivity  -->
-    <style name="titletext">
-        <item name="android:textSize">42sp</item>
+    <style name="title_text">
+        <item name="android:textSize">38sp</item>
         <item name="fontFamily">@font/pretendard_bold</item>
     </style>
 
-    <style name="foodtext_18">
+    <style name="food_text_18">
         <item name="android:textSize">18sp</item>
         <item name="fontFamily">@font/pretendard_regular</item>
         <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="btn_click_text_30">
+        <item name="android:textSize">30sp</item>
+        <item name="fontFamily">@font/pretendard_bold</item>
     </style>
 
 
@@ -50,7 +55,7 @@
 
     <style name="text_sign_hint">
         <item name="android:textSize">14sp</item>
-        <item name="android:ems">19</item>
+        <item name="android:ems">17</item>
         <item name="android:textColor">@color/gray</item>
 
     </style>

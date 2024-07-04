@@ -31,11 +31,11 @@ class SignInActivity : AppCompatActivity() {
         val btnSignUp = findViewById<Button>(R.id.btn_signin_signup)
 
         //로그인데이터
-        val idData = etId.text
-        val pwdData = etPwd.text
 
         //로그인버튼
         btnSignIn.setOnClickListener {
+            val idData = etId.text
+            val pwdData = etPwd.text
             if (idData.isBlank() || pwdData.isBlank()) {
                 var toastSignIn = ""
                 when {
@@ -47,7 +47,7 @@ class SignInActivity : AppCompatActivity() {
             else {
                 Toast.makeText(
                     this,
-                    getString(R.string.toast_signin_finish),
+                    getString(R.string.common_signin)+getString(R.string.common_finish),
                     Toast.LENGTH_SHORT
                 ).show()
                 val intent = Intent(this, MainPageActivity::class.java)

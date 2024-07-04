@@ -26,7 +26,6 @@ class MainPageActivity : AppCompatActivity() {
             insets
         }
         initToolBar()
-        initNavigate()
         showsnackbar()
 
         findViewById<ImageButton>(R.id.ib_koreanfood).setOnClickListener {
@@ -44,16 +43,14 @@ class MainPageActivity : AppCompatActivity() {
         //animation test
     }
 
-    private fun showsnackbar()
-    {
+    private fun showsnackbar() {
         val snackbarBtn = findViewById<Button>(R.id.btn_snackbar)
         snackbarBtn.setOnClickListener {
 
             val random = Random
             val num = random.nextInt(5)
 
-            val message = when(num)
-            {
+            val message = when (num) {
                 0 -> getString(R.string.main_snackbar_not_full)
                 1 -> getString(R.string.main_snackbar_not_curious)
                 2 -> getString(R.string.main_snackbar_dawn)
@@ -62,48 +59,43 @@ class MainPageActivity : AppCompatActivity() {
 
             }
 
-            val snack1 = Snackbar.make(it, message,Snackbar.LENGTH_LONG)
+            val snack1 = Snackbar.make(it, message, Snackbar.LENGTH_LONG)
                 .setAction("종료하세요~")
-            {
-                finish()
-            }
+                {
+                    finish()
+                }
 
             snack1.setTextColor(Color.BLACK)
             snack1.setBackgroundTint(Color.WHITE)
-            snack1.animationMode = Snackbar.ANIMATION_MODE_FADE //스낵바가 아래에서 위로 올라오는 것과 같은 애니메이션 모드 변경
+            snack1.animationMode =
+                Snackbar.ANIMATION_MODE_FADE //스낵바가 아래에서 위로 올라오는 것과 같은 애니메이션 모드 변경
             snack1.show()
         }
     }
 
-    private fun initImageButton(view:View)
-    {
-        when(view.getId())
-        {
-            R.id.ib_koreanfood ->
-            {
+    private fun initImageButton(view: View) {
+        when (view.getId()) {
+            R.id.ib_koreanfood -> {
                 val intent = Intent(this, DetailActivity::class.java)
-                intent.putExtra("food","koreanFood")
+                intent.putExtra("food", "koreanFood")
                 startActivity(intent)
             }
 
-            R.id.ib_chinesefood ->
-            {
+            R.id.ib_chinesefood -> {
                 val intent = Intent(this, DetailActivity::class.java)
-                intent.putExtra("food","chineseFood")
+                intent.putExtra("food", "chineseFood")
                 startActivity(intent)
             }
 
-            R.id.ib_westernfood ->
-            {
+            R.id.ib_westernfood -> {
                 val intent = Intent(this, DetailActivity::class.java)
-                intent.putExtra("food","westernFood")
+                intent.putExtra("food", "westernFood")
                 startActivity(intent)
             }
 
-            R.id.ib_japanesefood ->
-            {
+            R.id.ib_japanesefood -> {
                 val intent = Intent(this, DetailActivity::class.java)
-                intent.putExtra("food","japaneseFood")
+                intent.putExtra("food", "japaneseFood")
                 startActivity(intent)
             }
         }
@@ -119,10 +111,10 @@ class MainPageActivity : AppCompatActivity() {
         userName.text = getString(R.string.main_sir, user_Name)
 
 
-        // 로그인 확인 조건문(임시) - 송주영님
-        if(false) {
+        // 로그인 확인 조건문(임시)
+        if (false) {
             loginBtn.setVisibility(View.GONE)
-        }else{
+        } else {
             accountIcon.setVisibility(View.VISIBLE)
             userName.setVisibility(View.GONE)
         }
@@ -133,30 +125,13 @@ class MainPageActivity : AppCompatActivity() {
         }
 
         //마이페이지 클릭하면 유저 아이디를 마이페이지로 전달
-        accountIcon.setOnClickListener{
+        accountIcon.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
-            intent.putExtra("userID",user_Name)
+            intent.putExtra("userID", user_Name)
             startActivity(intent)
 
             overridePendingTransition(R.anim.main_to_mypage, R.anim.none)
 
         }
     }
-
-
-    //네비게이트 바
-    private fun initNavigate() {
-        val detailMenu = findViewById<TextView>(R.id.tv_navigation_detail)
-        val myPageMenu = findViewById<TextView>(R.id.tv_navigation_my_page)
-
-        detailMenu.setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
-            startActivity(intent)
-        }
-        myPageMenu.setOnClickListener {
-            val intent = Intent(this, MyPageActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
 }
