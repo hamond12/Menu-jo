@@ -25,6 +25,7 @@
     <style name="text_sign_hint">
         <item name="android:textSize">14sp</item>
         <item name="android:ems">19</item>
+        <item name="android:textColor">@color/light_gray</item>
 
     </style>
 
@@ -38,7 +39,7 @@
         <item name="android:textSize">15sp</item>
     </style>
 
-    <style name="rd_default">
+    <style name="cb_default">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
     </style>

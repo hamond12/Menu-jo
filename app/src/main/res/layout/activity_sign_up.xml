@@ -31,8 +31,8 @@
         style="@style/text_sign_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="30dp"
         android:text="@string/tv_signup_name"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="@string/tv_signup_id"
+        android:text="@string/tv_sign_id"
         app:layout_constraintStart_toStartOf="@+id/et_signup_name"
         app:layout_constraintTop_toBottomOf="@+id/et_signup_name" />
 
@@ -78,7 +78,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="@string/tv_signup_pwd"
+        android:text="@string/tv_sign_pwd"
         app:layout_constraintStart_toStartOf="@+id/et_signup_id"
         app:layout_constraintTop_toBottomOf="@+id/et_signup_id" />
 
@@ -95,111 +95,140 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_signup_pwd" />
 
     <TextView
-        android:id="@+id/tv_signup_cb_title"
+        android:id="@+id/tv_signup_favorite_title"
         style="@style/text_sign_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="@string/tv_signup_cb_title"
+        android:text="@string/tv_signup_favorite_title"
         app:layout_constraintStart_toStartOf="@+id/et_signup_pwd"
         app:layout_constraintTop_toBottomOf="@+id/et_signup_pwd" />
 
-
-    <CheckBox
-        android:id="@+id/cb_meat"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tv_signup_favorite_sub"
+        style="@style/text_sign_hint"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/cb_meat"
-        app:layout_constraintStart_toStartOf="@+id/tv_signup_cb_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_signup_cb_title" />
+        android:layout_marginTop="4dp"
+        android:text="@string/tv_signup_favorite_sub"
+        app:layout_constraintStart_toStartOf="@+id/tv_signup_favorite_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup_favorite_title" />
 
-    <CheckBox
-        android:id="@+id/cb_seafood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cb_seafood"
-        app:layout_constraintStart_toEndOf="@+id/cb_meat"
-        app:layout_constraintTop_toBottomOf="@+id/tv_signup_cb_title" />
 
-<!--    <RadioButton-->
-<!--        android:id="@+id/rb_rice"-->
+<!--    <CheckBox-->
+<!--        android:id="@+id/cb_meat"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/rb_rice"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/rb_seafood"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_signup_rb_title" />-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="@string/cb_meat"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/cb_seafood"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/cb_rice"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintHorizontal_chainStyle="spread"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_signup_favorite_sub"-->
+<!--        app:layout_constraintVertical_chainStyle="packed" />-->
 
-<!--    <RadioButton-->
-<!--        android:id="@+id/rb_noodle"-->
+<!--    <CheckBox-->
+<!--        android:id="@+id/cb_seafood"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/rb_noodle"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/rb_rice"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_signup_rb_title" />-->
-
-<!--    <RadioButton-->
-<!--        android:id="@+id/rb_bread"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/rb_bread"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/rb_noodle"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_signup_rb_title" />-->
-
-<!--    <RadioButton-->
-<!--        android:id="@+id/rb_spicy"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/rb_spicy"-->
+<!--        android:text="@string/cb_seafood"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/cb_vegetable"-->
 <!--        app:layout_constraintStart_toStartOf="@+id/cb_meat"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/cb_meat" />-->
 
-<!--    <RadioButton-->
-<!--        android:id="@+id/rb_normal"-->
+<!--    <CheckBox-->
+<!--        android:id="@+id/cb_vegetable"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/rb_normal"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/rb_spicy"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/rb_seafood" />-->
+<!--        android:text="@string/cb_vegetable"-->
+<!--        app:layout_constraintBottom_toBottomOf="btn_signup_signup"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/cb_seafood"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cb_seafood" />-->
 
-<!--    <RadioButton-->
-<!--        android:id="@+id/rb_mild"-->
+<!--    <CheckBox-->
+<!--        android:id="@+id/cb_rice"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/rb_mild"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/rb_normal"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/rb_rice" />-->
+<!--        android:text="@string/cb_rice"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/cb_noodle"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/cb_spicy"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/cb_meat"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/cb_meat"-->
+<!--        app:layout_constraintVertical_chainStyle="packed" />-->
 
-<!--    <RadioButton-->
-<!--        android:id="@+id/rb_vegetable"-->
+<!--    <CheckBox-->
+<!--        android:id="@+id/cb_noodle"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/rb_vegetable"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/rb_mild"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/rb_noodle" />-->
+<!--        android:text="@string/cb_noodle"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/cb_bread"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/cb_rice"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cb_rice" />-->
 
-<!--    <RadioButton-->
-<!--        android:id="@+id/rb_fruit"-->
+<!--    <CheckBox-->
+<!--        android:id="@+id/cb_bread"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/rb_fruit"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/rb_vegetable"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/rb_bread" />-->
+<!--        android:text="@string/cb_bread"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/cb_noodle"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cb_noodle" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/cb_spicy"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/cb_spicy"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/cb_normal"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/tv_signup_favorite_sub"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/cb_rice"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/cb_rice"-->
+<!--        app:layout_constraintVertical_chainStyle="packed" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/cb_normal"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/cb_normal"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/cb_mild"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/cb_spicy"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cb_spicy" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/cb_mild"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/cb_mild"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/cb_normal"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cb_normal" />-->
+
+
+    <!--    <CheckBox-->
+    <!--        android:id="@+id/cb_fruit"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/cb_fruit"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/cb_vegetable"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/cb_bread" />-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_signup_signup"
-        android:text="@string/btn_signup_signup"
-        android:layout_marginBottom="50dp"
         style="@style/btn_default"
+        android:layout_marginBottom="50dp"
+        android:text="@string/btn_signup_signup"
         app:layout_constraintBottom_toTopOf="@+id/iv_signin_logo_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/btn_signup_signup"-->
-<!--        style="@style/btn_default"-->
-<!--        android:text="@string/btn_signup_signup"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/rb_fruit"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/rb_fruit" />-->
+    <!--    <androidx.appcompat.widget.AppCompatButton-->
+    <!--        android:id="@+id/btn_signup_signup"-->
+    <!--        style="@style/btn_default"-->
+    <!--        android:text="@string/btn_signup_signup"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/rb_fruit"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/rb_fruit" />-->
 
     <ImageView
         android:id="@+id/iv_signin_logo_horizontal"
