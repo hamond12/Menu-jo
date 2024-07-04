@@ -9,6 +9,7 @@
     <string name="common_set_pwd">비밀번호를 입력해주세요</string>
     <string name="common_signin">로그인</string>
     <string name="common_signup">회원가입</string>
+    <string name="common_finish">완료</string>
 
     <!--  MainPageActivity  -->
     <string name="main_koreanfood">한식</string>
@@ -23,7 +24,7 @@
 
 
     <!--  SignInActivity  -->
-    <string name="toast_signin_finish">로그인 완료</string>
+
 
     <!--  SignUpActivity  -->
     <string name="et_signup_name">영어로만 2자리 이상 입력해주세요</string>
@@ -47,7 +48,6 @@
 
     <string name="btn_signup_signin">돌아가기</string>
     <string name="toast_signup_name">닉네임을 입력해주세요</string>
-    <string name="toast_signup_finish">회원가입 완료</string>
 
     <!--  MyPageActivity  -->
 

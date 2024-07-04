@@ -47,7 +47,7 @@ class SignInActivity : AppCompatActivity() {
             else {
                 Toast.makeText(
                     this,
-                    getString(R.string.toast_signin_finish),
+                    getString(R.string.common_signin)+getString(R.string.common_finish),
                     Toast.LENGTH_SHORT
                 ).show()
                 val intent = Intent(this, MainPageActivity::class.java)
