@@ -37,18 +37,32 @@ class FoodListActivity : AppCompatActivity() {
             insets
         }
         initToolBar()
-
         setLayout()
     }
 
     private fun setLayout() {
         val category = intent.getStringExtra("food")
-        foodList = when (category) {
-            "koreanFood" -> FoodManager.getFoodList("koreanFood")
-            "chineseFood" -> FoodManager.getFoodList("chineseFood")
-            "westernFood" -> FoodManager.getFoodList("westernFood")
-            "japaneseFood" -> FoodManager.getFoodList("japaneseFood")
-            else -> emptyList()
+        val tvTitleList = findViewById<TextView>(R.id.tv_title_list)
+        when (category) {
+            "koreanFood" -> {
+                tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_koreanfood))
+                foodList = FoodManager.getFoodList("koreanFood")
+            }
+            "chineseFood" -> {
+                tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_chinesefood))
+                foodList = FoodManager.getFoodList("chineseFood")
+            }
+            "westernFood" -> {
+                tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_westernfood))
+                foodList = FoodManager.getFoodList("westernFood")
+            }
+            "japaneseFood" -> {
+                tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_japanesefood))
+                foodList = FoodManager.getFoodList("japaneseFood")
+            }
+            else -> {
+                foodList = emptyList()
+            }
         }
         if (foodList.isNotEmpty()) {
             setRecommendFoodInfo()
