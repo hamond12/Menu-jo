@@ -31,10 +31,11 @@
         style="@style/text_sign_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="4dp"
+        android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:text="@string/common_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_signup_image" />
 
@@ -44,6 +45,7 @@
         style="@style/text_sign_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_signup_name"
@@ -72,6 +74,7 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/tv_signup_name" />-->
 
 
+
     <TextView
         android:id="@+id/tv_signup_id"
         style="@style/text_sign_title"
@@ -88,6 +91,7 @@
         style="@style/text_sign_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_signup_id"
@@ -115,6 +119,7 @@
 <!--        app:layout_constraintEnd_toEndOf="@+id/tv_signup_name_layout"-->
 <!--        app:layout_constraintStart_toStartOf="@+id/tv_signup_id"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/tv_signup_id" />-->
+
 
     <TextView
         android:id="@+id/tv_signup_pwd"
