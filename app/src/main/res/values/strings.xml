@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MenuJo</string>
 
-    <!--  common : 액티비티 구분없이 사용 되는 문자열  -->
+    <!--  common : any Activity  -->
     <string name="common_name">닉네임</string>
     <string name="common_id">아이디</string>
     <string name="common_pwd">비밀번호</string>
