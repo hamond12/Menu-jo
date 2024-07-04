@@ -3,18 +3,14 @@ package com.example.menujo
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.CheckBox
-import android.widget.CompoundButton
 import android.widget.EditText
-import android.widget.RadioGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
+import com.google.android.material.appbar.MaterialToolbar
+
 
 class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +22,8 @@ class SignUpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        initToolbar()
 
         //뷰연결
         val etName = findViewById<EditText>(R.id.et_signup_name)
@@ -125,6 +123,15 @@ class SignUpActivity : AppCompatActivity() {
                 val intent = Intent(this, SignInActivity::class.java)
                 finish()
             }
+        }
+    }
+
+    private fun initToolbar(){
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_signup)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = ""
+        toolbar.setNavigationOnClickListener {
+            finish()
         }
     }
 }
