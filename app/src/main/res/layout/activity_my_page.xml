@@ -17,17 +17,18 @@
         app:navigationIcon="@drawable/back" />
 
     <ImageView
-        android:id="@+id/iv_user_image"
+        android:id="@+id/iv_profile_image"
         android:layout_width="240dp"
         android:layout_height="240dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/bg_my_page_img"
         android:clipToOutline="true"
         android:contentDescription="@string/iv_description_user_profile"
-        android:src="@drawable/img_user_1"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_my_page" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_my_page"
+        tools:src="@drawable/img_user_2" />
 
     <TextView
         android:id="@+id/tv_label_my_page_user_name"
@@ -37,8 +38,8 @@
         android:layout_marginTop="38dp"
         android:text="@string/common_name"
         app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="@id/iv_user_image"
-        app:layout_constraintTop_toBottomOf="@id/iv_user_image"
+        app:layout_constraintStart_toStartOf="@id/iv_profile_image"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile_image"
         tools:layout_editor_absoluteX="50dp" />
 
     <TextView
