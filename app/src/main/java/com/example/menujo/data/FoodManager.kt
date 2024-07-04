@@ -68,7 +68,7 @@ object FoodManager {
                 null,
                 "케이크",
                 "케이크는 이렇게 생겼습니다.",
-                listOf("중간맛", "야채")
+                listOf("중간맛")
             ),
             FoodInfo(
                 "chineseFood",

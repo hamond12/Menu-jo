@@ -82,19 +82,19 @@ class MainPageActivity : AppCompatActivity() {
             }
 
             R.id.ib_chinesefood -> {
-                val intent = Intent(this, DetailActivity::class.java)
+                val intent = Intent(this, FoodListActivity::class.java)
                 intent.putExtra("food", "chineseFood")
                 startActivity(intent)
             }
 
             R.id.ib_westernfood -> {
-                val intent = Intent(this, DetailActivity::class.java)
+                val intent = Intent(this, FoodListActivity::class.java)
                 intent.putExtra("food", "westernFood")
                 startActivity(intent)
             }
 
             R.id.ib_japanesefood -> {
-                val intent = Intent(this, DetailActivity::class.java)
+                val intent = Intent(this, FoodListActivity::class.java)
                 intent.putExtra("food", "japaneseFood")
                 startActivity(intent)
             }
