@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.setPadding
 import com.example.menujo.data.UserInfo
 import com.example.menujo.data.UserManager
 import com.google.android.material.appbar.MaterialToolbar
@@ -73,7 +74,11 @@ class MyPageActivity : AppCompatActivity() {
 
         tvUserName.text = user.userName
         tvUserId.text = user.userId
-        ivProfileImage.setImageURI(Uri.parse(user.profileImageUrl))
+        if (user.profileImageUrl != "") {
+            ivProfileImage.setImageURI(Uri.parse(user.profileImageUrl))
+        } else {
+            findViewById<TextView>(R.id.tv_no_image).visibility = View.VISIBLE
+        }
 
         val tagCount = user.tags.size
 
@@ -154,12 +159,15 @@ class MyPageActivity : AppCompatActivity() {
     private val pickMedia =
         registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
             uri?.also { imageUri ->
-                findViewById<ImageView>(R.id.iv_profile_image)?.setImageURI(imageUri)
+                findViewById<ImageView>(R.id.iv_profile_image)?.apply {
+                    setPadding(0)
+                    setImageURI(imageUri)
+                }
+                findViewById<TextView>(R.id.tv_no_image).visibility = View.GONE
                 contentResolver.takePersistableUriPermission(
                     imageUri,
                     Intent.FLAG_GRANT_READ_URI_PERMISSION
                 )
-                Log.d("MyPageActivity", imageUri.toString())
             }
         }
 

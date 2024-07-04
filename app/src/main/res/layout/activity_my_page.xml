@@ -24,11 +24,26 @@
         android:background="@drawable/bg_my_page_img"
         android:clipToOutline="true"
         android:contentDescription="@string/iv_description_user_profile"
+        android:padding="70dp"
         android:scaleType="centerCrop"
+        android:src="@drawable/ic_no_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_my_page"
-        tools:src="@drawable/img_user_2" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_my_page" />
+
+    <TextView
+        android:id="@+id/tv_no_image"
+        style="@style/text_no_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:text="이미지 없음"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/iv_profile_image"
+        app:layout_constraintEnd_toEndOf="@id/iv_profile_image"
+        app:layout_constraintStart_toStartOf="@id/iv_profile_image"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/tv_label_my_page_user_name"
