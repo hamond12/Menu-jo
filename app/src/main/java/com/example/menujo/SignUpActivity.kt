@@ -80,8 +80,8 @@ class SignUpActivity : AppCompatActivity() {
             if (nameData.isBlank() || idData.isBlank() || pwdData.isBlank()) {
                 when {
                     nameData.isBlank() -> toastSignUp = getString(R.string.toast_signup_name)
-                    idData.isBlank() -> toastSignUp = getString(R.string.toast_signup_id)
-                    pwdData.isBlank() -> toastSignUp = getString(R.string.toast_signup_pwd)
+                    idData.isBlank() -> toastSignUp = getString(R.string.common_set_id)
+                    pwdData.isBlank() -> toastSignUp = getString(R.string.common_set_pwd)
                 }
                 Toast.makeText(this, "$toastSignUp", Toast.LENGTH_SHORT).show()
             }

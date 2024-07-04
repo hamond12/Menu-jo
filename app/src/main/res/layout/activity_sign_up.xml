@@ -34,7 +34,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="30dp"
-        android:text="@string/tv_signup_name"
+        android:text="@string/common_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_signup_image" />
 
@@ -56,7 +56,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="@string/tv_sign_id"
+        android:text="@string/common_id"
         app:layout_constraintStart_toStartOf="@+id/et_signup_name"
         app:layout_constraintTop_toBottomOf="@+id/et_signup_name" />
 
@@ -78,7 +78,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="@string/tv_sign_pwd"
+        android:text="@string/common_pwd"
         app:layout_constraintStart_toStartOf="@+id/et_signup_id"
         app:layout_constraintTop_toBottomOf="@+id/et_signup_id" />
 
@@ -218,7 +218,7 @@
         android:id="@+id/btn_signup_signup"
         style="@style/btn_default"
         android:layout_marginBottom="50dp"
-        android:text="@string/btn_signup_signup"
+        android:text="@string/common_signup"
         app:layout_constraintBottom_toTopOf="@+id/iv_signin_logo_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
