@@ -25,16 +25,6 @@ class DetailActivity : AppCompatActivity() {
         initToolBar()
     }
 
-
-
-
-
-
-
-
-
-
-
     //date class
 
     private fun initToolBar() {
