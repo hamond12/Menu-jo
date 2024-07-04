@@ -16,6 +16,32 @@
 
     <!--  DetailPageActivity  -->
 
+    <style name="listname_26">
+        <item name="android:textSize">26sp</item>
+        <item name="fontFamily">@font/pretendard_bold</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="menuname_20">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="menuintroduce_18">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/pretendard_regular</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="anothor_menu">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:layout_marginTop">30dp</item>
+    </style>
+
+
     <!--  SignInActivity  -->
     <style name="text_sign_title">
         <item name="android:textSize">16sp</item>
