@@ -17,21 +17,24 @@
         style="@style/titletext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/main_catagory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 
-    <ImageView
-        android:id="@+id/iv_koreanfood"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <ImageButton
+        android:id="@+id/ib_koreanfood"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="32dp"
         android:src="@drawable/ic_koreanfood"
+        android:scaleType="centerCrop"
+        android:background="@drawable/round_backgroud"
+        android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iv_chinesefood"
+        app:layout_constraintEnd_toStartOf="@+id/ib_chinesefood"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,20 +46,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_koreanfood"
-        app:layout_constraintEnd_toEndOf="@+id/iv_koreanfood"
-        app:layout_constraintStart_toStartOf="@+id/iv_koreanfood"
-        app:layout_constraintTop_toBottomOf="@+id/iv_koreanfood" />
+        app:layout_constraintEnd_toEndOf="@+id/ib_koreanfood"
+        app:layout_constraintStart_toStartOf="@+id/ib_koreanfood"
+        app:layout_constraintTop_toBottomOf="@+id/ib_koreanfood" />
 
-    <ImageView
-        android:id="@+id/iv_chinesefood"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <ImageButton
+        android:id="@+id/ib_chinesefood"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:src="@drawable/ic_chinesefood"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_koreanfood"
+        android:scaleType="centerCrop"
+        android:background="@drawable/round_backgroud"
+        android:clipToOutline="true"
+        app:layout_constraintBottom_toBottomOf="@+id/ib_koreanfood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/iv_koreanfood"
-        app:layout_constraintTop_toTopOf="@+id/iv_koreanfood" />
+        app:layout_constraintStart_toEndOf="@+id/ib_koreanfood"
+        app:layout_constraintTop_toTopOf="@+id/ib_koreanfood" />
 
     <TextView
         android:id="@+id/textView2"
@@ -64,16 +70,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_chinesefood"
-        app:layout_constraintEnd_toEndOf="@+id/iv_chinesefood"
-        app:layout_constraintStart_toStartOf="@+id/iv_chinesefood"
-        app:layout_constraintTop_toBottomOf="@+id/iv_chinesefood" />
+        app:layout_constraintEnd_toEndOf="@+id/ib_chinesefood"
+        app:layout_constraintStart_toStartOf="@+id/ib_chinesefood"
+        app:layout_constraintTop_toBottomOf="@+id/ib_chinesefood" />
 
-    <ImageView
-        android:id="@+id/iv_westernfood"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <ImageButton
+        android:id="@+id/ib_westernfood"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/ic_westernfood"
+        android:scaleType="centerCrop"
+        android:background="@drawable/round_backgroud"
+        android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -83,16 +92,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_westernfood"
-        app:layout_constraintEnd_toEndOf="@+id/iv_westernfood"
-        app:layout_constraintStart_toStartOf="@+id/iv_westernfood"
-        app:layout_constraintTop_toBottomOf="@+id/iv_westernfood" />
+        app:layout_constraintEnd_toEndOf="@+id/ib_westernfood"
+        app:layout_constraintStart_toStartOf="@+id/ib_westernfood"
+        app:layout_constraintTop_toBottomOf="@+id/ib_westernfood" />
 
-    <ImageView
-        android:id="@+id/iv_japanesefood"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <ImageButton
+        android:id="@+id/ib_japanesefood"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/ic_japanesefood"
+        android:scaleType="centerCrop"
+        android:background="@drawable/round_backgroud"
+        android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -102,13 +114,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_japanesefood"
-        app:layout_constraintEnd_toEndOf="@+id/iv_japanesefood"
-        app:layout_constraintStart_toStartOf="@+id/iv_japanesefood"
-        app:layout_constraintTop_toBottomOf="@+id/iv_japanesefood" />
+        app:layout_constraintEnd_toEndOf="@+id/ib_japanesefood"
+        app:layout_constraintStart_toStartOf="@+id/ib_japanesefood"
+        app:layout_constraintTop_toBottomOf="@+id/ib_japanesefood" />
+
+    <Button
+        android:id="@+id/btn_snackbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
 
 
     <!-- 네비게이트 -->
-
     <TextView
         android:id="@+id/tv_navigation_detail"
         android:layout_width="wrap_content"
