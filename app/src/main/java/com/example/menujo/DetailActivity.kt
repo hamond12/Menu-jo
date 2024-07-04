@@ -21,9 +21,10 @@ class DetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         initToolBar()
     }
+
+    //date class
 
     private fun initToolBar() {
         val leftIcon = findViewById<ImageView>(R.id.iv_left_icon)
