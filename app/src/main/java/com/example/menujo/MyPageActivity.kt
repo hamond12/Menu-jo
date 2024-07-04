@@ -1,12 +1,17 @@
 package com.example.menujo
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -15,7 +20,7 @@ import com.example.menujo.data.UserInfo
 import com.example.menujo.data.UserManager
 import com.google.android.material.appbar.MaterialToolbar
 
-const val EXTRA_STRING_USER_NAME = "user_name"
+const val EXTRA_STRING_USER_ID = "user_name"
 
 class MyPageActivity : AppCompatActivity() {
 
@@ -32,15 +37,19 @@ class MyPageActivity : AppCompatActivity() {
         }
         setLayout()
         signOut()
+        getGalleryImage()
     }
 
     private fun setLayout() {
         initToolbar()
         // TODO: 유저 이름을 intent로 전달받기
-        val userName = intent.getStringExtra(EXTRA_STRING_USER_NAME) ?: "ddddd"
+        val userId = intent.getStringExtra(EXTRA_STRING_USER_ID) ?: "bbb123"
 
-        if (userName != null) {
-            user = UserManager.getUserByName(userName)!!
+        //user = UserManager.getUser(userId)!!
+
+        if (userId != "") {
+            //user = UserManager.getUserByName(userName)!!
+            user = UserManager.getUser(userId)!!
             setUserInfo()
         } else {
             Toast.makeText(this, getString(R.string.toast_sign_in_first), Toast.LENGTH_SHORT).show()
@@ -52,12 +61,16 @@ class MyPageActivity : AppCompatActivity() {
     private fun setUserInfo() {
         val tvUserName = findViewById<TextView>(R.id.tv_my_page_user_name)
         val tvUserId = findViewById<TextView>(R.id.tv_my_page_user_id)
+        val ivProfileImage = findViewById<ImageView>(R.id.iv_profile_image)
         val tvTag01 = findViewById<TextView>(R.id.tv_my_page_tag_1)
         val tvTag02 = findViewById<TextView>(R.id.tv_my_page_tag_2)
         val tvTag03 = findViewById<TextView>(R.id.tv_my_page_tag_3)
 
+        Log.d("MyPageActivity", user.profileImageUrl)
+
         tvUserName.text = user.userName
         tvUserId.text = user.userId
+        ivProfileImage.setImageURI(Uri.parse(user.profileImageUrl))
 
         val tagCount = user.tags.size
 
@@ -123,8 +136,32 @@ class MyPageActivity : AppCompatActivity() {
             val intent = Intent(this, MainPageActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             intent.putExtra("sign_out", true)
+            //user = UserInfo("", "", "", mutableListOf())
             startActivity(intent)
         }
+    }
+
+    private fun getGalleryImage() {
+        val ivUserImage = findViewById<ImageView>(R.id.iv_profile_image)
+        ivUserImage.setOnClickListener {
+            openGalleryForImage()
+        }
+    }
+
+    private val pickMedia =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            uri?.also { imageUri ->
+                findViewById<ImageView>(R.id.iv_profile_image)?.setImageURI(imageUri)
+                contentResolver.takePersistableUriPermission(
+                    imageUri,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+                Log.d("MyPageActivity", imageUri.toString())
+            }
+        }
+
+    private fun openGalleryForImage() {
+        pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
 
     private fun initToolbar(){
