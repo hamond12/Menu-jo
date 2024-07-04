@@ -15,7 +15,7 @@
         android:id="@+id/btn_login"
         android:layout_width="100dp"
         android:layout_height="48dp"
-        android:text="로그인"
+        android:text="@string/common_signin"
         android:textColor="@color/gray"
         android:backgroundTint="@color/light_pink"
         android:layout_alignParentRight="true"
@@ -28,12 +28,11 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/iv_right_icon"
         android:layout_centerVertical="true"
-
-        android:text="OO님"
+        android:text="@string/main_sir"
         android:paddingEnd="8dp"/>
 
     <ImageView
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_centerVertical="true"
         android:id="@+id/iv_right_icon"
         android:paddingEnd="4dp"

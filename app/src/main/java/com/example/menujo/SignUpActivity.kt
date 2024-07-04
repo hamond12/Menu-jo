@@ -92,14 +92,20 @@ class SignUpActivity : AppCompatActivity() {
                     nameData.length < 2 -> etName.error = getString(R.string.et_signup_name)
                     idData.length < 7 -> etId.error = getString(R.string.et_signup_id)
                     pwdData.length < 7 -> etPwd.error = getString(R.string.et_signup_pwd)
+
                     else -> {
-                        Toast.makeText(this, getString(R.string.toast_signup_finish), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.common_signup) + getString(R.string.common_finish), Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, SignInActivity::class.java)
                         finish()
                     }
                 }
+
+
+            }
+
+
         }
-    }
+
 
 
     //기존 작성 코드
