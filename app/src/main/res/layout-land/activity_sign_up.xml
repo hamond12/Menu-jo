@@ -18,12 +18,12 @@
 
     <ImageView
         android:id="@+id/iv_signup_image"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/ic_logo_nontext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_signup_favorite_sub"
+        app:layout_constraintStart_toStartOf="@+id/tv_signup_favorite_title"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -31,13 +31,11 @@
         style="@style/text_sign_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="100dp"
         android:text="@string/common_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_signup_image" />
+        app:layout_constraintStart_toEndOf="@+id/iv_signin_logo_horizontal"
+        app:layout_constraintTop_toTopOf="@+id/iv_signup_image" />
 
     <EditText
         android:id="@+id/et_signup_name"
@@ -45,11 +43,37 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="30dp"
         android:hint="@string/et_signup_name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/tv_signup_name"
         app:layout_constraintStart_toStartOf="@+id/tv_signup_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_signup_name" />
+
+<!--    <TextView-->
+
+<!--        android:layout_marginEnd="100dp"-->
+<!--        android:layout_marginStart="100dp"-->
+<!--        android:text="@string/common_id"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/iv_signin_logo_vertical"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/iv_signin_logo_vertical" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/et_signin_id"-->
+<!--        style="@style/text_sign_hint"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:layout_marginEnd="30dp"-->
+<!--        android:hint="@string/common_set_id"-->
+<!--        android:inputType="text"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/tv_signin_id"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/tv_signin_id"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_signin_id" />-->
+
+
 
     <TextView
         android:id="@+id/tv_signup_id"
@@ -69,7 +93,7 @@
         android:layout_marginTop="4dp"
         android:hint="@string/et_signup_id"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/tv_signup_name"
+        app:layout_constraintEnd_toEndOf="@+id/et_signup_name"
         app:layout_constraintStart_toStartOf="@+id/tv_signup_id"
         app:layout_constraintTop_toBottomOf="@+id/tv_signup_id" />
 
@@ -100,20 +124,20 @@
         style="@style/text_sign_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="100dp"
         android:text="@string/tv_signup_favorite_title"
-        app:layout_constraintStart_toStartOf="@+id/et_signup_pwd"
-        app:layout_constraintTop_toBottomOf="@+id/et_signup_pwd" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_signup_image" />
 
     <TextView
         android:id="@+id/tv_signup_favorite_sub"
         style="@style/text_sign_hint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="30dp"
         android:text="@string/tv_signup_favorite_sub"
         app:layout_constraintBottom_toBottomOf="@+id/tv_signup_favorite_title"
-        app:layout_constraintEnd_toEndOf="@+id/et_signup_pwd"
+        app:layout_constraintEnd_toEndOf="@+id/cb_spicy"
         app:layout_constraintStart_toEndOf="@+id/tv_signup_favorite_title"
         app:layout_constraintTop_toTopOf="@+id/tv_signup_favorite_title" />
 
@@ -123,13 +147,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cb_meat"
-    app:layout_constraintBottom_toTopOf="@+id/cb_seafood"
-        app:layout_constraintEnd_toStartOf="@+id/cb_rice"
+        app:layout_constraintBottom_toTopOf="@+id/cb_seafood"
+
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@+id/tv_signup_favorite_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup_favorite_title" />
+
+    <CheckBox
+        android:id="@+id/cb_spicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cb_spicy"
+        android:layout_marginStart="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/cb_normal"
+
+        app:layout_constraintStart_toEndOf="@+id/cb_rice"
         app:layout_constraintTop_toBottomOf="@+id/tv_signup_favorite_title"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <CheckBox
+        android:id="@+id/cb_rice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="@string/cb_rice"
+        app:layout_constraintBottom_toTopOf="@+id/cb_noodle"
+        app:layout_constraintEnd_toStartOf="@+id/cb_spicy"
+        app:layout_constraintStart_toEndOf="@+id/cb_meat"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup_favorite_title" />
 
     <CheckBox
         android:id="@+id/cb_seafood"
@@ -149,18 +194,6 @@
         app:layout_constraintTop_toBottomOf="@+id/cb_seafood" />
 
     <CheckBox
-        android:id="@+id/cb_rice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cb_rice"
-        app:layout_constraintBottom_toTopOf="@+id/cb_noodle"
-        app:layout_constraintEnd_toStartOf="@+id/cb_spicy"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cb_meat"
-        app:layout_constraintTop_toTopOf="@+id/cb_meat"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <CheckBox
         android:id="@+id/cb_noodle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -176,18 +209,6 @@
         android:text="@string/cb_bread"
         app:layout_constraintStart_toStartOf="@+id/cb_noodle"
         app:layout_constraintTop_toBottomOf="@+id/cb_noodle" />
-
-    <CheckBox
-        android:id="@+id/cb_spicy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cb_spicy"
-        app:layout_constraintBottom_toTopOf="@+id/cb_normal"
-        app:layout_constraintEnd_toEndOf="@+id/tv_signup_favorite_sub"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cb_rice"
-        app:layout_constraintTop_toTopOf="@+id/cb_rice"
-        app:layout_constraintVertical_chainStyle="packed" />
 
     <CheckBox
         android:id="@+id/cb_normal"
@@ -209,11 +230,10 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_signup_signup"
         style="@style/btn_default"
-        android:layout_marginBottom="50dp"
         android:text="@string/common_signup"
-        app:layout_constraintBottom_toTopOf="@+id/iv_signin_logo_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/et_signup_pwd"
+        app:layout_constraintStart_toStartOf="@+id/et_signup_pwd"
+        app:layout_constraintTop_toBottomOf="@+id/et_signup_pwd" />
 
     <ImageView
         android:id="@+id/iv_signin_logo_horizontal"
