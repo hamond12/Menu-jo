@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">MenuJo</string>
 
+    <!--  common : 액티비티 구분없이 사용 되는 문자열  -->
+    <string name="common_name">닉네임</string>
+    <string name="common_id">아이디</string>
+    <string name="common_pwd">비밀번호</string>
+    <string name="common_set_id">아이디를 입력해주세요</string>
+    <string name="common_set_pwd">비밀번호를 입력해주세요</string>
+    <string name="common_signin">로그인</string>
+    <string name="common_signup">회원가입</string>
+
     <!--  MainPageActivity  -->
     <string name="main_koreanfood">한식</string>
     <string name="main_chinesefood">중식</string>
@@ -14,21 +23,17 @@
 
 
     <!--  SignInActivity  -->
-    <string name="tv_sign_id">아이디</string>
-    <string name="tv_sign_pwd">비밀번호</string>
+    <string name="toast_signin_finish">로그인 완료</string>
 
-    <string name="et_signin_id">아이디를 입력해주세요</string>
-    <string name="et_signin_pwd">비밀번호를 입력해주세요</string>
-    <string name="btn_signin_signin">로그인</string>
-    <string name="btn_signin_signup">회원가입</string>
-
-    <string name="tv_signup_name">닉네임</string>
+    <!--  SignUpActivity  -->
     <string name="et_signup_name">영어로만 2자리 이상 입력해주세요</string>
     <string name="et_signup_id">영어+숫자 7자리 이상 입력해주세요</string>
     <string name="et_signup_pwd">숫자로만 7자리 이상 입력해주세요</string>
 
     <string name="tv_signup_favorite_title">선호 음식</string>
-    <string name="tv_signup_favorite_sub">3개까지 선택 가능합니다</string>
+    <string name="tv_signup_favorite_sub">3개까지 선택 가능</string>
+    <string name="toast_signup_favorite_max3">최대 3개까지 선택 가능합니다</string>
+
     <string name="cb_meat">고기</string>
     <string name="cb_seafood">해산물</string>
     <string name="cb_rice">밥</string>
@@ -40,19 +45,14 @@
     <string name="cb_normal">중간맛</string>
     <string name="cb_mild">순한맛</string>
 
-
     <string name="btn_signup_signin">돌아가기</string>
-    <string name="btn_signup_signup">회원가입</string>
-
     <string name="toast_signup_name">닉네임을 입력해주세요</string>
-    <string name="toast_signup_id">아이디를 입력해주세요</string>
-    <string name="toast_signup_pwd">비밀번호를 입력해주세요</string>
-
-
-    <!--  SignInActivity  -->
-
-    <!--  SignUpActivity  -->
+    <string name="toast_signup_finish">회원가입 완료</string>
 
     <!--  MyPageActivity  -->
+    <string name="iv_description_user_profile">유저 프로필 이미지</string>
+    <string name="btn_label_sign_out">로그아웃</string>
+    <string name="iv_description_bottom_logo">하단 로고 이미지</string>
+    <string name="toast_sign_in_first">먼저 로그인을 해주세요</string>
 
 </resources>
