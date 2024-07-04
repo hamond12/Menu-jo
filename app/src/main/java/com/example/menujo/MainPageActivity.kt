@@ -138,7 +138,7 @@ class MainPageActivity : AppCompatActivity() {
             intent.putExtra("userID",user_Name)
             startActivity(intent)
 
-            overridePendingTransition(R.anim.main_to_mypage, R.anim.main_none)
+            overridePendingTransition(R.anim.main_to_mypage, R.anim.none)
 
         }
     }

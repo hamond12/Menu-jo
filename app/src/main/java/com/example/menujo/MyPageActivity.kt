@@ -173,7 +173,7 @@ class MyPageActivity : AppCompatActivity() {
         supportActionBar?.title = ""
         toolbar.setNavigationOnClickListener {
             finish()
-            overridePendingTransition(R.anim.animation_none, R.anim.my_page_left_to_right)
+            overridePendingTransition(R.anim.none, R.anim.mypage_to_main)
         }
     }
 
@@ -181,7 +181,7 @@ class MyPageActivity : AppCompatActivity() {
         override fun handleOnBackPressed() {
             this.isEnabled = false
             onBackPressedDispatcher.onBackPressed()
-            overridePendingTransition(R.anim.animation_none, R.anim.my_page_left_to_right)
+            overridePendingTransition(R.anim.none, R.anim.mypage_to_main)
         }
     }
 }
