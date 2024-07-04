@@ -69,7 +69,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (i.isChecked) {
                     checkCount++
                     if (checkCount == 3) {
-                        Toast.makeText(this, "최대 3개까지 선택 가능합니다", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.toast_signup_favorite_max3), Toast.LENGTH_SHORT).show()
                         for (i in checklist) {
                             if (!i.isChecked) i.isEnabled = false
                         }
@@ -94,19 +94,19 @@ class SignUpActivity : AppCompatActivity() {
                 when {
                     nameData.isBlank() -> Toast.makeText(
                         this,
-                        "@string/toast_signup_name",
+                        getString(R.string.toast_signup_name),
                         Toast.LENGTH_SHORT
                     ).show()
 
                     idData.isBlank() -> Toast.makeText(
                         this,
-                        "@string/toast_signup_id",
+                        getString(R.string.toast_signup_id),
                         Toast.LENGTH_SHORT
                     ).show()
 
                     pwdData.isBlank() -> Toast.makeText(
                         this,
-                        "@string/toast_signup_name",
+                        getString(R.string.toast_signup_pwd),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
