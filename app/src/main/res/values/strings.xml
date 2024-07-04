@@ -9,7 +9,7 @@
     <string name="common_set_pwd">비밀번호를 입력해주세요</string>
     <string name="common_signin">로그인</string>
     <string name="common_signup">회원가입</string>
-    <string name="common_finish">완료</string>
+    <string name="common_finish">&#160;완료</string>
 
     <!--  MainPageActivity  -->
     <string name="main_koreanfood">한식</string>
@@ -18,10 +18,23 @@
     <string name="main_japanesefood">일식</string>
 
     <string name="main_catagory">카테고리 선택</string>
+    <string name="main_sir">%s님</string>
+
+    <string name="main_snackbar_not_full">배가 안 고프다면</string>
+    <string name="main_snackbar_not_curious">궁금하지 않으면</string>
+    <string name="main_snackbar_dawn">지금이 새벽이면</string>
+    <string name="main_snackbar_diet">다이어트 중이면</string>
+    <string name="main_snackbar_bbb">bbb</string>
+
+
 
 
     <!--  DetailPageActivity  -->
-
+    <string name="detail_menu_list_title"> %s 리스트</string>
+    <string name="detail_menu_recommend">오늘의 추천 메뉴</string>
+    <string name="detail_menu_name">메뉴 이름</string>
+    <string name="detail_menu_introduce">메뉴 소개</string>
+    <string name="detail_menu_another">다른 메뉴들도 살펴보세요</string>
 
     <!--  SignInActivity  -->
 
@@ -50,5 +63,9 @@
     <string name="toast_signup_name">닉네임을 입력해주세요</string>
 
     <!--  MyPageActivity  -->
+    <string name="iv_description_user_profile">유저 프로필 이미지</string>
+    <string name="btn_label_sign_out">로그아웃</string>
+    <string name="iv_description_bottom_logo">하단 로고 이미지</string>
+    <string name="toast_sign_in_first">먼저 로그인을 해주세요</string>
 
 </resources>
