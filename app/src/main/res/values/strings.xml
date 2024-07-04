@@ -20,13 +20,14 @@
     <string name="main_catagory">카테고리 선택</string>
     <string name="main_sir">%s님</string>
 
-    <string name="main_snackbar_not_full">배가 안 고프다면</string>
-    <string name="main_snackbar_not_curious">궁금하지 않으면</string>
-    <string name="main_snackbar_dawn">지금이 새벽이면</string>
-    <string name="main_snackbar_diet">다이어트 중이면</string>
+    <string name="main_snackbar_not_full">혹시 지금 배가 안 고프시다면</string>
+    <string name="main_snackbar_not_curious">저희에 대해서 궁금하지 않으시다면</string>
+    <string name="main_snackbar_dawn">지금이 새벽이시면</string>
+    <string name="main_snackbar_diet">다이어트 중이시면</string>
     <string name="main_snackbar_bbb">bbb</string>
+    <string name="main_snackbar_finish">종료하세요~~</string>
 
-
+    <string name="main_click">눌러보삼</string>
 
 
     <!--  DetailPageActivity  -->
