@@ -49,6 +49,7 @@
     <string name="toast_signup_name">닉네임을 입력해주세요</string>
     <string name="toast_signup_id">아이디를 입력해주세요</string>
     <string name="toast_signup_pwd">비밀번호를 입력해주세요</string>
+    <string name="toast_signup_finish">회원가입 완료</string>
 
 
     <!--  SignInActivity  -->

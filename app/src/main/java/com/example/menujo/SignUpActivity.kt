@@ -41,7 +41,7 @@ class SignUpActivity : AppCompatActivity() {
             findViewById<CheckBox>(R.id.cb_spicy),
             findViewById<CheckBox>(R.id.cb_normal),
             findViewById<CheckBox>(R.id.cb_mild)
-            )
+        )
 
         var checkCount = 0
 
@@ -50,26 +50,17 @@ class SignUpActivity : AppCompatActivity() {
         val idData = etId.text
         val pwdData = etPwd.text
 
-        //체크박스 결과담기
-//        var checkChange = CompoundButton.OnCheckedChangeListener {_,isChecked ->
-//        checklist[1].setOnClickListener() {
-//            if (checkCount >= 2) {Toast.makeText(this, "최대 3개까지 선택 가능합니다", Toast.LENGTH_SHORT).show()
-//            when(checklist[i]){
-//                    cbMeat.isChecked -> checkCount += 1
-//                    cbSeaFood.isChecked -> checkCount += 1
-//                    cbRice.isChecked -> checkCount += 1
-//                    cbNoodle.isChecked -> checkCount += 1
-//                }
-//            }
-//        }
-
         //체크박스 예외처리
         checklist.forEach { i ->
             i.setOnClickListener {
                 if (i.isChecked) {
                     checkCount++
                     if (checkCount == 3) {
-                        Toast.makeText(this, getString(R.string.toast_signup_favorite_max3), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            getString(R.string.toast_signup_favorite_max3),
+                            Toast.LENGTH_SHORT
+                        ).show()
                         for (i in checklist) {
                             if (!i.isChecked) i.isEnabled = false
                         }
@@ -83,42 +74,26 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
 
-
-//        if (checkCount >= 2) checklist.forEach { it = false }
-
-
-
         //회원가입버튼
         btnSignUp.setOnClickListener {
+            var toastSignUp = ""
             if (nameData.isBlank() || idData.isBlank() || pwdData.isBlank()) {
                 when {
-                    nameData.isBlank() -> Toast.makeText(
-                        this,
-                        getString(R.string.toast_signup_name),
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                    idData.isBlank() -> Toast.makeText(
-                        this,
-                        getString(R.string.toast_signup_id),
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                    pwdData.isBlank() -> Toast.makeText(
-                        this,
-                        getString(R.string.toast_signup_pwd),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    nameData.isBlank() -> toastSignUp = getString(R.string.toast_signup_name)
+                    idData.isBlank() -> toastSignUp = getString(R.string.toast_signup_id)
+                    pwdData.isBlank() -> toastSignUp = getString(R.string.toast_signup_pwd)
                 }
-            } else {
-                Toast.makeText(this, "회원가입 완료", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "$toastSignUp", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Toast.makeText(this, getString(R.string.toast_signup_finish), Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, SignInActivity::class.java)
                 finish()
             }
         }
     }
 
-    private fun initToolbar(){
+    private fun initToolbar() {
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_signup)
         setSupportActionBar(toolbar)
         supportActionBar?.title = ""
