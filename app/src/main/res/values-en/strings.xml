@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">MenuJo</string>
+    <!--  common : any Activity  -->
+    <string name="common_name">NAME</string>
+    <string name="common_id">ID</string>
+    <string name="common_pwd">PASSWORD</string>
+    <string name="common_set_id">Please enter your Id</string>
+    <string name="common_set_pwd">Please enter your Password</string>
+    <string name="common_signin">Sign In</string>
+    <string name="common_signup">Sign Up</string>
+    <string name="common_finish">Finish</string>
 
     <!--  MainPageActivity  -->
     <string name="main_koreanfood">KoreanFood</string>
@@ -29,6 +38,26 @@
     <!--  SignInActivity  -->
 
     <!--  SignUpActivity  -->
+    <string name="et_signup_name">at least 2 characters and only English</string>
+    <string name="et_signup_id">at least 7 characters and contain lowercase letters and numbers</string>
+    <string name="et_signup_pwd">must be enter at least 7 characters and only numbers</string>
+
+    <string name="tv_signup_favorite_title">Favorite food</string>
+    <string name="tv_signup_favorite_sub">Can choose up to 3</string>
+    <string name="toast_signup_favorite_max3">You can choose up to 3 options</string>
+
+    <string name="cb_meat">Meat</string>
+    <string name="cb_seafood">Seafood</string>
+    <string name="cb_rice">Rice</string>
+    <string name="cb_noodle">Noodle</string>
+    <string name="cb_bread">Bread</string>
+    <string name="cb_vegetable">Vegetable</string>
+    <string name="cb_spicy">Spicy</string>
+    <string name="cb_normal">Normal</string>
+    <string name="cb_mild">Mild</string>
+
+    <string name="btn_signup_signin">Back</string>
+    <string name="toast_signup_name">Please enter your Name</string>
 
     <!--  MyPageActivity  -->
     <string name="iv_description_user_profile">user profile image</string>

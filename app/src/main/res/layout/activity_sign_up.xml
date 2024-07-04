@@ -122,7 +122,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cb_meat"
-        app:layout_constraintBottom_toTopOf="@+id/cb_seafood"
+    app:layout_constraintBottom_toTopOf="@+id/cb_seafood"
         app:layout_constraintEnd_toStartOf="@+id/cb_rice"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -205,15 +205,6 @@
         app:layout_constraintStart_toStartOf="@+id/cb_normal"
         app:layout_constraintTop_toBottomOf="@+id/cb_normal" />
 
-
-    <!--    <CheckBox-->
-    <!--        android:id="@+id/cb_fruit"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="@string/cb_fruit"-->
-    <!--        app:layout_constraintStart_toEndOf="@+id/cb_vegetable"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/cb_bread" />-->
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_signup_signup"
         style="@style/btn_default"
@@ -222,13 +213,6 @@
         app:layout_constraintBottom_toTopOf="@+id/iv_signin_logo_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <!--    <androidx.appcompat.widget.AppCompatButton-->
-    <!--        android:id="@+id/btn_signup_signup"-->
-    <!--        style="@style/btn_default"-->
-    <!--        android:text="@string/btn_signup_signup"-->
-    <!--        app:layout_constraintEnd_toEndOf="@id/rb_fruit"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/rb_fruit" />-->
 
     <ImageView
         android:id="@+id/iv_signin_logo_horizontal"
@@ -239,6 +223,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

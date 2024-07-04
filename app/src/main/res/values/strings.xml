@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MenuJo</string>
 
-    <!--  common : 액티비티 구분없이 사용 되는 문자열  -->
+    <!--  common : any Activity  -->
     <string name="common_name">닉네임</string>
     <string name="common_id">아이디</string>
     <string name="common_pwd">비밀번호</string>
@@ -9,6 +9,7 @@
     <string name="common_set_pwd">비밀번호를 입력해주세요</string>
     <string name="common_signin">로그인</string>
     <string name="common_signup">회원가입</string>
+    <string name="common_finish">&#160;완료</string>
 
     <!--  MainPageActivity  -->
     <string name="main_koreanfood">한식</string>
@@ -36,7 +37,7 @@
     <string name="detail_menu_another">다른 메뉴들도 살펴보세요</string>
 
     <!--  SignInActivity  -->
-    <string name="toast_signin_finish">로그인 완료</string>
+
 
     <!--  SignUpActivity  -->
     <string name="et_signup_name">영어로만 2자리 이상 입력해주세요</string>
@@ -60,7 +61,6 @@
 
     <string name="btn_signup_signin">돌아가기</string>
     <string name="toast_signup_name">닉네임을 입력해주세요</string>
-    <string name="toast_signup_finish">회원가입 완료</string>
 
     <!--  MyPageActivity  -->
     <string name="iv_description_user_profile">유저 프로필 이미지</string>

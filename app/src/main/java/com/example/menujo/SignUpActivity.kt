@@ -86,7 +86,7 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "$toastSignUp", Toast.LENGTH_SHORT).show()
             }
             else {
-                Toast.makeText(this, getString(R.string.toast_signup_finish), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.common_signup) + getString(R.string.common_finish), Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, SignInActivity::class.java)
                 finish()
             }
