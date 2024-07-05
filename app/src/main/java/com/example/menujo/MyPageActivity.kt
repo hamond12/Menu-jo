@@ -11,8 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -28,6 +26,72 @@ const val EXTRA_STRING_USER_NAME = "name"
 class MyPageActivity : AppCompatActivity() {
 
     private lateinit var user: UserInfo
+
+    private val tagToStringResourceMap = mapOf(
+        "고기" to R.string.cb_meat,
+        "meat" to R.string.cb_meat,
+        "해산물" to R.string.cb_seafood,
+        "seafood" to R.string.cb_seafood,
+        "밥" to R.string.cb_rice,
+        "rice" to R.string.cb_rice,
+        "면" to R.string.cb_noodle,
+        "noodle" to R.string.cb_noodle,
+        "빵" to R.string.cb_bread,
+        "bread" to R.string.cb_bread,
+        "매운맛" to R.string.cb_spicy,
+        "spicy" to R.string.cb_spicy,
+        "중간맛" to R.string.cb_normal,
+        "normal" to R.string.cb_normal,
+        "순한맛" to R.string.cb_mild,
+        "mild" to R.string.cb_mild,
+        "야채" to R.string.cb_vegetable,
+        "vegetable" to R.string.cb_vegetable
+    )
+
+    private val tagToColorResourceMap = mapOf(
+        "고기" to R.color.white,
+        "meat" to R.color.white,
+        "해산물" to R.color.black,
+        "seafood" to R.color.black,
+        "밥" to R.color.black,
+        "rice" to R.color.black,
+        "면" to R.color.black,
+        "noodle" to R.color.black,
+        "빵" to R.color.white,
+        "bread" to R.color.white,
+        "매운맛" to R.color.white,
+        "spicy" to R.color.white,
+        "중간맛" to R.color.white,
+        "normal" to R.color.white,
+        "순한맛" to R.color.black,
+        "mild" to R.color.black,
+        "야채" to R.color.white,
+        "vegetable" to R.color.white
+    )
+
+    private fun tagToDrawableResourceMap(tag: String): Int {
+        return when (tag) {
+            "고기" -> R.drawable.bg_tag_dark_brown
+            "meat" -> R.drawable.bg_tag_dark_brown
+            "해산물" -> R.drawable.bg_tag_skyblue
+            "seafood" -> R.drawable.bg_tag_skyblue
+            "밥" -> R.drawable.bg_tag_white
+            "rice" -> R.drawable.bg_tag_white
+            "면" -> R.drawable.bg_tag_basic
+            "noodle" -> R.drawable.bg_tag_basic
+            "빵" -> R.drawable.bg_tag_brown
+            "bread" -> R.drawable.bg_tag_brown
+            "매운맛" -> R.drawable.bg_tag_red
+            "spicy" -> R.drawable.bg_tag_red
+            "중간맛" -> R.drawable.bg_tag_orange
+            "normal" -> R.drawable.bg_tag_orange
+            "순한맛" -> R.drawable.bg_tag_yellow
+            "mild" -> R.drawable.bg_tag_yellow
+            "야채" -> R.drawable.bg_tag_green
+            "vegetable" -> R.drawable.bg_tag_green
+            else -> R.drawable.bg_tag_white
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,8 +131,6 @@ class MyPageActivity : AppCompatActivity() {
         val tvTag02 = findViewById<TextView>(R.id.tv_my_page_tag_2)
         val tvTag03 = findViewById<TextView>(R.id.tv_my_page_tag_3)
 
-        Log.d("MyPageActivity", user.profileImageUrl)
-
         tvUserName.text = user.userName
         tvUserId.text = user.userId
         if (user.profileImageUrl != "") {
@@ -100,40 +162,23 @@ class MyPageActivity : AppCompatActivity() {
     private fun setTag(textView: TextView, index: Int) {
         textView.apply {
             visibility = View.VISIBLE
-            text = user.tags[index]
+            text = applyText(user.tags[index])
             setTextColor(ContextCompat.getColor(context, applyTextColor(user.tags[index])))
             setBackgroundResource(applyBackgroundByTag(user.tags[index]))
         }
     }
 
+    private fun applyText(tag: String): String {
+        val resourceId = tagToStringResourceMap[tag.lowercase()]
+        return if (resourceId != null) getString(resourceId) else ""
+    }
+
     private fun applyTextColor(tag: String): Int {
-        return when (tag) {
-            "고기" -> R.color.white
-            "해산물" -> R.color.black
-            "밥" -> R.color.black
-            "면" -> R.color.black
-            "빵" -> R.color.white
-            "매운맛" -> R.color.white
-            "중간맛" -> R.color.white
-            "순한맛" -> R.color.black
-            "야채" -> R.color.white
-            else -> R.color.white
-        }
+        return tagToColorResourceMap[tag.lowercase()] ?: R.color.black
     }
 
     private fun applyBackgroundByTag(tag: String): Int {
-        return when (tag) {
-            "고기" -> R.drawable.bg_tag_dark_brown
-            "해산물" -> R.drawable.bg_tag_skyblue
-            "밥" -> R.drawable.bg_tag_white
-            "면" -> R.drawable.bg_tag_basic
-            "빵" -> R.drawable.bg_tag_brown
-            "매운맛" -> R.drawable.bg_tag_red
-            "중간맛" -> R.drawable.bg_tag_orange
-            "순한맛" -> R.drawable.bg_tag_yellow
-            "야채" -> R.drawable.bg_tag_green
-            else -> R.drawable.bg_tag_white
-        }
+        return tagToDrawableResourceMap(tag.lowercase())
     }
 
     private fun signOut() {
