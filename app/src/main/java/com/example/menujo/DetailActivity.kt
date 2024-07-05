@@ -90,8 +90,8 @@ class DetailActivity : AppCompatActivity() {
         val tvDetailTag3 = findViewById<TextView>(R.id.tv_detail_tag_3)
 
         recommendImg.setImageResource(randomFood.image)
-        tvRecommendMenuName.text = randomFood.name
-        tvRecommendMenuIntroduce.text = randomFood.introduce
+        tvRecommendMenuName.text = getString(randomFood.name)
+        tvRecommendMenuIntroduce.text = getString(randomFood.introduce)
 
         tvRecommendMenuIntroduce.post {
             val ivSeeDown = findViewById<ImageView>(R.id.iv_see_down)
@@ -146,8 +146,8 @@ class DetailActivity : AppCompatActivity() {
         val tvFood1Tag3 = findViewById<TextView>(R.id.tv_food_1_tag_3)
 
         ivFood1.setImageResource(filteredFoodList[0].image)
-        tvFoodName1.text = filteredFoodList[0].name
-        tvFoodIntroduce1.text = filteredFoodList[0].introduce
+        tvFoodName1.text = getString(filteredFoodList[0].name)
+        tvFoodIntroduce1.text = getString(filteredFoodList[0].introduce)
         val tagCount1 = filteredFoodList[0].tags.size
         when (tagCount1) {
             1 -> setTag(tvFood1Tag1, filteredFoodList[0], 0)
@@ -171,8 +171,8 @@ class DetailActivity : AppCompatActivity() {
         val tvFood2Tag3 = findViewById<TextView>(R.id.tv_food_2_tag_3)
 
         ivFood2.setImageResource(filteredFoodList[1].image)
-        tvFoodName2.text = filteredFoodList[1].name
-        tvFoodIntroduce2.text = filteredFoodList[1].introduce
+        tvFoodName2.text = getString(filteredFoodList[1].name)
+        tvFoodIntroduce2.text = getString(filteredFoodList[1].introduce)
         val tagCount2 = filteredFoodList[1].tags.size
         when (tagCount2) {
             1 -> setTag(tvFood2Tag1, filteredFoodList[1], 0)
@@ -196,8 +196,8 @@ class DetailActivity : AppCompatActivity() {
         val tvFood3Tag3 = findViewById<TextView>(R.id.tv_food_3_tag_3)
 
         ivFood3.setImageResource(filteredFoodList[2].image)
-        tvFoodName3.text = filteredFoodList[2].name
-        tvFoodIntroduce3.text = filteredFoodList[2].introduce
+        tvFoodName3.text = getString(filteredFoodList[2].name)
+        tvFoodIntroduce3.text = getString(filteredFoodList[2].introduce)
         val tagCount3 = filteredFoodList[2].tags.size
         when (tagCount3) {
             1 -> setTag(tvFood3Tag1, filteredFoodList[2], 0)
@@ -221,8 +221,8 @@ class DetailActivity : AppCompatActivity() {
         val tvFood4Tag3 = findViewById<TextView>(R.id.tv_food_4_tag_3)
 
         ivFood4.setImageResource(filteredFoodList[3].image)
-        tvFoodName4.text = filteredFoodList[3].name
-        tvFoodIntroduce4.text = filteredFoodList[3].introduce
+        tvFoodName4.text = getString(filteredFoodList[3].name)
+        tvFoodIntroduce4.text = getString(filteredFoodList[3].introduce)
         val tagCount4 = filteredFoodList[3].tags.size
         when (tagCount4) {
             1 -> setTag(tvFood4Tag1, filteredFoodList[3], 0)

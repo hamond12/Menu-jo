@@ -34,7 +34,46 @@
     <string name="detail_menu_name">menu name</string>
     <string name="detail_menu_introduce">menu introduce</string>
     <string name="detail_menu_another">Check out our other menus!</string>
-
+    <string name="tv_menu_bibimbap">Bibimbap</string>
+    <string name="tv_menu_intro_bibimbap">A food that is mixed with various spices such as meat and vegetables in rice</string>
+    <string name="tv_menu_soft_tofu_stew">Soft Tofu Stew</string>
+    <string name="tv_menu_intro_tofu_stew">stew made with soft tofu and seasoned</string>
+    <string name="tv_menu_bulgogi">Bulgogi</string>
+    <string name="tv_menu_intro_bulgogi">Thinly sliced marinated meat grilled over fire.</string>
+    <string name="tv_menu_japchae">Japchae</string>
+    <string name="tv_menu_intro_japchae">Fried various vegetables with oil and boiled glass noodles with soy sauce</string>
+    <string name="tv_menu_seafood_pancake">Seafood Pancake</string>
+    <string name="tv_menu_intro_eafood_pancake">soft pancake made with seafood</string>
+    <string name="tv_menu_jajangmyeon">Jajangmyeon</string>
+    <string name="tv_menu_intro_jajangmyeon">Noodles mixed with stir-fried Chunjang, vegetables, and meat</string>
+    <string name="tv_menu_jjambbong">Jjambbong</string>
+    <string name="tv_menu_intro_jjambbong">A spicy soup with roasted vegetables, seafood, meat, and noodles</string>
+    <string name="tv_menu_egg_fried_rice">Eff fried rice</string>
+    <string name="tv_menu_intro_egg_fried_rice">Food made by adding rice with other ingredients and stir-frying it in oil</string>
+    <string name="tv_menu_sweet_and_sour_pork">Sweet and Sour Pork</string>
+    <string name="tv_menu_intro_sweet_and_sour_pork">Pork is dipped in starch dough, fried in oil, and eaten with sauce</string>
+    <string name="tv_menu_mapo_tofu">Mapo Tofu</string>
+    <string name="tv_menu_intro_mapo_tofu">Food made with tofu as the main ingredient and soy sauce as the basic seasoning</string>
+    <string name="tv_menu_hamburger">Hamburger</string>
+    <string name="tv_menu_intro_hamburger">After baking the patties, the food is sandwiched between breads with various ingredients</string>
+    <string name="tv_menu_pizza">Pizza</string>
+    <string name="tv_menu_intro_pizza">Food and cheese with flour, cheese and cheese in flour and cheese</string>
+    <string name="tv_menu_pasta">Pasta</string>
+    <string name="tv_menu_intro_pasta">Food cooked with various sauces, using flour-based noodles</string>
+    <string name="tv_menu_steak">Steak</string>
+    <string name="tv_menu_intro_steak">meat-grilling or deep-fried food</string>
+    <string name="tv_menu_sandwich">Sandwich</string>
+    <string name="tv_menu_intro_sandwich">food that is eaten with ingredients between two slices of bread</string>
+    <string name="tv_menu_sushi">Sushi</string>
+    <string name="tv_menu_intro_sushi">Food made by placing ingredients on top of pickled rice in mixed vinegar</string>
+    <string name="tv_menu_udon">Udon</string>
+    <string name="tv_menu_intro_udon">noodles made using thick flour noodles</string>
+    <string name="tv_menu_ramen">Ramen</string>
+    <string name="tv_menu_intro_ramen">It consists of noodles and soup and is a favorite food with various ingredients</string>
+    <string name="tv_menu_takoyaki">Takoyaki</string>
+    <string name="tv_menu_intro_takoyaki">Japanese food that is baked in a circle with chopped octopus</string>
+    <string name="tv_menu_tonkatsu">Tonkatsu</string>
+    <string name="tv_menu_intro_tonkatsu">Japanese food that stir-fry pork and fry it in fried clothes</string>
 
 
 
