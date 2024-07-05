@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -31,6 +32,7 @@ class MainPageActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         showsnackbar()
         initToolBar()
 
@@ -160,6 +162,14 @@ class MainPageActivity : AppCompatActivity() {
             startActivity(intent)
 
             overridePendingTransition(R.anim.main_to_mypage, R.anim.none)
+        }
+    }
+
+    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+            overridePendingTransition(R.anim.none, R.anim.mypage_to_main)
         }
     }
 }

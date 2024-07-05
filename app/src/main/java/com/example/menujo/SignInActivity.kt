@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -26,7 +27,7 @@ class SignInActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         initToolbar()
 
         //뷰연결
@@ -89,6 +90,14 @@ class SignInActivity : AppCompatActivity() {
         supportActionBar?.title = ""
         toolbar.setNavigationOnClickListener {
             finish()
+        }
+    }
+
+    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+            overridePendingTransition(R.anim.none, R.anim.mypage_to_main)
         }
     }
 }
