@@ -8,7 +8,7 @@
     tools:context=".DetailActivity">
 
     <include
-        android:id="@+id/toolbar"
+        android:id="@+3id/toolbar"
         layout="@layout/toolbar" />
 
     <TextView
@@ -43,7 +43,7 @@
         android:scaleType="centerCrop"
         android:background="@drawable/round_square_backgroud"
         android:clipToOutline="true"
-        android:src="@drawable/ic_jajangmyeon"
+        android:src="@drawable/img_jajangmyeon"
         app:layout_constraintEnd_toEndOf="@+id/tv_recommend_menu"
         app:layout_constraintStart_toStartOf="@+id/tv_recommend_menu"
         app:layout_constraintTop_toBottomOf="@+id/tv_recommend_menu" />
