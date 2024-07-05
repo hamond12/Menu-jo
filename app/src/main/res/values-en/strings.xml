@@ -43,7 +43,7 @@
     <!--  SignUpActivity  -->
     <string name="et_signup_name">at least 2 characters and only English</string>
     <string name="et_signup_id">at least 7 characters and contain lowercase letters and numbers</string>
-    <string name="et_signup_pwd">must be enter at least 7 characters and only numbers</string>
+    <string name="et_signup_pwd">"must be enter at least 7 characters and only numbers"</string>
 
     <string name="et_signup_name_pattern">only English</string>
     <string name="et_signup_id_pattern">contain lowercase letters and numbers</string>
