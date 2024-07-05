@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FoodListActivity"
+            android:name=".DetailActivity"
             android:exported="false" />
     </application>
 

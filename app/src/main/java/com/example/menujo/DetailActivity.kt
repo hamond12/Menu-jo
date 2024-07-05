@@ -15,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.menujo.data.FoodInfo
 import com.example.menujo.data.FoodManager
 
-class FoodListActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity() {
 
     private lateinit var foodList: List<FoodInfo>
     private lateinit var randomFood: FoodInfo
@@ -24,7 +24,7 @@ class FoodListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_food_list)
+        setContentView(R.layout.activity_detail)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

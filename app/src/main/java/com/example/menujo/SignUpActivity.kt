@@ -19,6 +19,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.setPadding
 import com.example.menujo.data.UserInfo
+import com.example.menujo.data.UserManager
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputLayout
 import java.util.regex.Pattern
@@ -26,7 +27,8 @@ import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
 
-    private lateinit var userData: UserInfo
+//    private lateinit var userData: UserInfo
+    private var profileImageUri = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -67,8 +69,8 @@ class SignUpActivity : AppCompatActivity() {
         val pwdData = etPwd.text
         val tagsData = mutableListOf<String>()
 
-        userData =
-            UserInfo(nameData.toString(), idData.toString(), pwdData.toString(), "", tagsData)
+//        userData =
+//            UserInfo(nameData.toString(), idData.toString(), pwdData.toString(), "", tagsData)
 
         //Gallery image upload
         val pickMedia =
@@ -78,7 +80,8 @@ class SignUpActivity : AppCompatActivity() {
                         setPadding(0)
                         setImageURI(imageUri)
                     }
-                    findViewById<TextView>(R.id.tv_no_image).visibility = View.GONE
+                    profileImageUri = imageUri.toString()
+                        findViewById<TextView>(R.id.tv_no_image).visibility = View.GONE
                     contentResolver.takePersistableUriPermission(
                         imageUri,
                         Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -96,11 +99,7 @@ class SignUpActivity : AppCompatActivity() {
                 openGalleryForImage()
             }
         }
-        if (userData.profileImageUrl != "") {
-            ivImage.setImageURI(Uri.parse(userData.profileImageUrl))
-        } else {
-            findViewById<TextView>(R.id.tv_no_image).visibility = View.VISIBLE
-        }
+
         getGalleryImage()
 
         //Check box
@@ -160,9 +159,11 @@ class SignUpActivity : AppCompatActivity() {
                         getString(R.string.common_signup) + getString(R.string.common_finish),
                         Toast.LENGTH_SHORT
                     ).show()
+
+                    val userData = UserInfo(nameData.toString(), idData.toString(), pwdData.toString(), profileImageUri, tagsData)
+                    UserManager.saveUser(userData)
                     val intent = Intent(this, SignInActivity::class.java)
-                    intent.putExtra("id", idData.toString())
-                    intent.putExtra("password", pwdData.toString())
+                    intent.putExtra("userData", userData)
                     setResult(RESULT_OK, intent)
                     finish()
 
