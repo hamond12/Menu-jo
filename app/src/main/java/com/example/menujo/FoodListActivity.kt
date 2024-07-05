@@ -2,30 +2,25 @@ package com.example.menujo
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.ScrollView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.Group
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.menujo.data.FoodInfo
 import com.example.menujo.data.FoodManager
-import kotlin.random.Random
 
 const val RANDOM_IMAGE_COUNT = 5
 
 class FoodListActivity : AppCompatActivity() {
 
     private lateinit var foodList: List<FoodInfo>
-    private var randomNum = 0
     private lateinit var randomFood: FoodInfo
+    private lateinit var filteredFoodList : List<FoodInfo>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,19 +41,27 @@ class FoodListActivity : AppCompatActivity() {
         when (category) {
             "koreanFood" -> {
                 tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_koreanfood))
-                foodList = FoodManager.getFoodList("koreanFood")
+                foodList = FoodManager.koreanFoodList
+                randomFood = FoodManager.koreanRandomFood!!
+                filteredFoodList = FoodManager.koreanFoodFilteredList
             }
             "chineseFood" -> {
                 tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_chinesefood))
-                foodList = FoodManager.getFoodList("chineseFood")
+                foodList = FoodManager.chineseFoodList
+                randomFood = FoodManager.chineseRandomFood!!
+                filteredFoodList = FoodManager.chinesFoodFilteredList
             }
             "westernFood" -> {
                 tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_westernfood))
-                foodList = FoodManager.getFoodList("westernFood")
+                foodList = FoodManager.westernFoodList
+                randomFood = FoodManager.westernRandomFood!!
+                filteredFoodList = FoodManager.westernFoodListFilteredList
             }
             "japaneseFood" -> {
                 tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_japanesefood))
-                foodList = FoodManager.getFoodList("japaneseFood")
+                foodList = FoodManager.japaneseFoodList
+                randomFood = FoodManager.japaneseRandomFood!!
+                filteredFoodList = FoodManager.japaneseFoodListFilteredList
             }
             else -> {
                 foodList = emptyList()
@@ -71,11 +74,6 @@ class FoodListActivity : AppCompatActivity() {
     }
 
     private fun setRecommendFoodInfo() {
-        val random = Random
-        randomNum = random.nextInt(RANDOM_IMAGE_COUNT) + 1
-
-        randomFood = foodList[randomNum - 1]
-
         val recommendImg = findViewById<ImageView>(R.id.iv_recommend_food)
         val tvRecommendMenuName = findViewById<TextView>(R.id.tv_recommend_menu_name)
         val tvRecommendMenuIntroduce = findViewById<TextView>(R.id.tv_recommend_menu_introduce)
@@ -105,8 +103,6 @@ class FoodListActivity : AppCompatActivity() {
     }
 
     private fun setFoodListInfo() {
-        val filteredList = foodList.filter { it.foodId != randomFood.foodId }
-
         val ivFood1 = findViewById<ImageView>(R.id.iv_food_1)
         val tvFoodName1 = findViewById<TextView>(R.id.tv_food_name_1)
         val tvFoodIntroduce1 = findViewById<TextView>(R.id.tv_food_introduce_1)
@@ -114,20 +110,20 @@ class FoodListActivity : AppCompatActivity() {
         val tvFood1Tag2 = findViewById<TextView>(R.id.tv_food_1_tag_2)
         val tvFood1Tag3 = findViewById<TextView>(R.id.tv_food_1_tag_3)
 
-        ivFood1.setImageResource(filteredList[0].image)
-        tvFoodName1.text = filteredList[0].name
-        tvFoodIntroduce1.text = filteredList[0].introduce
-        val tagCount1 = filteredList[0].tags.size
+        ivFood1.setImageResource(filteredFoodList[0].image)
+        tvFoodName1.text = filteredFoodList[0].name
+        tvFoodIntroduce1.text = filteredFoodList[0].introduce
+        val tagCount1 = filteredFoodList[0].tags.size
         when (tagCount1) {
-            1 -> setTag(tvFood1Tag1, filteredList[0], 0)
+            1 -> setTag(tvFood1Tag1, filteredFoodList[0], 0)
             2 -> {
-                setTag(tvFood1Tag1, filteredList[0], 0)
-                setTag(tvFood1Tag2, filteredList[0], 1)
+                setTag(tvFood1Tag1, filteredFoodList[0], 0)
+                setTag(tvFood1Tag2, filteredFoodList[0], 1)
             }
             3 -> {
-                setTag(tvFood1Tag1, filteredList[0], 0)
-                setTag(tvFood1Tag2, filteredList[0], 1)
-                setTag(tvFood1Tag3, filteredList[0], 2)
+                setTag(tvFood1Tag1, filteredFoodList[0], 0)
+                setTag(tvFood1Tag2, filteredFoodList[0], 1)
+                setTag(tvFood1Tag3, filteredFoodList[0], 2)
             }
             else -> return
         }
@@ -139,20 +135,20 @@ class FoodListActivity : AppCompatActivity() {
         val tvFood2Tag2 = findViewById<TextView>(R.id.tv_food_2_tag_2)
         val tvFood2Tag3 = findViewById<TextView>(R.id.tv_food_2_tag_3)
 
-        ivFood2.setImageResource(filteredList[1].image)
-        tvFoodName2.text = filteredList[1].name
-        tvFoodIntroduce2.text = filteredList[1].introduce
-        val tagCount2 = filteredList[1].tags.size
+        ivFood2.setImageResource(filteredFoodList[1].image)
+        tvFoodName2.text = filteredFoodList[1].name
+        tvFoodIntroduce2.text = filteredFoodList[1].introduce
+        val tagCount2 = filteredFoodList[1].tags.size
         when (tagCount2) {
-            1 -> setTag(tvFood2Tag1, filteredList[1], 0)
+            1 -> setTag(tvFood2Tag1, filteredFoodList[1], 0)
             2 -> {
-                setTag(tvFood2Tag1, filteredList[1], 0)
-                setTag(tvFood2Tag2, filteredList[1], 1)
+                setTag(tvFood2Tag1, filteredFoodList[1], 0)
+                setTag(tvFood2Tag2, filteredFoodList[1], 1)
             }
             3 -> {
-                setTag(tvFood2Tag1, filteredList[1], 0)
-                setTag(tvFood2Tag2, filteredList[1], 1)
-                setTag(tvFood2Tag3, filteredList[1], 2)
+                setTag(tvFood2Tag1, filteredFoodList[1], 0)
+                setTag(tvFood2Tag2, filteredFoodList[1], 1)
+                setTag(tvFood2Tag3, filteredFoodList[1], 2)
             }
             else -> return
         }
@@ -164,20 +160,20 @@ class FoodListActivity : AppCompatActivity() {
         val tvFood3Tag2 = findViewById<TextView>(R.id.tv_food_3_tag_2)
         val tvFood3Tag3 = findViewById<TextView>(R.id.tv_food_3_tag_3)
 
-        ivFood3.setImageResource(filteredList[2].image)
-        tvFoodName3.text = filteredList[2].name
-        tvFoodIntroduce3.text = filteredList[2].introduce
-        val tagCount3 = filteredList[2].tags.size
+        ivFood3.setImageResource(filteredFoodList[2].image)
+        tvFoodName3.text = filteredFoodList[2].name
+        tvFoodIntroduce3.text = filteredFoodList[2].introduce
+        val tagCount3 = filteredFoodList[2].tags.size
         when (tagCount3) {
-            1 -> setTag(tvFood3Tag1, filteredList[2], 0)
+            1 -> setTag(tvFood3Tag1, filteredFoodList[2], 0)
             2 -> {
-                setTag(tvFood3Tag1, filteredList[2], 0)
-                setTag(tvFood3Tag2, filteredList[2], 1)
+                setTag(tvFood3Tag1, filteredFoodList[2], 0)
+                setTag(tvFood3Tag2, filteredFoodList[2], 1)
             }
             3 -> {
-                setTag(tvFood3Tag1, filteredList[2], 0)
-                setTag(tvFood3Tag2, filteredList[2], 1)
-                setTag(tvFood3Tag3, filteredList[2], 2)
+                setTag(tvFood3Tag1, filteredFoodList[2], 0)
+                setTag(tvFood3Tag2, filteredFoodList[2], 1)
+                setTag(tvFood3Tag3, filteredFoodList[2], 2)
             }
             else -> return
         }
@@ -189,59 +185,23 @@ class FoodListActivity : AppCompatActivity() {
         val tvFood4Tag2 = findViewById<TextView>(R.id.tv_food_4_tag_2)
         val tvFood4Tag3 = findViewById<TextView>(R.id.tv_food_4_tag_3)
 
-        ivFood4.setImageResource(filteredList[3].image)
-        tvFoodName4.text = filteredList[3].name
-        tvFoodIntroduce4.text = filteredList[3].introduce
-        val tagCount4 = filteredList[3].tags.size
+        ivFood4.setImageResource(filteredFoodList[3].image)
+        tvFoodName4.text = filteredFoodList[3].name
+        tvFoodIntroduce4.text = filteredFoodList[3].introduce
+        val tagCount4 = filteredFoodList[3].tags.size
         when (tagCount4) {
-            1 -> setTag(tvFood4Tag1, filteredList[3], 0)
+            1 -> setTag(tvFood4Tag1, filteredFoodList[3], 0)
             2 -> {
-                setTag(tvFood4Tag1, filteredList[3], 0)
-                setTag(tvFood4Tag2, filteredList[3], 1)
+                setTag(tvFood4Tag1, filteredFoodList[3], 0)
+                setTag(tvFood4Tag2, filteredFoodList[3], 1)
             }
             3 -> {
-                setTag(tvFood4Tag1, filteredList[3], 0)
-                setTag(tvFood4Tag2, filteredList[3], 1)
-                setTag(tvFood4Tag3, filteredList[3], 2)
+                setTag(tvFood4Tag1, filteredFoodList[3], 0)
+                setTag(tvFood4Tag2, filteredFoodList[3], 1)
+                setTag(tvFood4Tag3, filteredFoodList[3], 2)
             }
             else -> return
         }
-
-//        val ivFood5 = findViewById<ImageView>(R.id.iv_food_5)
-//        val tvFoodName5 = findViewById<TextView>(R.id.tv_food_name_5)
-//        val tvFoodIntroduce5 = findViewById<TextView>(R.id.tv_food_introduce_5)
-//        val tvFood5Tag1 = findViewById<TextView>(R.id.tv_food_5_tag_1)
-//        val tvFood5Tag2 = findViewById<TextView>(R.id.tv_food_5_tag_2)
-//        val tvFood5Tag3 = findViewById<TextView>(R.id.tv_food_5_tag_3)
-//
-//        ivFood5.setImageResource(R.drawable.ic_jjambbong)
-//        tvFoodName5.text = foodList[4].name
-//        tvFoodIntroduce5.text = foodList[4].introduce
-//        val tagCount5 = foodList[4].tags.size
-//        when (tagCount5) {
-//            1 -> setTag(tvFood5Tag1, foodList[4],0)
-//            2 -> {
-//                setTag(tvFood5Tag1, foodList[4], 0)
-//                setTag(tvFood5Tag2, foodList[4], 1)
-//            }
-//            3 -> {
-//                setTag(tvFood5Tag1, foodList[4], 0)
-//                setTag(tvFood5Tag2, foodList[4], 1)
-//                setTag(tvFood5Tag3, foodList[4], 2)
-//            }
-//            else -> return
-//        }
-
-//        // 랜덤으로 추천된 음식 Visibility 설정
-//        val groupRandomFoodInfo = when (randomNum) {
-//            1 -> findViewById<Group>(R.id.group_food_1)
-//            2 -> findViewById<Group>(R.id.group_food_2)
-//            3 -> findViewById<Group>(R.id.group_food_3)
-//            4 -> findViewById<Group>(R.id.group_food_4)
-//            5 -> findViewById<Group>(R.id.group_food_5)
-//            else -> return
-//        }
-//        groupRandomFoodInfo.visibility = View.GONE
     }
 
     private fun setTag(textView: TextView, food: FoodInfo, index: Int) {

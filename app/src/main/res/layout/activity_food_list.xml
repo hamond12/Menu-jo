@@ -56,6 +56,7 @@
                 android:background="@drawable/round_square_backgroud"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
+                android:contentDescription="@string/iv_description_recommend_food_image"
                 android:src="@drawable/ic_jajangmyeon"
                 app:layout_constraintEnd_toEndOf="@+id/tv_recommend_menu"
                 app:layout_constraintStart_toStartOf="@+id/tv_recommend_menu"
@@ -124,13 +125,6 @@
                 app:layout_constraintStart_toStartOf="@+id/tv_detail_tag_1"
                 app:layout_constraintTop_toBottomOf="@+id/tv_detail_tag_1" />
 
-            <!--            <androidx.constraintlayout.widget.Group-->
-            <!--                android:id="@+id/group_food_1"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:visibility="visible"-->
-            <!--                app:constraint_referenced_ids="iv_food_1, view_food_1, tv_food_name_1, tv_food_introduce_1, tv_food_1_tag_1, tv_food_1_tag_2, tv_food_1_tag_3" />-->
-
             <ImageView
                 android:id="@+id/iv_food_1"
                 android:layout_width="128dp"
@@ -138,6 +132,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_white_gray_10dp"
                 android:clipToOutline="true"
+                android:contentDescription="@string/iv_description_other_food_image"
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="@id/tv_another_menu"
                 app:layout_constraintTop_toBottomOf="@id/tv_another_menu"
@@ -210,13 +205,6 @@
                 app:layout_constraintTop_toTopOf="@id/tv_food_1_tag_2"
                 tools:text="고기"
                 tools:visibility="visible" />
-
-            <!--            <androidx.constraintlayout.widget.Group-->
-            <!--                android:id="@+id/group_food_2"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:visibility="visible"-->
-            <!--                app:constraint_referenced_ids="iv_food_2, view_food_2, tv_food_name_2, tv_food_introduce_2, tv_food_2_tag_1, tv_food_2_tag_2, tv_food_2_tag_3" />-->
 
             <ImageView
                 android:id="@+id/iv_food_2"
@@ -298,13 +286,6 @@
                 tools:text="고기"
                 tools:visibility="visible" />
 
-            <!--            <androidx.constraintlayout.widget.Group-->
-            <!--                android:id="@+id/group_food_3"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:visibility="visible"-->
-            <!--                app:constraint_referenced_ids="iv_food_3, view_food_2, tv_food_name_3, tv_food_introduce_3, tv_food_3_tag_1, tv_food_3_tag_2, tv_food_3_tag_3" />-->
-
             <ImageView
                 android:id="@+id/iv_food_3"
                 android:layout_width="128dp"
@@ -384,13 +365,6 @@
                 app:layout_constraintTop_toTopOf="@id/tv_food_3_tag_2"
                 tools:text="고기"
                 tools:visibility="visible" />
-
-            <!--            <androidx.constraintlayout.widget.Group-->
-            <!--                android:id="@+id/group_food_4"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:visibility="visible"-->
-            <!--                app:constraint_referenced_ids="iv_food_4, view_food_4, tv_food_name_4, tv_food_introduce_4, tv_food_4_tag_1, tv_food_4_tag_2, tv_food_4_tag_3" />-->
 
             <ImageView
                 android:id="@+id/iv_food_4"
@@ -473,98 +447,6 @@
                 app:layout_constraintTop_toTopOf="@id/tv_food_4_tag_2"
                 tools:text="고기"
                 tools:visibility="visible" />
-
-            <!--            <androidx.constraintlayout.widget.Group-->
-            <!--                android:id="@+id/group_food_5"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:visibility="visible"-->
-            <!--                app:constraint_referenced_ids="iv_food_5, view_food_5, tv_food_name_5, tv_food_introduce_5, tv_food_5_tag_1, tv_food_5_tag_2, tv_food_5_tag_3" />-->
-
-            <!--            <ImageView-->
-            <!--                android:id="@+id/iv_food_5"-->
-            <!--                android:layout_width="128dp"-->
-            <!--                android:layout_height="110dp"-->
-            <!--                android:layout_marginTop="10dp"-->
-            <!--                android:layout_marginBottom="20dp"-->
-            <!--                android:background="@drawable/round_square_backgroud"-->
-            <!--                android:clipToOutline="true"-->
-            <!--                android:scaleType="centerCrop"-->
-            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--                app:layout_constraintStart_toStartOf="@id/iv_food_4"-->
-            <!--                app:layout_constraintTop_toBottomOf="@id/iv_food_4"-->
-            <!--                tools:src="@drawable/ic_jjambbong" />-->
-
-            <!--            <View-->
-            <!--                android:id="@+id/view_food_5"-->
-            <!--                android:layout_width="0dp"-->
-            <!--                android:layout_height="110dp"-->
-            <!--                android:layout_marginStart="8dp"-->
-            <!--                android:layout_marginEnd="20dp"-->
-            <!--                android:background="@drawable/round_square_backgroud"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintStart_toEndOf="@id/iv_food_5"-->
-            <!--                app:layout_constraintTop_toTopOf="@id/iv_food_5" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/tv_food_name_5"-->
-            <!--                android:layout_width="0dp"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginStart="9dp"-->
-            <!--                android:layout_marginTop="9dp"-->
-            <!--                android:fontFamily="@font/pretendard_medium"-->
-            <!--                android:text="@string/detail_menu_name"-->
-            <!--                android:textSize="14sp"-->
-            <!--                app:layout_constraintStart_toStartOf="@id/view_food_5"-->
-            <!--                app:layout_constraintTop_toTopOf="@id/view_food_5" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/tv_food_introduce_5"-->
-            <!--                android:layout_width="0dp"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="4dp"-->
-            <!--                android:fontFamily="@font/pretendard_medium"-->
-            <!--                android:text="@string/detail_menu_introduce"-->
-            <!--                android:textColor="@color/gray"-->
-            <!--                android:textSize="12sp"-->
-            <!--                app:layout_constraintStart_toStartOf="@id/tv_food_name_5"-->
-            <!--                app:layout_constraintTop_toBottomOf="@id/tv_food_name_5" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/tv_food_5_tag_1"-->
-            <!--                style="@style/text_tag_bg"-->
-            <!--                android:layout_width="50dp"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginBottom="10dp"-->
-            <!--                android:visibility="gone"-->
-            <!--                app:layout_constraintBottom_toBottomOf="@id/view_food_5"-->
-            <!--                app:layout_constraintStart_toStartOf="@id/tv_food_introduce_5"-->
-            <!--                tools:text="매운맛"-->
-            <!--                tools:visibility="visible" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/tv_food_5_tag_2"-->
-            <!--                style="@style/text_tag_bg"-->
-            <!--                android:layout_width="50dp"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginStart="6dp"-->
-            <!--                android:visibility="gone"-->
-            <!--                app:layout_constraintStart_toEndOf="@id/tv_food_5_tag_1"-->
-            <!--                app:layout_constraintTop_toTopOf="@id/tv_food_5_tag_1"-->
-            <!--                tools:text="밥"-->
-            <!--                tools:visibility="visible" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/tv_food_5_tag_3"-->
-            <!--                style="@style/text_tag_bg"-->
-            <!--                android:layout_width="50dp"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginStart="6dp"-->
-            <!--                android:visibility="gone"-->
-            <!--                app:layout_constraintStart_toEndOf="@id/tv_food_5_tag_2"-->
-            <!--                app:layout_constraintTop_toTopOf="@id/tv_food_5_tag_2"-->
-            <!--                tools:text="고기"-->
-            <!--                tools:visibility="visible" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

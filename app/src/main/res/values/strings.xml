@@ -68,5 +68,8 @@
     <string name="btn_label_sign_out">로그아웃</string>
     <string name="iv_description_bottom_logo">하단 로고 이미지</string>
     <string name="toast_sign_in_first">먼저 로그인을 해주세요</string>
+    <string name="tv_my_page_favorite_title">선호 음식</string>
+    <string name="iv_description_recommend_food_image">오늘의 추천 메뉴 이미지</string>
+    <string name="iv_description_other_food_image">추천 메뉴 제외 다른 메뉴 이미지</string>
 
 </resources>

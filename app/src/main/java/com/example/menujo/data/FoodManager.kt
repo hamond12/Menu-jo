@@ -4,7 +4,39 @@ import com.example.menujo.R
 
 object FoodManager {
 
-    private val foodList = initFoodData()
+    private val foodList: List<FoodInfo> by lazy { initFoodData() }
+
+    var koreanFoodList = getFoodList("koreanFood")
+        private set
+    var chineseFoodList = getFoodList("chineseFood")
+        private set
+    var westernFoodList = getFoodList("westernFood")
+        private set
+    var japaneseFoodList = getFoodList("japaneseFood")
+        private set
+
+    private val koreanRandomNum = (1..5).random()
+    private val chineseRandomNum = (1..5).random()
+    private val westernRandomNum = (1..5).random()
+    private val japaneseRandomNum = (1..5).random()
+
+    var koreanRandomFood = koreanFoodList.find { it.foodId == koreanRandomNum }
+        private set
+    var chineseRandomFood = chineseFoodList.find { it.foodId == chineseRandomNum }
+        private set
+    var westernRandomFood = westernFoodList.find { it.foodId == westernRandomNum }
+        private set
+    var japaneseRandomFood = japaneseFoodList.find { it.foodId == japaneseRandomNum }
+        private set
+
+    var koreanFoodFilteredList = koreanFoodList.filter { it.foodId != koreanRandomNum }
+        private set
+    var chinesFoodFilteredList = chineseFoodList.filter { it.foodId != chineseRandomNum }
+        private set
+    var westernFoodListFilteredList = westernFoodList.filter { it.foodId != westernRandomNum }
+        private set
+    var japaneseFoodListFilteredList = japaneseFoodList.filter { it.foodId != japaneseRandomNum }
+        private set
 
     private fun initFoodData(): MutableList<FoodInfo> {
         return mutableListOf(
