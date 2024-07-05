@@ -242,9 +242,24 @@ class DetailActivity : AppCompatActivity() {
     private fun setTag(textView: TextView, food: FoodInfo, index: Int) {
         textView.apply {
             visibility = View.VISIBLE
-            text = food.tags[index]
+            text = applyText(food.tags[index])
             setTextColor(ContextCompat.getColor(context, applyTextColor(food.tags[index])))
             setBackgroundResource(applyBackgroundByTag(food.tags[index]))
+        }
+    }
+
+    private fun applyText(tag: String): String {
+        return when (tag) {
+            "고기" -> getString(R.string.cb_meat)
+            "해산물" -> getString(R.string.cb_seafood)
+            "밥" -> getString(R.string.cb_rice)
+            "면" -> getString(R.string.cb_noodle)
+            "빵" -> getString(R.string.cb_bread)
+            "매운맛" -> getString(R.string.cb_spicy)
+            "중간맛" -> getString(R.string.cb_normal)
+            "순한맛" -> getString(R.string.cb_mild)
+            "야채" -> getString(R.string.cb_vegetable)
+            else -> ""
         }
     }
 
