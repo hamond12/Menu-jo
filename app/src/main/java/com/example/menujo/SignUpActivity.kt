@@ -2,8 +2,6 @@ package com.example.menujo
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -12,7 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.widget.doAfterTextChanged
+import com.example.menujo.data.UserInfo
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputLayout
 
@@ -39,7 +37,7 @@ class SignUpActivity : AppCompatActivity() {
         val etPwd = findViewById<EditText>(R.id.et_signup_pwd)
         val etPwdLayout = findViewById<TextInputLayout>(R.id.tv_signup_pwd_layout)
         val btnSignUp = findViewById<Button>(R.id.btn_signup_signup)
-        val checklist = listOf(
+        val cbList = listOf(
             findViewById<CheckBox>(R.id.cb_meat),
             findViewById<CheckBox>(R.id.cb_seafood),
             findViewById<CheckBox>(R.id.cb_vegetable),
@@ -51,31 +49,35 @@ class SignUpActivity : AppCompatActivity() {
             findViewById<CheckBox>(R.id.cb_mild)
         )
 
-        var checkCount = 0
+        var cbCount = 0
+
 
         //회원가입데이터
         val nameData = etName.text
         val idData = etId.text
         val pwdData = etPwd.text
+        val favoriteData = mutableListOf<String>()
+        val userData = UserInfo(nameData.toString(),idData.toString(),pwdData.toString(),"",favoriteData)
 
         //체크박스 예외처리
-        checklist.forEach { i ->
+        cbList.forEach { i ->
             i.setOnClickListener {
                 if (i.isChecked) {
-                    checkCount++
-                    if (checkCount == 3) {
+                    cbCount++
+                    favoriteData += i.text.toString()
+                    if (cbCount == 3) {
                         Toast.makeText(
                             this,
                             getString(R.string.toast_signup_favorite_max3),
                             Toast.LENGTH_SHORT
                         ).show()
-                        for (i in checklist) {
+                        for (i in cbList) {
                             if (!i.isChecked) i.isEnabled = false
                         }
                     }
                 } else {
-                    checkCount--
-                    for (i in checklist) {
+                    cbCount--
+                    for (i in cbList) {
                         if (!i.isChecked) i.isEnabled = true
                     }
                 }

@@ -7,6 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
 
+    <TextView
+        android:id="@+id/tv_signup_name"
+        style="@style/text_sign_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="552dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/common_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_signup_image" />
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_signup"
         android:layout_width="0dp"
