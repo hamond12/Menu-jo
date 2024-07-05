@@ -79,24 +79,28 @@ class MainPageActivity : AppCompatActivity() {
                 val intent = Intent(this, FoodListActivity::class.java)
                 intent.putExtra("food", "koreanFood")
                 startActivity(intent)
+                overridePendingTransition(R.anim.main_to_koreanfood, R.anim.none)
             }
 
             R.id.ib_chinesefood -> {
                 val intent = Intent(this, FoodListActivity::class.java)
                 intent.putExtra("food", "chineseFood")
                 startActivity(intent)
+                overridePendingTransition(R.anim.main_to_chinesefood, R.anim.none)
             }
 
             R.id.ib_westernfood -> {
                 val intent = Intent(this, FoodListActivity::class.java)
                 intent.putExtra("food", "westernFood")
                 startActivity(intent)
+                overridePendingTransition(R.anim.main_to_westernfood, R.anim.none)
             }
 
             R.id.ib_japanesefood -> {
                 val intent = Intent(this, FoodListActivity::class.java)
                 intent.putExtra("food", "japaneseFood")
                 startActivity(intent)
+                overridePendingTransition(R.anim.main_to_japanesefood, R.anim.none)
             }
         }
     }
@@ -122,6 +126,7 @@ class MainPageActivity : AppCompatActivity() {
         loginBtn.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.main_to_signin, R.anim.none)
         }
 
         //마이페이지 클릭하면 유저 아이디를 마이페이지로 전달
