@@ -25,8 +25,8 @@ class MainPageActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        initToolBar()
         showsnackbar()
+        initToolBar()
 
         findViewById<ImageButton>(R.id.ib_koreanfood).setOnClickListener {
             initImageButton(it)
@@ -106,6 +106,52 @@ class MainPageActivity : AppCompatActivity() {
         val userName = findViewById<TextView>(R.id.tv_user_name)
         val loginBtn = findViewById<Button>(R.id.btn_login)
 
+        loginBtn.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
+        }
+
+        val user_Name = intent.getStringExtra("userNameKey") ?: "????"
+        userName.text = getString(R.string.main_sir, user_Name)
+
+
+        //마이페이지 클릭하면 유저 아이디를 마이페이지로 전달
+        accountIcon.setOnClickListener {
+            val intent = Intent(this, MyPageActivity::class.java)
+            intent.putExtra("userID", user_Name)
+            startActivity(intent)
+
+            overridePendingTransition(R.anim.main_to_mypage, R.anim.none)
+        }
+    }
+}
+
+
+//if (email == "" && password == ""){ // 로그인이 안되어 있다고 과정하고 로그인 페이지를 띄운다.
+//    val btnLogin = findViewById<Button>(R.id.btnLogin) as Button
+//    btnLogout.visibility = View.GONE // GONE-사라지다. 로그인이 안되어 있으면 로그아웃을 볼 필요가 없으므로 GONE 한다.
+//    btnLogin.setOnClickListener{
+//        val intent = Intent(this, LoginActivity::class.java)
+//        startActivity(intent)
+//    }
+//} else {
+//    val btnLogout = findViewById<Button>(R.id.btnLogout) as Button
+//    btnLogin.visibility = View.GONE // 반대로 로그인이 되어 있는 상태에서 로그인을 볼 필요가 없기에 GONE 한다.
+//    btnLogout.setOnClickListener{
+//        val intent = Intent(this, LogoutActivity::class.java)
+//        startActivity(intent)
+//    }
+
+/*    private fun initToolBar() {
+        val accountIcon = findViewById<ImageView>(R.id.iv_right_icon)
+        val userName = findViewById<TextView>(R.id.tv_user_name)
+        val loginBtn = findViewById<Button>(R.id.btn_login)
+
+        loginBtn.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
+        }
+
         //회원가입에서 user이름 가져오는 임시 코드 !!
         val user_Name = intent.getStringExtra("userNameKey") ?: "????"
         userName.text = getString(R.string.main_sir, user_Name)
@@ -113,15 +159,13 @@ class MainPageActivity : AppCompatActivity() {
 
         // 로그인 확인 조건문(임시)
         if (false) {
-            loginBtn.setVisibility(View.GONE)
+            loginBtn.setVisibility(View.VISIBLE)
+            accountIcon.setVisibility(View.GONE)
+            userName.setVisibility(View.GONE)
         } else {
+            loginBtn.setVisibility(View.GONE)
             accountIcon.setVisibility(View.VISIBLE)
             userName.setVisibility(View.GONE)
-        }
-
-        loginBtn.setOnClickListener {
-            val intent = Intent(this, SignInActivity::class.java)
-            startActivity(intent)
         }
 
         //마이페이지 클릭하면 유저 아이디를 마이페이지로 전달
@@ -131,7 +175,5 @@ class MainPageActivity : AppCompatActivity() {
             startActivity(intent)
 
             overridePendingTransition(R.anim.main_to_mypage, R.anim.none)
-
         }
-    }
-}
+    }*/
