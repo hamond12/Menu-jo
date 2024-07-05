@@ -2,6 +2,9 @@ package com.example.menujo
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Im
+import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -13,6 +16,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.menujo.data.FoodInfo
 import com.example.menujo.data.FoodManager
+import kotlin.math.max
 
 const val RANDOM_IMAGE_COUNT = 5
 
@@ -76,7 +80,7 @@ class FoodListActivity : AppCompatActivity() {
     private fun setRecommendFoodInfo() {
         val recommendImg = findViewById<ImageView>(R.id.iv_recommend_food)
         val tvRecommendMenuName = findViewById<TextView>(R.id.tv_recommend_menu_name)
-        val tvRecommendMenuIntroduce = findViewById<TextView>(R.id.tv_recommend_menu_introduce)
+        val tvRecommendMenuIntroduce = findViewById<TextView>(R.id.tv_recommend_menu_introduce_1)
         val tvDetailTag1 = findViewById<TextView>(R.id.tv_detail_tag_1)
         val tvDetailTag2 = findViewById<TextView>(R.id.tv_detail_tag_2)
         val tvDetailTag3 = findViewById<TextView>(R.id.tv_detail_tag_3)
@@ -84,6 +88,18 @@ class FoodListActivity : AppCompatActivity() {
         recommendImg.setImageResource(randomFood.image)
         tvRecommendMenuName.text = randomFood.name
         tvRecommendMenuIntroduce.text = randomFood.introduce
+
+        tvRecommendMenuIntroduce.post {
+            val ivSeeDown = findViewById<ImageView>(R.id.iv_see_down)
+            Log.d("FoodListActivity", tvRecommendMenuIntroduce.lineCount.toString())
+            if (tvRecommendMenuIntroduce.lineCount > 1) {
+                ivSeeDown.visibility = View.VISIBLE
+                tvRecommendMenuIntroduce.apply {
+                    ellipsize = TextUtils.TruncateAt.END
+                    maxLines = 1
+                }
+            }
+        }
 
         val tagCount = randomFood.tags.size
 
@@ -99,6 +115,21 @@ class FoodListActivity : AppCompatActivity() {
                 setTag(tvDetailTag3, randomFood, 2)
             }
             else -> return
+        }
+    }
+
+    fun doOnImgClick(view: View) {
+        when (view.id) {
+            R.id.iv_see_down -> {
+                val tvRecommendIntroduce = findViewById<TextView>(R.id.tv_recommend_menu_introduce_1)
+                if (tvRecommendIntroduce.maxLines == Int.MAX_VALUE) {
+                    tvRecommendIntroduce.maxLines = 1
+                    findViewById<ImageView>(R.id.iv_see_down).setImageResource(R.drawable.ic_see_down)
+                } else {
+                    tvRecommendIntroduce.maxLines = Int.MAX_VALUE
+                    findViewById<ImageView>(R.id.iv_see_down).setImageResource(R.drawable.ic_see_up)
+                }
+            }
         }
     }
 
@@ -242,8 +273,6 @@ class FoodListActivity : AppCompatActivity() {
             else -> R.drawable.bg_tag_white
         }
     }
-
-
 
     //date class
 
