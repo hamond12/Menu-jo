@@ -26,7 +26,7 @@ import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
 
-    private lateinit var userData : UserInfo
+    private lateinit var userData: UserInfo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -67,7 +67,8 @@ class SignUpActivity : AppCompatActivity() {
         val pwdData = etPwd.text
         val tagsData = mutableListOf<String>()
 
-        userData = UserInfo(nameData.toString(), idData.toString(), pwdData.toString(), "", tagsData)
+        userData =
+            UserInfo(nameData.toString(), idData.toString(), pwdData.toString(), "", tagsData)
 
         //Gallery image upload
         val pickMedia =
@@ -125,36 +126,8 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
         }
-//
-//        //Sign up Button
-//        btnSignUp.setOnClickListener {
-//            when {
-//                nameData.isBlank() -> etNameLayout.error = getString(R.string.toast_signup_name)
-//                idData.isBlank() -> etIdLayout.error = getString(R.string.common_set_id)
-//                pwdData.isBlank() -> etPwdLayout.error = getString(R.string.common_set_pwd)
-//                tagsData.size == 0 -> Toast.makeText(
-//                    this,
-//                    getString(R.string.toast_signup_favorite_min1),
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//                nameData.length < 2 -> etName.error = getString(R.string.et_signup_name)
-//                idData.length < 7 -> etId.error = getString(R.string.et_signup_id)
-//                pwdData.length < 7 -> etPwd.error = getString(R.string.et_signup_pwd)
-//                else -> {
-//                    Toast.makeText(
-//                        this,
-//                        getString(R.string.common_signup) + getString(R.string.common_finish),
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                    val intent = Intent(this, SignInActivity::class.java)
-//                    intent.putExtra("name",userData.userName)
-//                    intent.putExtra("id",userData.userId)
-//                    intent.putExtra("pwd",userData.userPwd)
-////                    intent.putExtra("tags",userData.tags)
-//                    finish()
-//                }
 
-        //회원가입버튼, 정규식 사용
+        //Sign up Button
         btnSignUp.setOnClickListener {
             val namePattern = "^([a-zA-Z]*)$"
             val idPattern = "^([a-zA-Z0-9]*)$"
@@ -192,11 +165,12 @@ class SignUpActivity : AppCompatActivity() {
                     intent.putExtra("password", pwdData.toString())
                     setResult(RESULT_OK, intent)
                     finish()
-                    overridePendingTransition(R.anim.none, R.anim.signup_to_signin2)
+
                 }
             }
         }
     }
+
     private fun initToolbar() {
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_signup)
         setSupportActionBar(toolbar)
@@ -207,12 +181,13 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            this.isEnabled = false
-            onBackPressedDispatcher.onBackPressed()
-            overridePendingTransition(R.anim.none, R.anim.signup_to_signin)
+    private val onBackPressedCallback: OnBackPressedCallback =
+        object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                this.isEnabled = false
+                onBackPressedDispatcher.onBackPressed()
+                overridePendingTransition(R.anim.none, R.anim.signup_to_signin)
+            }
         }
-    }
 
 }
