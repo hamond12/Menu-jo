@@ -17,7 +17,7 @@
         style="@style/title_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/main_catagory"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,13 +121,12 @@
         android:id="@+id/btn_snackbar"
         style="@style/btn_click_text_30"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="@string/main_click"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/ib_japanesefood"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/ib_koreanfood"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintStart_toStartOf="@+id/ib_koreanfood" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
