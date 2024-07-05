@@ -68,7 +68,7 @@ class MainPageActivity : AppCompatActivity() {
             }
 
             val snack1 = Snackbar.make(it, message, Snackbar.LENGTH_LONG)
-                .setAction("종료하세요~")
+                .setAction(getString(R.string.main_snackbar_finish))
                 {
                     finish()
                 }
