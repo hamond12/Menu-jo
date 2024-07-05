@@ -50,7 +50,8 @@ class MyPageActivity : AppCompatActivity() {
         val userId = intent.getStringExtra(EXTRA_STRING_USER_ID) ?: "bbb123"
 
         if (userId != "") {
-            user = UserManager.getUser(userId)!!
+            //user = UserManager.getUser(userId)!!
+            user = UserManager.currentUser
             setUserInfo()
         } else {
             Toast.makeText(this, getString(R.string.toast_sign_in_first), Toast.LENGTH_SHORT).show()
@@ -72,7 +73,10 @@ class MyPageActivity : AppCompatActivity() {
         tvUserName.text = user.userName
         tvUserId.text = user.userId
         if (user.profileImageUrl != "") {
-            ivProfileImage.setImageURI(Uri.parse(user.profileImageUrl))
+            ivProfileImage.apply {
+                setPadding(0)
+                setImageURI(Uri.parse(user.profileImageUrl))
+            }
         } else {
             findViewById<TextView>(R.id.tv_no_image).visibility = View.VISIBLE
         }

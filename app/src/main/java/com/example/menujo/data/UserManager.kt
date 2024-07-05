@@ -2,6 +2,8 @@ package com.example.menujo.data
 
 object UserManager {
     private var userList = initUserData()
+    var currentUser: UserInfo = UserInfo("", "", "", "", emptyList())
+        private set
 
     private fun initUserData(): MutableList<UserInfo> {
         return mutableListOf(
@@ -45,6 +47,7 @@ object UserManager {
 
     fun saveUser(user: UserInfo) {
         userList.add(user)
+        currentUser = user
     }
 
     fun getUser(userId: String): UserInfo? {

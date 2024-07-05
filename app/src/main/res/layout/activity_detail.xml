@@ -86,7 +86,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/iv_recommend_food" />
 
             <TextView
-                android:id="@+id/tv_recommend_menu_introduce_1"
+                android:id="@+id/tv_recommend_menu_introduce"
                 style="@style/menuintroduce_18"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                 android:onClick="doOnImgClick"
                 android:src="@drawable/ic_see_down"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@id/tv_recommend_menu_introduce_1"
+                app:layout_constraintBottom_toBottomOf="@id/tv_recommend_menu_introduce"
                 app:layout_constraintEnd_toEndOf="@id/tv_recommend_menu_name"
                 tools:visibility="visible" />
 
@@ -123,8 +123,8 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:layout_constraintStart_toStartOf="@id/tv_recommend_menu_introduce_1"
-                app:layout_constraintTop_toBottomOf="@id/tv_recommend_menu_introduce_1"
+                app:layout_constraintStart_toStartOf="@id/tv_recommend_menu_introduce"
+                app:layout_constraintTop_toBottomOf="@id/tv_recommend_menu_introduce"
                 tools:text="매운맛"
                 tools:visibility="visible" />
 
@@ -156,7 +156,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_menu_another"
-                app:layout_constraintEnd_toEndOf="@+id/tv_recommend_menu_introduce_1"
+                app:layout_constraintEnd_toEndOf="@+id/tv_recommend_menu_introduce"
                 app:layout_constraintStart_toStartOf="@+id/tv_detail_tag_1"
                 app:layout_constraintTop_toBottomOf="@+id/tv_detail_tag_1" />
 

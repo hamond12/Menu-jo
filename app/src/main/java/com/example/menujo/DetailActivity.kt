@@ -2,7 +2,6 @@ package com.example.menujo
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Im
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
@@ -17,7 +16,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.menujo.data.FoodInfo
 import com.example.menujo.data.FoodManager
-import kotlin.math.max
 
 class DetailActivity : AppCompatActivity() {
 
@@ -84,7 +82,7 @@ class DetailActivity : AppCompatActivity() {
     private fun setRecommendFoodInfo() {
         val recommendImg = findViewById<ImageView>(R.id.iv_recommend_food)
         val tvRecommendMenuName = findViewById<TextView>(R.id.tv_recommend_menu_name)
-        val tvRecommendMenuIntroduce = findViewById<TextView>(R.id.tv_recommend_menu_introduce_1)
+        val tvRecommendMenuIntroduce = findViewById<TextView>(R.id.tv_recommend_menu_introduce)
         val tvDetailTag1 = findViewById<TextView>(R.id.tv_detail_tag_1)
         val tvDetailTag2 = findViewById<TextView>(R.id.tv_detail_tag_2)
         val tvDetailTag3 = findViewById<TextView>(R.id.tv_detail_tag_3)
@@ -125,7 +123,7 @@ class DetailActivity : AppCompatActivity() {
     fun doOnImgClick(view: View) {
         when (view.id) {
             R.id.iv_see_down -> {
-                val tvRecommendIntroduce = findViewById<TextView>(R.id.tv_recommend_menu_introduce_1)
+                val tvRecommendIntroduce = findViewById<TextView>(R.id.tv_recommend_menu_introduce)
                 if (tvRecommendIntroduce.maxLines == Int.MAX_VALUE) {
                     tvRecommendIntroduce.maxLines = 1
                     findViewById<ImageView>(R.id.iv_see_down).setImageResource(R.drawable.ic_see_down)
