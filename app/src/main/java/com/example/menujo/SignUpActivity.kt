@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.setPadding
+import androidx.core.widget.doAfterTextChanged
 import com.example.menujo.data.UserInfo
 import com.example.menujo.data.UserManager
 import com.google.android.material.appbar.MaterialToolbar
@@ -99,7 +100,6 @@ class SignUpActivity : AppCompatActivity() {
                 openGalleryForImage()
             }
         }
-
         getGalleryImage()
 
         //Check box
@@ -146,7 +146,6 @@ class SignUpActivity : AppCompatActivity() {
                     getString(R.string.toast_signup_favorite_min1),
                     Toast.LENGTH_SHORT
                 ).show()
-
                 idData.length < 7 -> etId.error = getString(R.string.et_signup_id)
                 pwdData.length < 7 -> etPwd.error = getString(R.string.et_signup_pwd)
                 pattern1 == false -> etName.error = getString(R.string.et_signup_name_pattern)
@@ -160,7 +159,7 @@ class SignUpActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    val userData = UserInfo(nameData.toString(), idData.toString(), pwdData.toString(), profileImageUri, tagsData)
+                    val userData = UserInfo(idData.toString(), nameData.toString(), pwdData.toString(), profileImageUri, tagsData)
                     UserManager.saveUser(userData)
                     val intent = Intent(this, SignInActivity::class.java)
                     intent.putExtra("userData", userData)

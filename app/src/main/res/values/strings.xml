@@ -39,6 +39,7 @@
 
     <!--  SignInActivity  -->
 
+    <string name="toast_signin_non_user">회원정보를 찾을 수 없습니다</string>
 
     <!--  SignUpActivity  -->
     <string name="et_signup_name">영어로만 2자리 이상 입력해주세요</string>
@@ -60,7 +61,6 @@
     <string name="cb_noodle">면</string>
     <string name="cb_bread">빵</string>
     <string name="cb_vegetable">야채</string>
-    <string name="cb_fruit">과일</string>
     <string name="cb_spicy">매운맛</string>
     <string name="cb_normal">중간맛</string>
     <string name="cb_mild">순한맛</string>

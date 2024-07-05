@@ -39,7 +39,7 @@
 
 
     <!--  SignInActivity  -->
-
+    <string name="toast_signin_non_user">Can not found user</string>
     <!--  SignUpActivity  -->
     <string name="et_signup_name">at least 2 characters and only English</string>
     <string name="et_signup_id">at least 7 characters and contain lowercase letters and numbers</string>
@@ -51,6 +51,7 @@
 
     <string name="tv_signup_favorite_title">Favorite food</string>
     <string name="tv_signup_favorite_sub">Can choose up to 3</string>
+    <string name="toast_signup_favorite_min1">You must choose at least 1 options</string>
     <string name="toast_signup_favorite_max3">You can choose up to 3 options</string>
 
     <string name="cb_meat">Meat</string>
