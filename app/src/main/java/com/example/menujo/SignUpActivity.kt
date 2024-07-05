@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.PatternMatcher
 import android.text.Editable
-import android.text.TextWatcher
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -14,8 +13,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.util.regex.Pattern
 
@@ -97,31 +96,28 @@ class SignUpActivity : AppCompatActivity() {
             val pattern2 = Pattern.matches(idPattern, idData)
             val pattern3 = Pattern.matches(pwdPattern, pwdData)
 
-            when {
-                    nameData.isBlank() -> etNameLayout.error = getString(R.string.toast_signup_name)
-                    idData.isBlank() -> etIdLayout.error = getString(R.string.common_set_id)
-                    pwdData.isBlank() -> etPwdLayout.error = getString(R.string.common_set_pwd)
-                    nameData.length < 2 -> etName.error = getString(R.string.et_signup_name)
-                    idData.length < 7 -> etId.error = getString(R.string.et_signup_id)
-                    pwdData.length < 7 -> etPwd.error = getString(R.string.et_signup_pwd)
-                    pattern1 == false -> etName.error = getString(R.string.et_signup_name_pattern)
-                    pattern2 == false -> etId.error = getString(R.string.et_signup_id_pattern)
-                    pattern3 == false -> etPwd.error = getString(R.string.et_signup_pwd_pattern)
+                    when {
+                        nameData.isBlank() -> etNameLayout.error = getString(R.string.toast_signup_name)
+                        idData.isBlank() -> etIdLayout.error = getString(R.string.common_set_id)
+                        pwdData.isBlank() -> etPwdLayout.error = getString(R.string.common_set_pwd)
+                        nameData.length < 2 -> etName.error = getString(R.string.et_signup_name)
+                        idData.length < 7 -> etId.error = getString(R.string.et_signup_id)
+                        pwdData.length < 7 -> etPwd.error = getString(R.string.et_signup_pwd)
+                        pattern1 == false -> etName.error = getString(R.string.et_signup_name_pattern)
+                        pattern2 == false -> etId.error = getString(R.string.et_signup_id_pattern)
+                        pattern3 == false -> etPwd.error = getString(R.string.et_signup_pwd_pattern)
 
-                    else -> {
-                        Toast.makeText(this, getString(R.string.common_signup) + getString(R.string.common_finish), Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, SignInActivity::class.java)
-                        intent.putExtra("id",idData.toString())
-                        intent.putExtra("password",pwdData.toString())
-                        setResult(RESULT_OK,intent)
-                        finish()
+                        else -> {
+                            Toast.makeText(this, getString(R.string.common_signup) + getString(R.string.common_finish), Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, SignInActivity::class.java)
+                            intent.putExtra("id", idData.toString())
+                            intent.putExtra("password", pwdData.toString())
+                            setResult(RESULT_OK, intent)
+                            finish()
+                            overridePendingTransition(R.anim.none,R.anim.signup_to_signin2)
+                        }
                     }
-                }
-
-
             }
-
-
         }
 
     private fun initToolbar() {

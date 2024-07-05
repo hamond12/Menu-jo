@@ -55,6 +55,7 @@ class SignInActivity : AppCompatActivity() {
                 ).show()
                 val intent = Intent(this, MainPageActivity::class.java)
                 startActivity(intent)
+                overridePendingTransition(R.anim.siginin_to_main, R.anim.none)
             }
 
         }
