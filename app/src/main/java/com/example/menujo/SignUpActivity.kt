@@ -114,7 +114,6 @@ class SignUpActivity : AppCompatActivity() {
                             intent.putExtra("password", pwdData.toString())
                             setResult(RESULT_OK, intent)
                             finish()
-                            overridePendingTransition(R.anim.none,R.anim.signup_to_signin2)
                         }
                     }
             }
