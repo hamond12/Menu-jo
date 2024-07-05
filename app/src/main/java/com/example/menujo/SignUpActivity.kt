@@ -57,57 +57,63 @@ class SignUpActivity : AppCompatActivity() {
         val idData = etId.text
         val pwdData = etPwd.text
         val favoriteData = mutableListOf<String>()
-        val userData = UserInfo(nameData.toString(),idData.toString(),pwdData.toString(),"",favoriteData)
+        val userData =
+            UserInfo(nameData.toString(), idData.toString(), pwdData.toString(), "", favoriteData)
 
         //체크박스 예외처리
-        cbList.forEach { i ->
-            i.setOnClickListener {
-                if (i.isChecked) {
+        cbList.forEach {
+            it.setOnCheckedChangeListener { _,ischecked ->
+                if (it.isChecked) {
                     cbCount++
-                    favoriteData += i.text.toString()
+                    favoriteData += it.text.toString()
                     if (cbCount == 3) {
                         Toast.makeText(
                             this,
                             getString(R.string.toast_signup_favorite_max3),
                             Toast.LENGTH_SHORT
                         ).show()
-                        for (i in cbList) {
-                            if (!i.isChecked) i.isEnabled = false
-                        }
+                        for (i in cbList) if (!i.isChecked) i.isEnabled = false
                     }
                 } else {
                     cbCount--
-                    for (i in cbList) {
-                        if (!i.isChecked) i.isEnabled = true
-                    }
+                    favoriteData -= it.text.toString()
+                    for (i in cbList) if (!i.isChecked) i.isEnabled = true
                 }
             }
         }
-
 
         //회원가입버튼
         btnSignUp.setOnClickListener {
-                when {
-                    nameData.isBlank() -> etNameLayout.error = getString(R.string.toast_signup_name)
-                    idData.isBlank() -> etIdLayout.error = getString(R.string.common_set_id)
-                    pwdData.isBlank() -> etPwdLayout.error = getString(R.string.common_set_pwd)
-                    nameData.length < 2 -> etName.error = getString(R.string.et_signup_name)
-                    idData.length < 7 -> etId.error = getString(R.string.et_signup_id)
-                    pwdData.length < 7 -> etPwd.error = getString(R.string.et_signup_pwd)
+            when {
+                nameData.isBlank() -> etNameLayout.error = getString(R.string.toast_signup_name)
+                idData.isBlank() -> etIdLayout.error = getString(R.string.common_set_id)
+                pwdData.isBlank() -> etPwdLayout.error = getString(R.string.common_set_pwd)
+                favoriteData.size == 0 -> Toast.makeText(
+                    this,
+                    getString(R.string.toast_signup_favorite_min1),
+                    Toast.LENGTH_SHORT
+                ).show()
 
-                    else -> {
-                        Toast.makeText(this, getString(R.string.common_signup) + getString(R.string.common_finish), Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, SignInActivity::class.java)
-                        finish()
-                    }
+                nameData.length < 2 -> etName.error = getString(R.string.et_signup_name)
+                idData.length < 7 -> etId.error = getString(R.string.et_signup_id)
+                pwdData.length < 7 -> etPwd.error = getString(R.string.et_signup_pwd)
+
+                else -> {
+                    Toast.makeText(
+                        this,
+                        getString(R.string.common_signup) + getString(R.string.common_finish),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    val intent = Intent(this, SignInActivity::class.java)
+                    finish()
                 }
-
-
             }
 
 
         }
 
+
+    }
 
 
     //기존 작성 코드
@@ -134,7 +140,7 @@ class SignUpActivity : AppCompatActivity() {
 //                val intent = Intent(this, SignInActivity::class.java)
 //                finish()
 //            }
-        //여기까지 기존 내용
+    //여기까지 기존 내용
 
     private fun initToolbar() {
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_signup)
