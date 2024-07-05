@@ -51,6 +51,7 @@
 
     <string name="tv_signup_favorite_title">선호 음식</string>
     <string name="tv_signup_favorite_sub">3개까지 선택 가능</string>
+    <string name="toast_signup_favorite_min1">선호하는 음식을 1개 이상 선택해주세요</string>
     <string name="toast_signup_favorite_max3">최대 3개까지 선택 가능합니다</string>
 
     <string name="cb_meat">고기</string>
