@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--    alpha : 투명도 애니메이션
+            fromAlpha : 시작 투명도
+            toAlpha : 끝 투명도
+            투명도는 0(완전히 투명) ~ 1(완전히 보임) 사이에서 조절 가능
+            -->
+    <alpha
+        android:duration = "700"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        />
+
+</set>

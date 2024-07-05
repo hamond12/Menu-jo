@@ -6,12 +6,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
 
 class SignInActivity : AppCompatActivity() {
+    lateinit var resultLauncher: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -59,7 +62,18 @@ class SignInActivity : AppCompatActivity() {
         //회원가입버튼
         btnSignUp.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+            resultLauncher.launch(intent)
+            overridePendingTransition(R.anim.signin_to_signup, R.anim.none)
+            }
+
+        resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == RESULT_OK) {
+                    val id = result.data?.getStringExtra("id")?:""
+                    val password = result.data?.getStringExtra("password")?:""
+                    etId.setText(id)
+                    etPwd.setText(password)
+                }
             }
     }
 

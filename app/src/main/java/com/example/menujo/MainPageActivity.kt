@@ -130,6 +130,7 @@ class MainPageActivity : AppCompatActivity() {
         loginBtn.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.main_to_signin, R.anim.none)
         }
 
         //마이페이지 클릭하면 유저 아이디를 마이페이지로 전달

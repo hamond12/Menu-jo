@@ -45,6 +45,10 @@
     <string name="et_signup_id">영어+숫자 7자리 이상 입력해주세요</string>
     <string name="et_signup_pwd">숫자로만 7자리 이상 입력해주세요</string>
 
+    <string name="et_signup_name_pattern">영어만 입력해주세요</string>
+    <string name="et_signup_id_pattern">영어와 숫자만 입력해주세요</string>
+    <string name="et_signup_pwd_pattern">숫자만 입력해주세요</string>
+
     <string name="tv_signup_favorite_title">선호 음식</string>
     <string name="tv_signup_favorite_sub">3개까지 선택 가능</string>
     <string name="toast_signup_favorite_max3">최대 3개까지 선택 가능합니다</string>
