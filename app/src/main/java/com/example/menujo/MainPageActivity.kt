@@ -33,7 +33,7 @@ class MainPageActivity : AppCompatActivity() {
             insets
         }
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
-        showsnackbar()
+        showSnackbar()
         initToolBar()
 
         findViewById<ImageButton>(R.id.ib_koreanfood).setOnClickListener {
@@ -51,7 +51,7 @@ class MainPageActivity : AppCompatActivity() {
         //animation test
     }
 
-    private fun showsnackbar() {
+    private fun showSnackbar() {
         val snackbarBtn = findViewById<Button>(R.id.btn_snackbar)
         snackbarBtn.setOnClickListener {
 

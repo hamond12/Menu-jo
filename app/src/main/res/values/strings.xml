@@ -18,7 +18,7 @@
     <string name="main_japanesefood">일식</string>
 
     <string name="main_catagory">카테고리 선택</string>
-    <string name="main_sir">%s님</string>
+    <string name="main_sir">%s 님</string>
 
     <string name="main_snackbar_not_full">혹시 지금 배가 안 고프시다면</string>
     <string name="main_snackbar_not_curious">저희에 대해서 궁금하지 않으시다면</string>
