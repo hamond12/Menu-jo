@@ -6,11 +6,9 @@
             toXDelta : x축 애니메이션이 끝나게 되는 위치 값은 fromXdelta 와 같음
             -->
     <translate
-
         android:duration="300"
         android:fromXDelta="0%"
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"
         android:toXDelta="100%"
-
         />
 </set>

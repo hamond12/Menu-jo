@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -20,6 +21,7 @@ import androidx.core.view.setPadding
 import com.example.menujo.data.UserInfo
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputLayout
+import java.util.regex.Pattern
 
 
 class SignUpActivity : AppCompatActivity() {
@@ -58,14 +60,14 @@ class SignUpActivity : AppCompatActivity() {
             findViewById(R.id.cb_mild)
         )
 
+
         //User data
-        val nameData = etName.text.toString()
-        val idData = etId.text.toString()
-        val pwdData = etPwd.text.toString()
+        val nameData = etName.text
+        val idData = etId.text
+        val pwdData = etPwd.text
         val tagsData = mutableListOf<String>()
 
-        userData = UserInfo(nameData, idData, pwdData, "", tagsData)
-
+        userData = UserInfo(nameData.toString(), idData.toString(), pwdData.toString(), "", tagsData)
 
         //Gallery image upload
         val pickMedia =
@@ -82,6 +84,7 @@ class SignUpActivity : AppCompatActivity() {
                     )
                 }
             }
+
         fun openGalleryForImage() {
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
@@ -103,7 +106,7 @@ class SignUpActivity : AppCompatActivity() {
         var cbCount = 0
 
         cbList.forEach {
-            it.setOnCheckedChangeListener { _,ischecked ->
+            it.setOnCheckedChangeListener { _, ischecked ->
                 if (it.isChecked) {
                     cbCount++
                     tagsData += it.text.toString()
@@ -122,22 +125,61 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
         }
+//
+//        //Sign up Button
+//        btnSignUp.setOnClickListener {
+//            when {
+//                nameData.isBlank() -> etNameLayout.error = getString(R.string.toast_signup_name)
+//                idData.isBlank() -> etIdLayout.error = getString(R.string.common_set_id)
+//                pwdData.isBlank() -> etPwdLayout.error = getString(R.string.common_set_pwd)
+//                tagsData.size == 0 -> Toast.makeText(
+//                    this,
+//                    getString(R.string.toast_signup_favorite_min1),
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//                nameData.length < 2 -> etName.error = getString(R.string.et_signup_name)
+//                idData.length < 7 -> etId.error = getString(R.string.et_signup_id)
+//                pwdData.length < 7 -> etPwd.error = getString(R.string.et_signup_pwd)
+//                else -> {
+//                    Toast.makeText(
+//                        this,
+//                        getString(R.string.common_signup) + getString(R.string.common_finish),
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    val intent = Intent(this, SignInActivity::class.java)
+//                    intent.putExtra("name",userData.userName)
+//                    intent.putExtra("id",userData.userId)
+//                    intent.putExtra("pwd",userData.userPwd)
+////                    intent.putExtra("tags",userData.tags)
+//                    finish()
+//                }
 
-        //Sign up Button
+        //회원가입버튼, 정규식 사용
         btnSignUp.setOnClickListener {
+            val namePattern = "^([a-zA-Z]*)$"
+            val idPattern = "^([a-zA-Z0-9]*)$"
+            val pwdPattern = "^([0-9]*)$"
+
+            val pattern1 = Pattern.matches(namePattern, nameData)
+            val pattern2 = Pattern.matches(idPattern, idData)
+            val pattern3 = Pattern.matches(pwdPattern, pwdData)
+
             when {
                 nameData.isBlank() -> etNameLayout.error = getString(R.string.toast_signup_name)
                 idData.isBlank() -> etIdLayout.error = getString(R.string.common_set_id)
                 pwdData.isBlank() -> etPwdLayout.error = getString(R.string.common_set_pwd)
+                nameData.length < 2 -> etName.error = getString(R.string.et_signup_name)
                 tagsData.size == 0 -> Toast.makeText(
                     this,
                     getString(R.string.toast_signup_favorite_min1),
                     Toast.LENGTH_SHORT
                 ).show()
 
-                nameData.length < 2 -> etName.error = getString(R.string.et_signup_name)
                 idData.length < 7 -> etId.error = getString(R.string.et_signup_id)
                 pwdData.length < 7 -> etPwd.error = getString(R.string.et_signup_pwd)
+                pattern1 == false -> etName.error = getString(R.string.et_signup_name_pattern)
+                pattern2 == false -> etId.error = getString(R.string.et_signup_id_pattern)
+                pattern3 == false -> etPwd.error = getString(R.string.et_signup_pwd_pattern)
 
                 else -> {
                     Toast.makeText(
@@ -146,18 +188,14 @@ class SignUpActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                     val intent = Intent(this, SignInActivity::class.java)
-                    intent.putExtra("name",userData.userName)
-                    intent.putExtra("id",userData.userId)
-                    intent.putExtra("pwd",userData.userPwd)
-//                    intent.putExtra("tags",userData.tags)
+                    intent.putExtra("id", idData.toString())
+                    intent.putExtra("password", pwdData.toString())
+                    setResult(RESULT_OK, intent)
                     finish()
+                    overridePendingTransition(R.anim.none, R.anim.signup_to_signin2)
                 }
             }
-
-
         }
-
-
     }
     private fun initToolbar() {
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_signup)
@@ -165,6 +203,16 @@ class SignUpActivity : AppCompatActivity() {
         supportActionBar?.title = ""
         toolbar.setNavigationOnClickListener {
             finish()
+            overridePendingTransition(R.anim.none, R.anim.signup_to_signin)
         }
     }
+
+    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+            overridePendingTransition(R.anim.none, R.anim.signup_to_signin)
+        }
+    }
+
 }

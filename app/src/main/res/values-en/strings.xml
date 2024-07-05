@@ -45,6 +45,10 @@
     <string name="et_signup_id">at least 7 characters and contain lowercase letters and numbers</string>
     <string name="et_signup_pwd">must be enter at least 7 characters and only numbers</string>
 
+    <string name="et_signup_name_pattern">only English</string>
+    <string name="et_signup_id_pattern">contain lowercase letters and numbers</string>
+    <string name="et_signup_pwd_pattern">only numbers</string>
+
     <string name="tv_signup_favorite_title">Favorite food</string>
     <string name="tv_signup_favorite_sub">Can choose up to 3</string>
     <string name="toast_signup_favorite_max3">You can choose up to 3 options</string>

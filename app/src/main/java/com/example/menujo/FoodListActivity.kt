@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -253,6 +254,7 @@ class FoodListActivity : AppCompatActivity() {
         leftIcon.setImageResource(R.drawable.back)
         leftIcon.setOnClickListener {
             finish()
+            overridePendingTransition(R.anim.none, R.anim.foodlist_to_main)
         }
 
         val accountIcon = findViewById<ImageView>(R.id.iv_right_icon)
@@ -270,6 +272,15 @@ class FoodListActivity : AppCompatActivity() {
         loginBtn.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.foodlist_to_signin, R.anim.none)
+        }
+    }
+
+    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+            overridePendingTransition(R.anim.none, R.anim.foodlist_to_main)
         }
     }
 }

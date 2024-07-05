@@ -18,8 +18,8 @@
 
     <ImageView
         android:id="@+id/iv_signup_image"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="70dp"
         android:background="@drawable/bg_my_page_img"
         android:clipToOutline="true"
@@ -36,7 +36,7 @@
         style="@style/text_no_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="이미지 없음"
         android:visibility="gone"
@@ -68,6 +68,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_signup_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_signup_name">
 
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_signup_name"
             android:layout_width="match_parent"
@@ -76,20 +77,6 @@
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
     <!-- 변경 내용-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/et_signup_name"-
-<!-        style="@style/text_sign_hint"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="4dp"-->
-<!--        android:layout_marginEnd="30dp"-->
-<!--        android:hint="@string/et_signup_name"-->
-<!--        android:inputType="text"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/tv_signup_name"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_signup_name" />-->
-
-
 
     <TextView
         android:id="@+id/tv_signup_id"
@@ -120,20 +107,6 @@
     </com.google.android.material.textfield.TextInputLayout>
     <!-- 변경 내용 -->
 
-
-<!--    <EditText-->
-<!--        android:id="@+id/et_signup_id"-->
-<!--        style="@style/text_sign_hint"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="4dp"-->
-<!--        android:hint="@string/et_signup_id"-->
-<!--        android:inputType="text"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/tv_signup_name_layout"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/tv_signup_id"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_signup_id" />-->
-
-
     <TextView
         android:id="@+id/tv_signup_pwd"
         style="@style/text_sign_title"
@@ -163,18 +136,6 @@
             android:inputType="numberPassword" />
     </com.google.android.material.textfield.TextInputLayout>
     <!-- 변경 내용 -->
-
-<!--    <EditText-->
-<!--        android:id="@+id/et_signup_pwd"-->
-<!--        style="@style/text_sign_hint"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="4dp"-->
-<!--        android:hint="@string/et_signup_pwd"-->
-<!--        android:inputType="numberPassword"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/tv_signup_id_layout"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/tv_signup_pwd"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_signup_pwd" />-->
 
     <TextView
         android:id="@+id/tv_signup_favorite_title"
@@ -292,7 +253,7 @@
         style="@style/btn_default"
         android:layout_marginBottom="50dp"
         android:text="@string/common_signup"
-        app:layout_constraintBottom_toTopOf="@+id/iv_signin_logo_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/cb_bread"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -305,7 +266,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
