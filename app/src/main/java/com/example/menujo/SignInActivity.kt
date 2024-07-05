@@ -11,10 +11,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.menujo.data.UserInfo
 import com.google.android.material.appbar.MaterialToolbar
 
 class SignInActivity : AppCompatActivity() {
     lateinit var resultLauncher: ActivityResultLauncher<Intent>
+    private lateinit var userData : UserInfo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -54,6 +56,8 @@ class SignInActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
                 val intent = Intent(this, MainPageActivity::class.java)
+                intent.putExtra("id",userData.userId)
+                intent.putExtra("name",userData.userName)
                 startActivity(intent)
                 overridePendingTransition(R.anim.siginin_to_main, R.anim.none)
             }
@@ -70,10 +74,11 @@ class SignInActivity : AppCompatActivity() {
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-                    val id = result.data?.getStringExtra("id")?:""
-                    val password = result.data?.getStringExtra("password")?:""
-                    etId.setText(id)
-                    etPwd.setText(password)
+                    userData = result.data?.getParcelableExtra("userData") ?: UserInfo("","","","",
+                        emptyList()
+                    )
+                    etId.setText(userData.userId)
+                    etPwd.setText(userData.userPwd)
                 }
             }
     }
