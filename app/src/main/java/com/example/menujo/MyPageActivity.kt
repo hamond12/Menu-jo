@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.setPadding
 import com.example.menujo.data.UserInfo
 import com.example.menujo.data.UserManager
 import com.google.android.material.appbar.MaterialToolbar
@@ -48,10 +49,7 @@ class MyPageActivity : AppCompatActivity() {
         // TODO: 유저 이름을 intent로 전달받기
         val userId = intent.getStringExtra(EXTRA_STRING_USER_ID) ?: "bbb123"
 
-        //user = UserManager.getUser(userId)!!
-
         if (userId != "") {
-            //user = UserManager.getUserByName(userName)!!
             user = UserManager.getUser(userId)!!
             setUserInfo()
         } else {
@@ -73,7 +71,11 @@ class MyPageActivity : AppCompatActivity() {
 
         tvUserName.text = user.userName
         tvUserId.text = user.userId
-        ivProfileImage.setImageURI(Uri.parse(user.profileImageUrl))
+        if (user.profileImageUrl != "") {
+            ivProfileImage.setImageURI(Uri.parse(user.profileImageUrl))
+        } else {
+            findViewById<TextView>(R.id.tv_no_image).visibility = View.VISIBLE
+        }
 
         val tagCount = user.tags.size
 
@@ -112,7 +114,6 @@ class MyPageActivity : AppCompatActivity() {
             "중간맛" -> R.color.white
             "순한맛" -> R.color.black
             "야채" -> R.color.white
-            "과일" -> R.color.black
             else -> R.color.white
         }
     }
@@ -128,18 +129,15 @@ class MyPageActivity : AppCompatActivity() {
             "중간맛" -> R.drawable.bg_tag_orange
             "순한맛" -> R.drawable.bg_tag_yellow
             "야채" -> R.drawable.bg_tag_green
-            "과일" -> R.drawable.bg_tag_pink
             else -> R.drawable.bg_tag_white
         }
     }
 
     private fun signOut() {
-        val btnSignOut = findViewById<Button>(R.id.btn_sign_out)
-        btnSignOut.setOnClickListener {
+        val btnNavigateToHome = findViewById<Button>(R.id.btn_navigate_to_home)
+        btnNavigateToHome.setOnClickListener {
             val intent = Intent(this, MainPageActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-            intent.putExtra("sign_out", true)
-            //user = UserInfo("", "", "", mutableListOf())
             startActivity(intent)
         }
     }
@@ -154,12 +152,15 @@ class MyPageActivity : AppCompatActivity() {
     private val pickMedia =
         registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
             uri?.also { imageUri ->
-                findViewById<ImageView>(R.id.iv_profile_image)?.setImageURI(imageUri)
+                findViewById<ImageView>(R.id.iv_profile_image)?.apply {
+                    setPadding(0)
+                    setImageURI(imageUri)
+                }
+                findViewById<TextView>(R.id.tv_no_image).visibility = View.GONE
                 contentResolver.takePersistableUriPermission(
                     imageUri,
                     Intent.FLAG_GRANT_READ_URI_PERMISSION
                 )
-                Log.d("MyPageActivity", imageUri.toString())
             }
         }
 
