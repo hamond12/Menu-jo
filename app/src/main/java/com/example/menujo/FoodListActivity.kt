@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -13,8 +14,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.menujo.data.FoodInfo
 import com.example.menujo.data.FoodManager
-
-const val RANDOM_IMAGE_COUNT = 5
 
 class FoodListActivity : AppCompatActivity() {
 
@@ -31,37 +30,42 @@ class FoodListActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         initToolBar()
         setLayout()
     }
 
+
     private fun setLayout() {
+        
+        val foodManager = FoodManager()
+        
         val category = intent.getStringExtra("food")
         val tvTitleList = findViewById<TextView>(R.id.tv_title_list)
         when (category) {
             "koreanFood" -> {
                 tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_koreanfood))
-                foodList = FoodManager.koreanFoodList
-                randomFood = FoodManager.koreanRandomFood!!
-                filteredFoodList = FoodManager.koreanFoodFilteredList
+                foodList = foodManager.koreanFoodList
+                randomFood = foodManager.koreanRandomFood!!
+                filteredFoodList = foodManager.koreanFoodFilteredList
             }
             "chineseFood" -> {
                 tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_chinesefood))
-                foodList = FoodManager.chineseFoodList
-                randomFood = FoodManager.chineseRandomFood!!
-                filteredFoodList = FoodManager.chinesFoodFilteredList
+                foodList = foodManager.chineseFoodList
+                randomFood = foodManager.chineseRandomFood!!
+                filteredFoodList = foodManager.chinesFoodFilteredList
             }
             "westernFood" -> {
                 tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_westernfood))
-                foodList = FoodManager.westernFoodList
-                randomFood = FoodManager.westernRandomFood!!
-                filteredFoodList = FoodManager.westernFoodListFilteredList
+                foodList = foodManager.westernFoodList
+                randomFood = foodManager.westernRandomFood!!
+                filteredFoodList = foodManager.westernFoodListFilteredList
             }
             "japaneseFood" -> {
                 tvTitleList.text = getString(R.string.detail_menu_list_title, getString(R.string.main_japanesefood))
-                foodList = FoodManager.japaneseFoodList
-                randomFood = FoodManager.japaneseRandomFood!!
-                filteredFoodList = FoodManager.japaneseFoodListFilteredList
+                foodList = foodManager.japaneseFoodList
+                randomFood = foodManager.japaneseRandomFood!!
+                filteredFoodList = foodManager.japaneseFoodListFilteredList
             }
             else -> {
                 foodList = emptyList()
@@ -243,8 +247,6 @@ class FoodListActivity : AppCompatActivity() {
         }
     }
 
-
-
     //date class
 
     private fun initToolBar() {
@@ -253,6 +255,7 @@ class FoodListActivity : AppCompatActivity() {
         leftIcon.setImageResource(R.drawable.back)
         leftIcon.setOnClickListener {
             finish()
+            overridePendingTransition(R.anim.none, R.anim.foodlist_to_main)
         }
 
         val accountIcon = findViewById<ImageView>(R.id.iv_right_icon)
@@ -270,6 +273,15 @@ class FoodListActivity : AppCompatActivity() {
         loginBtn.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.foodlist_to_signin, R.anim.none)
+        }
+    }
+
+    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+            overridePendingTransition(R.anim.none, R.anim.foodlist_to_main)
         }
     }
 }
