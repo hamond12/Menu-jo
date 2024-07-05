@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".FoodListActivity">
 
     <include
         android:id="@+id/toolbar"
@@ -23,30 +23,43 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            >
 
             <TextView
                 android:id="@+id/tv_title_list"
                 style="@style/listname_26"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+
                 android:text="@string/detail_menu_list_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.08" />
 
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_list" />
+
             <TextView
                 android:id="@+id/tv_recommend_menu"
                 style="@style/anothor_menu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="@string/detail_menu_recommend"
                 app:layout_constraintEnd_toEndOf="@+id/tv_title_list"
                 app:layout_constraintStart_toStartOf="@+id/tv_title_list"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_list" />
+                app:layout_constraintTop_toBottomOf="@+id/view_line" />
 
             <ImageView
                 android:id="@+id/iv_recommend_food"
@@ -57,7 +70,7 @@
                 android:clipToOutline="true"
                 android:contentDescription="@string/iv_description_recommend_food_image"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_jajangmyeon"
+                android:src="@drawable/img_jajangmyeon"
                 app:layout_constraintEnd_toEndOf="@+id/tv_recommend_menu"
                 app:layout_constraintStart_toStartOf="@+id/tv_recommend_menu"
                 app:layout_constraintTop_toBottomOf="@+id/tv_recommend_menu" />
@@ -158,14 +171,13 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="@id/tv_another_menu"
                 app:layout_constraintTop_toBottomOf="@id/tv_another_menu"
-                tools:src="@drawable/ic_jjambbong" />
+                tools:src="@drawable/img_jjambbong" />
 
             <View
                 android:id="@+id/view_food_1"
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_white_gray_10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_food_1"
@@ -186,6 +198,7 @@
             <TextView
                 android:id="@+id/tv_food_introduce_1"
                 android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.55"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/pretendard_medium"
@@ -238,14 +251,13 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="@id/iv_food_1"
                 app:layout_constraintTop_toBottomOf="@id/iv_food_1"
-                tools:src="@drawable/ic_jjambbong" />
+                tools:src="@drawable/img_jjambbong" />
 
             <View
                 android:id="@+id/view_food_2"
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_white_gray_10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_food_2"
@@ -266,6 +278,7 @@
             <TextView
                 android:id="@+id/tv_food_introduce_2"
                 android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.55"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/pretendard_medium"
@@ -318,14 +331,13 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="@id/iv_food_2"
                 app:layout_constraintTop_toBottomOf="@id/iv_food_2"
-                tools:src="@drawable/ic_jjambbong" />
+                tools:src="@drawable/img_jjambbong" />
 
             <View
                 android:id="@+id/view_food_3"
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="20dp"
                 android:background="@drawable/round_square_backgroud"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_food_3"
@@ -346,6 +358,7 @@
             <TextView
                 android:id="@+id/tv_food_introduce_3"
                 android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.55"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/pretendard_medium"
@@ -400,14 +413,13 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/iv_food_3"
                 app:layout_constraintTop_toBottomOf="@id/iv_food_3"
-                tools:src="@drawable/ic_jjambbong" />
+                tools:src="@drawable/img_jjambbong" />
 
             <View
                 android:id="@+id/view_food_4"
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_white_gray_10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_food_4"
@@ -428,6 +440,7 @@
             <TextView
                 android:id="@+id/tv_food_introduce_4"
                 android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.55"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/pretendard_medium"
