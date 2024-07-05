@@ -115,14 +115,15 @@ class MainPageActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val user_Name = intent.getStringExtra("userNameKey") ?: "????"
+        val user_Name = intent.getStringExtra("name") ?: "???"
+        val user_id = intent.getStringExtra("id")
         userName.text = getString(R.string.main_sir, user_Name)
 
 
         //마이페이지 클릭하면 유저 아이디를 마이페이지로 전달
         accountIcon.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
-            intent.putExtra("userID", user_Name)
+            intent.putExtra("id", user_id)
             startActivity(intent)
 
             overridePendingTransition(R.anim.main_to_mypage, R.anim.none)
