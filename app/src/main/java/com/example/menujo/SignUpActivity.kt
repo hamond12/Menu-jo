@@ -38,7 +38,7 @@ class SignUpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         initToolbar()
 
         //Set layout

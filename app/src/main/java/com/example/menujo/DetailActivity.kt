@@ -34,7 +34,7 @@ class DetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         initToolBar()
         setLayout()
     }
