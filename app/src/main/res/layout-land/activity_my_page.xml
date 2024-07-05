@@ -131,7 +131,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_sign_out"
+        android:id="@+id/btn_navigate_to_home"
         style="@style/btn_default"
         android:layout_marginTop="50dp"
         android:text="@string/btn_label_to_home"
