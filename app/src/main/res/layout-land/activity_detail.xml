@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/tv_title_list"
+        style="@style/listname_26"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/detail_menu_list_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08" />
+
+    <TextView
+        android:id="@+id/tv_recommend_menu"
+        style="@style/menuname_20"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_menu_recommend"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title_list"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_list"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_list" />
+
+    <ImageView
+        android:id="@+id/iv_recommend_food"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/round_square_backgroud"
+        android:clipToOutline="true"
+        android:src="@drawable/ic_jajangmyeon"
+        app:layout_constraintEnd_toEndOf="@+id/tv_recommend_menu"
+        app:layout_constraintStart_toStartOf="@+id/tv_recommend_menu"
+        app:layout_constraintTop_toBottomOf="@+id/tv_recommend_menu" />
+
+    <TextView
+        android:id="@+id/tv_recommend_menu_name"
+        style="@style/menuname_20"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_menu_name"
+        app:layout_constraintEnd_toEndOf="@+id/iv_recommend_food"
+        app:layout_constraintStart_toStartOf="@+id/iv_recommend_food"
+        app:layout_constraintTop_toBottomOf="@+id/iv_recommend_food" />
+
+    <TextView
+        android:id="@+id/tv_recommend_menu_introduce"
+        style="@style/menuintroduce_18"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_menu_introduce"
+        app:layout_constraintEnd_toEndOf="@+id/tv_recommend_menu_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_recommend_menu_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_recommend_menu_name" />
+
+    <TextView
+        android:id="@+id/tv_another_menu"
+        style="@style/anothor_menu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_menu_another"
+        app:layout_constraintEnd_toEndOf="@+id/tv_recommend_menu_introduce"
+        app:layout_constraintStart_toStartOf="@+id/tv_recommend_menu_introduce"
+        app:layout_constraintTop_toBottomOf="@+id/tv_recommend_menu_introduce" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
