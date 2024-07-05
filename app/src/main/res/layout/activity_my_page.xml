@@ -143,10 +143,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_sign_out"
+        android:id="@+id/btn_navigate_to_home"
         style="@style/btn_default"
         android:layout_marginTop="50dp"
-        android:text="@string/btn_label_sign_out"
+        android:text="@string/btn_label_to_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_label_my_page_preferred_food" />

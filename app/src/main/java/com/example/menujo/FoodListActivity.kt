@@ -224,7 +224,6 @@ class FoodListActivity : AppCompatActivity() {
             "중간맛" -> R.color.white
             "순한맛" -> R.color.black
             "야채" -> R.color.white
-            "과일" -> R.color.black
             else -> R.color.white
         }
     }
@@ -240,7 +239,6 @@ class FoodListActivity : AppCompatActivity() {
             "중간맛" -> R.drawable.bg_tag_orange
             "순한맛" -> R.drawable.bg_tag_yellow
             "야채" -> R.drawable.bg_tag_green
-            "과일" -> R.drawable.bg_tag_pink
             else -> R.drawable.bg_tag_white
         }
     }

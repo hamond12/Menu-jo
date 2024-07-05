@@ -49,10 +49,7 @@ class MyPageActivity : AppCompatActivity() {
         // TODO: 유저 이름을 intent로 전달받기
         val userId = intent.getStringExtra(EXTRA_STRING_USER_ID) ?: "bbb123"
 
-        //user = UserManager.getUser(userId)!!
-
         if (userId != "") {
-            //user = UserManager.getUserByName(userName)!!
             user = UserManager.getUser(userId)!!
             setUserInfo()
         } else {
@@ -117,7 +114,6 @@ class MyPageActivity : AppCompatActivity() {
             "중간맛" -> R.color.white
             "순한맛" -> R.color.black
             "야채" -> R.color.white
-            "과일" -> R.color.black
             else -> R.color.white
         }
     }
@@ -133,18 +129,15 @@ class MyPageActivity : AppCompatActivity() {
             "중간맛" -> R.drawable.bg_tag_orange
             "순한맛" -> R.drawable.bg_tag_yellow
             "야채" -> R.drawable.bg_tag_green
-            "과일" -> R.drawable.bg_tag_pink
             else -> R.drawable.bg_tag_white
         }
     }
 
     private fun signOut() {
-        val btnSignOut = findViewById<Button>(R.id.btn_sign_out)
-        btnSignOut.setOnClickListener {
+        val btnNavigateToHome = findViewById<Button>(R.id.btn_navigate_to_home)
+        btnNavigateToHome.setOnClickListener {
             val intent = Intent(this, MainPageActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-            intent.putExtra("sign_out", true)
-            //user = UserInfo("", "", "", mutableListOf())
             startActivity(intent)
         }
     }
