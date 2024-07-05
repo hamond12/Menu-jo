@@ -2,6 +2,7 @@ package com.example.menujo
 
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -12,6 +13,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.menujo.data.UserManager
 import com.google.android.material.snackbar.Snackbar
 import kotlin.random.Random
 
@@ -110,14 +112,33 @@ class MainPageActivity : AppCompatActivity() {
         val userName = findViewById<TextView>(R.id.tv_user_name)
         val loginBtn = findViewById<Button>(R.id.btn_login)
 
+        val user_id = intent.getStringExtra("id") ?: ""
+        var user = UserManager.getUser(user_id)
+        val user_Name = intent.getStringExtra("name") ?: ""
+
         loginBtn.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }
 
-        val user_Name = intent.getStringExtra("name") ?: "???"
-        val user_id = intent.getStringExtra("id")
-        userName.text = getString(R.string.main_sir, user_Name)
+
+        if (user != null) {
+            userName.text = getString(R.string.main_sir, user_Name)
+            loginBtn.visibility = View.GONE
+            userName.visibility = View.VISIBLE
+            accountIcon.visibility = View.VISIBLE
+
+            if (user?.profileImageUrl != "") {
+                accountIcon.setImageURI(Uri.parse(user?.profileImageUrl))
+            } else {
+                accountIcon.setImageResource(R.drawable.account_circle)
+            }
+
+        } else {
+            loginBtn.visibility = View.VISIBLE
+            userName.visibility = View.GONE
+            accountIcon.visibility = View.GONE
+        }
 
 
         //마이페이지 클릭하면 유저 아이디를 마이페이지로 전달
