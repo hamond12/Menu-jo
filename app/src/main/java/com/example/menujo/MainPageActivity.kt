@@ -76,28 +76,28 @@ class MainPageActivity : AppCompatActivity() {
     private fun initImageButton(view: View) {
         when (view.getId()) {
             R.id.ib_koreanfood -> {
-                val intent = Intent(this, FoodListActivity::class.java)
+                val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "koreanFood")
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_koreanfood, R.anim.none)
             }
 
             R.id.ib_chinesefood -> {
-                val intent = Intent(this, FoodListActivity::class.java)
+                val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "chineseFood")
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_chinesefood, R.anim.none)
             }
 
             R.id.ib_westernfood -> {
-                val intent = Intent(this, FoodListActivity::class.java)
+                val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "westernFood")
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_westernfood, R.anim.none)
             }
 
             R.id.ib_japanesefood -> {
-                val intent = Intent(this, FoodListActivity::class.java)
+                val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "japaneseFood")
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_japanesefood, R.anim.none)
