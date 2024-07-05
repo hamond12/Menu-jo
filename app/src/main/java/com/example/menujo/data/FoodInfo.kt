@@ -6,7 +6,7 @@ data class FoodInfo(
     val category: String,
     val foodId: Int,
     val image: Int,
-    val name: String,
-    val introduce: String,
+    val name: Int,
+    val introduce: Int,
     val tags: List<String>,
 )
