@@ -1,7 +1,10 @@
 package com.example.menujo
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -14,6 +17,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.menujo.data.FoodInfo
 import com.example.menujo.data.FoodManager
+import com.example.menujo.data.UserManager
 
 class DetailActivity : AppCompatActivity() {
 
@@ -89,6 +93,18 @@ class DetailActivity : AppCompatActivity() {
         tvRecommendMenuName.text = randomFood.name
         tvRecommendMenuIntroduce.text = randomFood.introduce
 
+        tvRecommendMenuIntroduce.post {
+            val ivSeeDown = findViewById<ImageView>(R.id.iv_see_down)
+            Log.d("FoodListActivity", tvRecommendMenuIntroduce.lineCount.toString())
+            if (tvRecommendMenuIntroduce.lineCount > 1) {
+                ivSeeDown.visibility = View.VISIBLE
+                tvRecommendMenuIntroduce.apply {
+                    ellipsize = TextUtils.TruncateAt.END
+                    maxLines = 1
+                }
+            }
+        }
+
         val tagCount = randomFood.tags.size
 
         when (tagCount) {
@@ -103,6 +119,21 @@ class DetailActivity : AppCompatActivity() {
                 setTag(tvDetailTag3, randomFood, 2)
             }
             else -> return
+        }
+    }
+
+    fun doOnImgClick(view: View) {
+        when (view.id) {
+            R.id.iv_see_down -> {
+                val tvRecommendIntroduce = findViewById<TextView>(R.id.tv_recommend_menu_introduce)
+                if (tvRecommendIntroduce.maxLines == Int.MAX_VALUE) {
+                    tvRecommendIntroduce.maxLines = 1
+                    findViewById<ImageView>(R.id.iv_see_down).setImageResource(R.drawable.ic_see_down)
+                } else {
+                    tvRecommendIntroduce.maxLines = Int.MAX_VALUE
+                    findViewById<ImageView>(R.id.iv_see_down).setImageResource(R.drawable.ic_see_up)
+                }
+            }
         }
     }
 
@@ -257,23 +288,44 @@ class DetailActivity : AppCompatActivity() {
             finish()
             overridePendingTransition(R.anim.none, R.anim.foodlist_to_main)
         }
-
         val accountIcon = findViewById<ImageView>(R.id.iv_right_icon)
         val userName = findViewById<TextView>(R.id.tv_user_name)
         val loginBtn = findViewById<Button>(R.id.btn_login)
 
-        // 로그인 확인 조건문(임시)
-        if(false) {
-            loginBtn.setVisibility(View.GONE);
-        }else{
-            accountIcon.setVisibility(View.GONE)
-            userName.setVisibility(View.GONE)
-        }
+        val user_id = intent.getStringExtra("id") ?: ""
+        val user = UserManager.getUser(user_id)
+        val user_Name = intent.getStringExtra("name") ?: ""
 
         loginBtn.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.foodlist_to_signin, R.anim.none)
+        }
+
+        if (user != null) {
+            userName.text = getString(R.string.main_sir, user_Name)
+            loginBtn.visibility = View.GONE
+            userName.visibility = View.VISIBLE
+            accountIcon.visibility = View.VISIBLE
+
+            if (user.profileImageUrl != "") {
+                accountIcon.setImageURI(Uri.parse(user.profileImageUrl))
+            } else {
+                accountIcon.setImageResource(R.drawable.account_circle)
+            }
+
+        } else {
+            loginBtn.visibility = View.VISIBLE
+            userName.visibility = View.GONE
+            accountIcon.visibility = View.GONE
+        }
+
+        //마이페이지 클릭하면 유저 아이디를 마이페이지로 전달
+        accountIcon.setOnClickListener {
+            val intent = Intent(this, MyPageActivity::class.java)
+            intent.putExtra("id", user_id)
+            startActivity(intent)
+
+            overridePendingTransition(R.anim.main_to_mypage, R.anim.none)
         }
     }
 

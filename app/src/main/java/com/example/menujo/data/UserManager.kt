@@ -50,8 +50,4 @@ object UserManager {
     fun getUser(userId: String): UserInfo? {
         return userList.find { it.userId == userId }
     }
-
-    fun getUserByName(userName: String): UserInfo? {
-        return userList.find { it.userName == userName }
-    }
 }

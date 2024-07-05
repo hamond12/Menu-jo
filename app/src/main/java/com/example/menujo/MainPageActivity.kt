@@ -18,6 +18,10 @@ import com.google.android.material.snackbar.Snackbar
 import kotlin.random.Random
 
 class MainPageActivity : AppCompatActivity() {
+
+    private lateinit var user_id: String
+    private lateinit var user_Name: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -80,6 +84,8 @@ class MainPageActivity : AppCompatActivity() {
             R.id.ib_koreanfood -> {
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "koreanFood")
+                intent.putExtra("id", user_id)
+                intent.putExtra("name", user_Name)
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_koreanfood, R.anim.none)
             }
@@ -87,6 +93,8 @@ class MainPageActivity : AppCompatActivity() {
             R.id.ib_chinesefood -> {
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "chineseFood")
+                intent.putExtra("id", user_id)
+                intent.putExtra("name", user_Name)
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_chinesefood, R.anim.none)
             }
@@ -94,6 +102,8 @@ class MainPageActivity : AppCompatActivity() {
             R.id.ib_westernfood -> {
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "westernFood")
+                intent.putExtra("id", user_id)
+                intent.putExtra("name", user_Name)
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_westernfood, R.anim.none)
             }
@@ -101,6 +111,8 @@ class MainPageActivity : AppCompatActivity() {
             R.id.ib_japanesefood -> {
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "japaneseFood")
+                intent.putExtra("id", user_id)
+                intent.putExtra("name", user_Name)
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_japanesefood, R.anim.none)
             }
@@ -112,9 +124,9 @@ class MainPageActivity : AppCompatActivity() {
         val userName = findViewById<TextView>(R.id.tv_user_name)
         val loginBtn = findViewById<Button>(R.id.btn_login)
 
-        val user_id = intent.getStringExtra("id") ?: ""
-        var user = UserManager.getUser(user_id)
-        val user_Name = intent.getStringExtra("name") ?: ""
+        user_id = intent.getStringExtra("id") ?: ""
+        val user = UserManager.getUser(user_id)
+        user_Name = intent.getStringExtra("name") ?: ""
 
         loginBtn.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
@@ -128,8 +140,8 @@ class MainPageActivity : AppCompatActivity() {
             userName.visibility = View.VISIBLE
             accountIcon.visibility = View.VISIBLE
 
-            if (user?.profileImageUrl != "") {
-                accountIcon.setImageURI(Uri.parse(user?.profileImageUrl))
+            if (user.profileImageUrl != "") {
+                accountIcon.setImageURI(Uri.parse(user.profileImageUrl))
             } else {
                 accountIcon.setImageResource(R.drawable.account_circle)
             }
