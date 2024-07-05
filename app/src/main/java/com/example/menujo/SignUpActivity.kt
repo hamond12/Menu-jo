@@ -82,7 +82,6 @@ class SignUpActivity : AppCompatActivity() {
                         setImageURI(imageUri)
                     }
                     profileImageUri = imageUri.toString()
-                        findViewById<TextView>(R.id.tv_no_image).visibility = View.GONE
                     contentResolver.takePersistableUriPermission(
                         imageUri,
                         Intent.FLAG_GRANT_READ_URI_PERMISSION

@@ -23,6 +23,7 @@ import com.example.menujo.data.UserManager
 import com.google.android.material.appbar.MaterialToolbar
 
 const val EXTRA_STRING_USER_ID = "id"
+const val EXTRA_STRING_USER_NAME = "name"
 
 class MyPageActivity : AppCompatActivity() {
 
@@ -41,7 +42,6 @@ class MyPageActivity : AppCompatActivity() {
 
         setLayout()
         signOut()
-        getGalleryImage()
     }
 
     private fun setLayout() {
@@ -141,34 +141,10 @@ class MyPageActivity : AppCompatActivity() {
         btnNavigateToHome.setOnClickListener {
             val intent = Intent(this, MainPageActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.putExtra(EXTRA_STRING_USER_ID, user.userId)
+            intent.putExtra(EXTRA_STRING_USER_NAME, user.userName)
             startActivity(intent)
         }
-    }
-
-    private fun getGalleryImage() {
-        val ivUserImage = findViewById<ImageView>(R.id.iv_profile_image)
-        ivUserImage.setOnClickListener {
-            openGalleryForImage()
-        }
-    }
-
-    private val pickMedia =
-        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
-            uri?.also { imageUri ->
-                findViewById<ImageView>(R.id.iv_profile_image)?.apply {
-                    setPadding(0)
-                    setImageURI(imageUri)
-                }
-                findViewById<TextView>(R.id.tv_no_image).visibility = View.GONE
-                contentResolver.takePersistableUriPermission(
-                    imageUri,
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-                )
-            }
-        }
-
-    private fun openGalleryForImage() {
-        pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
 
     private fun initToolbar(){
