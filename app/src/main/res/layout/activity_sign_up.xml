@@ -118,7 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/et_signup_pwd"
-            android:inputType="numberPassword" />
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
     <!-- 변경 내용 -->
 

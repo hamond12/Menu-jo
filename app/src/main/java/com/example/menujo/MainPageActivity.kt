@@ -2,20 +2,27 @@ package com.example.menujo
 
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.menujo.data.UserManager
 import com.google.android.material.snackbar.Snackbar
 import kotlin.random.Random
 
 class MainPageActivity : AppCompatActivity() {
+
+    private lateinit var user_id: String
+    private lateinit var user_Name: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,6 +32,7 @@ class MainPageActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         showsnackbar()
         initToolBar()
 
@@ -78,6 +86,8 @@ class MainPageActivity : AppCompatActivity() {
             R.id.ib_koreanfood -> {
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "koreanFood")
+                intent.putExtra("id", user_id)
+                intent.putExtra("name", user_Name)
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_koreanfood, R.anim.none)
             }
@@ -85,6 +95,8 @@ class MainPageActivity : AppCompatActivity() {
             R.id.ib_chinesefood -> {
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "chineseFood")
+                intent.putExtra("id", user_id)
+                intent.putExtra("name", user_Name)
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_chinesefood, R.anim.none)
             }
@@ -92,6 +104,8 @@ class MainPageActivity : AppCompatActivity() {
             R.id.ib_westernfood -> {
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "westernFood")
+                intent.putExtra("id", user_id)
+                intent.putExtra("name", user_Name)
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_westernfood, R.anim.none)
             }
@@ -99,6 +113,8 @@ class MainPageActivity : AppCompatActivity() {
             R.id.ib_japanesefood -> {
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("food", "japaneseFood")
+                intent.putExtra("id", user_id)
+                intent.putExtra("name", user_Name)
                 startActivity(intent)
                 overridePendingTransition(R.anim.main_to_japanesefood, R.anim.none)
             }
@@ -110,22 +126,50 @@ class MainPageActivity : AppCompatActivity() {
         val userName = findViewById<TextView>(R.id.tv_user_name)
         val loginBtn = findViewById<Button>(R.id.btn_login)
 
+        user_id = intent.getStringExtra("id") ?: ""
+        val user = UserManager.getUser(user_id)
+        user_Name = intent.getStringExtra("name") ?: ""
+
         loginBtn.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }
 
-        val user_Name = intent.getStringExtra("userNameKey") ?: "????"
-        userName.text = getString(R.string.main_sir, user_Name)
+
+        if (user != null) {
+            userName.text = getString(R.string.main_sir, user_Name)
+            loginBtn.visibility = View.GONE
+            userName.visibility = View.VISIBLE
+            accountIcon.visibility = View.VISIBLE
+
+            if (user.profileImageUrl != "") {
+                accountIcon.setImageURI(Uri.parse(user.profileImageUrl))
+            } else {
+                accountIcon.setImageResource(R.drawable.account_circle)
+            }
+
+        } else {
+            loginBtn.visibility = View.VISIBLE
+            userName.visibility = View.GONE
+            accountIcon.visibility = View.GONE
+        }
 
 
         //마이페이지 클릭하면 유저 아이디를 마이페이지로 전달
         accountIcon.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
-            intent.putExtra("userID", user_Name)
+            intent.putExtra("id", user_id)
             startActivity(intent)
 
             overridePendingTransition(R.anim.main_to_mypage, R.anim.none)
+        }
+    }
+
+    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+            overridePendingTransition(R.anim.none, R.anim.mypage_to_main)
         }
     }
 }

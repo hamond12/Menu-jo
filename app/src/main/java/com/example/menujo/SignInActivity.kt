@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.menujo.data.UserInfo
+import com.example.menujo.data.UserManager
 import com.google.android.material.appbar.MaterialToolbar
 
 class SignInActivity : AppCompatActivity() {
@@ -26,7 +28,7 @@ class SignInActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         initToolbar()
 
         //뷰연결
@@ -50,6 +52,14 @@ class SignInActivity : AppCompatActivity() {
                 Toast.makeText(this, "$toastSignIn", Toast.LENGTH_SHORT).show()
             }
             else {
+                if(UserManager.getUser(idData.toString()) == null) {
+                    Toast.makeText(this, getString(R.string.toast_signin_non_user), Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                if(UserManager.getUser(idData.toString())?.userPwd != pwdData.toString()) {
+                    Toast.makeText(this, getString(R.string.toast_signin_non_user), Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
                 Toast.makeText(
                     this,
                     getString(R.string.common_signin)+getString(R.string.common_finish),
@@ -89,6 +99,14 @@ class SignInActivity : AppCompatActivity() {
         supportActionBar?.title = ""
         toolbar.setNavigationOnClickListener {
             finish()
+        }
+    }
+
+    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+            overridePendingTransition(R.anim.none, R.anim.mypage_to_main)
         }
     }
 }

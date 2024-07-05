@@ -39,7 +39,7 @@ class SignUpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         initToolbar()
 
         //Set layout
@@ -159,7 +159,7 @@ class SignUpActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    val userData = UserInfo(nameData.toString(), idData.toString(), pwdData.toString(), profileImageUri, tagsData)
+                    val userData = UserInfo(idData.toString(), nameData.toString(), pwdData.toString(), profileImageUri, tagsData)
                     UserManager.saveUser(userData)
                     val intent = Intent(this, SignInActivity::class.java)
                     intent.putExtra("userData", userData)
