@@ -53,7 +53,7 @@ class FoodManager {
                 2,
                 R.drawable.img_sundubu,
                 R.string.tv_menu_soft_tofu_stew,
-                R.string.tv_menu_intro_tofu_stew,
+                R.string.tv_menu_intro_soft_tofu_stew,
                 listOf("매운맛", "밥")
             ),
             FoodInfo(

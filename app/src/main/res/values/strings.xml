@@ -41,7 +41,7 @@
     <string name="tv_menu_bibimbap">비빔밥</string>
     <string name="tv_menu_intro_bibimbap">쌀밥에 고기나 나물 등과 여러 가지 양념을 넣어 비벼 먹는 음식</string>
     <string name="tv_menu_soft_tofu_stew">순두부찌개</string>
-    <string name="tv_menu_intro_tofu_stew">순두부를 넣고 양념하여 끓인 찌개</string>
+    <string name="tv_menu_intro_soft_tofu_stew">순두부를 넣고 양념하여 끓인 찌개</string>
     <string name="tv_menu_bulgogi">불고기</string>
     <string name="tv_menu_intro_bulgogi">여러 동물의 고기를 얇게 썰어 양념으로 재운 뒤 불에 구운 음식</string>
     <string name="tv_menu_japchae">잡채</string>
@@ -116,5 +116,7 @@
     <string name="iv_description_bottom_logo">하단 로고 이미지</string>
     <string name="toast_sign_in_first">먼저 로그인을 해주세요</string>
     <string name="tv_my_page_favorite_title">선호 음식</string>
+    <string name="text_label_my_history">내 히스토리</string>
+    <string name="iv_description_delete">삭제 아이콘 이미지</string>
 
 </resources>

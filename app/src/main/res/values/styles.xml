@@ -78,15 +78,23 @@
 
     <!--  MyPageActivity  -->
 
-    <style name="text_no_image">
+    <style name="text_user_info">
         <item name="android:fontFamily">@font/pretendard_medium</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_user_info.gray">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="text_user_info.dark_gray">
         <item name="android:textColor">@color/dark_gray</item>
     </style>
 
-    <style name="text_user_info">
+    <style name="text_history_date">
         <item name="android:fontFamily">@font/pretendard_medium</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="text_tag_bg">
@@ -102,6 +110,10 @@
 
     <style name="text_tag_bg.shadow">
         <item name="android:elevation">2dp</item>
+    </style>
+
+    <style name="text_tag_bg.shadow.s10">
+        <item name="android:textSize">10sp</item>
     </style>
 
     <style name="tag_text">

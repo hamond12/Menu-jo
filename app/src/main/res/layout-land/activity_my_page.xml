@@ -16,131 +16,756 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/back" />
 
-    <ImageView
-        android:id="@+id/iv_profile_image"
-        android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/bg_my_page_img"
-        android:clipToOutline="true"
-        android:contentDescription="@string/iv_description_user_profile"
-        android:scaleType="centerCrop"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/img_user_2" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_my_page">
 
-    <TextView
-        android:id="@+id/tv_label_my_page_user_name"
-        style="@style/text_user_info"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:text="@string/common_name"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
-        app:layout_constraintTop_toTopOf="@+id/iv_profile_image" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_my_page_user_name"
-        style="@style/text_user_info"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_label_my_page_user_name"
-        app:layout_constraintTop_toTopOf="@id/tv_label_my_page_user_name"
-        tools:text="seojeongu" />
+            <ImageView
+                android:id="@+id/iv_profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_img_circle_gray"
+                android:clipToOutline="true"
+                android:contentDescription="@string/iv_description_user_profile"
+                android:padding="35dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_add_profile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_label_my_page_user_id"
-        style="@style/text_user_info"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:text="@string/common_id"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="@id/tv_label_my_page_user_name"
-        app:layout_constraintTop_toBottomOf="@id/tv_label_my_page_user_name" />
+            <TextView
+                android:id="@+id/tv_label_my_page_user_name"
+                style="@style/text_user_info.gray"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="6dp"
+                android:text="@string/common_name"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toEndOf="@id/iv_profile_image"
+                app:layout_constraintTop_toTopOf="@id/iv_profile_image"
+                tools:layout_editor_absoluteX="50dp" />
 
-    <TextView
-        android:id="@+id/tv_my_page_user_id"
-        style="@style/text_user_info"
-        android:layout_width="90dp"
-        android:layout_height="21dp"
-        app:layout_constraintStart_toStartOf="@id/tv_my_page_user_name"
-        app:layout_constraintTop_toTopOf="@id/tv_label_my_page_user_id"
-        tools:text="jeongu123" />
+            <TextView
+                android:id="@+id/tv_my_page_user_name"
+                style="@style/text_user_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_label_my_page_user_name"
+                app:layout_constraintTop_toTopOf="@id/tv_label_my_page_user_name"
+                tools:text="seojeongu" />
 
-    <TextView
-        android:id="@+id/tv_label_my_page_preferred_food"
-        style="@style/text_user_info"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:text="@string/tv_signup_favorite_title"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="@id/tv_label_my_page_user_id"
-        app:layout_constraintTop_toBottomOf="@id/tv_label_my_page_user_id" />
+            <TextView
+                android:id="@+id/tv_label_my_page_user_id"
+                style="@style/text_user_info.gray"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/common_id"
+                app:layout_constraintBottom_toTopOf="@+id/tv_label_my_page_preferred_food"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="@id/tv_label_my_page_user_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_my_page_user_name" />
 
-    <TextView
-        android:id="@+id/tv_my_page_tag_1"
-        style="@style/text_tag_bg.shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_label_my_page_preferred_food"
-        app:layout_constraintStart_toStartOf="@+id/tv_my_page_user_id"
-        app:layout_constraintTop_toTopOf="@id/tv_label_my_page_preferred_food"
-        tools:text="매운맛"
-        tools:visibility="visible" />
+            <TextView
+                android:id="@+id/tv_my_page_user_id"
+                style="@style/text_user_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/tv_my_page_user_name"
+                app:layout_constraintStart_toStartOf="@id/tv_my_page_user_name"
+                app:layout_constraintTop_toTopOf="@id/tv_label_my_page_user_id"
+                tools:text="jeongu123" />
 
-    <TextView
-        android:id="@+id/tv_my_page_tag_2"
-        style="@style/text_tag_bg.shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        app:layout_constraintStart_toEndOf="@+id/tv_my_page_tag_1"
-        app:layout_constraintTop_toTopOf="@id/tv_my_page_tag_1"
-        tools:text="밥"
-        tools:visibility="visible" />
+            <TextView
+                android:id="@+id/tv_label_my_page_preferred_food"
+                style="@style/text_user_info.gray"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="@string/tv_my_page_favorite_title"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_profile_image"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="@id/tv_label_my_page_user_id" />
 
-    <TextView
-        android:id="@+id/tv_my_page_tag_3"
-        style="@style/text_tag_bg.shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        app:layout_constraintStart_toEndOf="@id/tv_my_page_tag_2"
-        app:layout_constraintTop_toTopOf="@id/tv_my_page_tag_2"
-        tools:text="고기"
-        tools:visibility="visible" />
+            <TextView
+                android:id="@+id/tv_my_page_tag_1"
+                style="@style/text_tag_bg.shadow.s10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_label_my_page_preferred_food"
+                app:layout_constraintStart_toStartOf="@id/tv_my_page_user_id"
+                app:layout_constraintTop_toTopOf="@id/tv_label_my_page_preferred_food"
+                tools:text="매운맛"
+                tools:visibility="visible" />
 
-    <ImageView
-        android:layout_width="98dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="20dp"
-        android:contentDescription="@string/iv_description_bottom_logo"
-        android:src="@drawable/ic_logo_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/tv_my_page_tag_2"
+                style="@style/text_tag_bg.shadow.s10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_my_page_tag_1"
+                app:layout_constraintTop_toTopOf="@id/tv_my_page_tag_1"
+                tools:text="밥"
+                tools:visibility="visible" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_navigate_to_home"
-        style="@style/btn_default"
-        android:layout_marginTop="50dp"
-        android:text="@string/btn_label_to_home"
-        app:layout_constraintEnd_toEndOf="@+id/tv_my_page_tag_3"
-        app:layout_constraintStart_toStartOf="@+id/tv_label_my_page_preferred_food"
-        app:layout_constraintTop_toBottomOf="@id/tv_label_my_page_preferred_food" />
+            <TextView
+                android:id="@+id/tv_my_page_tag_3"
+                style="@style/text_tag_bg.shadow.s10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_my_page_user_id"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/tv_my_page_tag_2"
+                app:layout_constraintTop_toTopOf="@id/tv_my_page_tag_2"
+                tools:text="고기"
+                tools:visibility="visible" />
+
+            <!--    <androidx.appcompat.widget.AppCompatButton-->
+            <!--        android:id="@+id/btn_navigate_to_home"-->
+            <!--        style="@style/btn_default"-->
+            <!--        android:layout_marginTop="50dp"-->
+            <!--        android:text="@string/btn_label_to_home"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintTop_toBottomOf="@id/tv_label_my_page_preferred_food" />-->
+
+            <TextView
+                android:id="@+id/tv_my_page_history"
+                style="@style/anothor_menu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_label_my_history"
+                app:layout_constraintEnd_toEndOf="@+id/tv_my_page_user_id"
+                app:layout_constraintStart_toStartOf="@id/iv_profile_image"
+                app:layout_constraintTop_toBottomOf="@id/iv_profile_image" />
+
+            <View
+                android:id="@+id/view_divider_history"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/light_gray"
+                app:layout_constraintEnd_toEndOf="@+id/tv_my_page_history"
+                app:layout_constraintStart_toStartOf="@+id/tv_my_page_history"
+                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_history" />
+
+            <ImageView
+                android:id="@+id/iv_history_food_1"
+                android:layout_width="128dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                android:clipToOutline="true"
+                android:contentDescription="@string/iv_description_other_food_image"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="@+id/view_divider_history"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider_history"
+                tools:src="@drawable/img_jjambbong" />
+
+            <View
+                android:id="@+id/view_history_1"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                app:layout_constraintEnd_toEndOf="@+id/view_divider_history"
+                app:layout_constraintStart_toEndOf="@id/iv_history_food_1"
+                app:layout_constraintTop_toTopOf="@id/iv_history_food_1" />
+
+            <TextView
+                android:id="@+id/tv_history_date_1"
+                style="@style/text_history_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9dp"
+                app:layout_constraintEnd_toStartOf="@id/iv_history_delete_icon_1"
+                app:layout_constraintStart_toStartOf="@id/view_history_1"
+                app:layout_constraintTop_toTopOf="@id/view_history_1"
+                tools:text="2024-07-06" />
+
+            <ImageView
+                android:id="@+id/iv_history_delete_icon_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:contentDescription="@string/iv_description_delete"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="@id/tv_history_date_1"
+                app:layout_constraintEnd_toEndOf="@id/view_history_1"
+                app:layout_constraintTop_toTopOf="@id/tv_history_date_1" />
+
+            <TextView
+                android:id="@+id/tv_history_1_food_name"
+                style="@style/text_user_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/pretendard_medium"
+                app:layout_constraintEnd_toEndOf="@+id/tv_history_date_1"
+                app:layout_constraintStart_toStartOf="@id/tv_history_date_1"
+                app:layout_constraintTop_toBottomOf="@id/tv_history_date_1"
+                tools:text="짬뽕" />
+
+            <TextView
+                android:id="@+id/tv_history_1_tag_1"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/view_history_1"
+                app:layout_constraintStart_toStartOf="@+id/tv_history_1_food_name"
+                tools:text="매운맛"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_1_tag_2"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_1_tag_1"
+                app:layout_constraintTop_toTopOf="@id/tv_history_1_tag_1"
+                tools:text="밥"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_1_tag_3"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_1_tag_2"
+                app:layout_constraintTop_toTopOf="@id/tv_history_1_tag_2"
+                tools:text="고기"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_history_food_2"
+                android:layout_width="128dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                android:clipToOutline="true"
+                android:contentDescription="@string/iv_description_other_food_image"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="@id/iv_history_food_1"
+                app:layout_constraintTop_toBottomOf="@id/iv_history_food_1"
+                tools:src="@drawable/img_jjambbong" />
+
+            <View
+                android:id="@+id/view_history_2"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                app:layout_constraintEnd_toEndOf="@id/view_history_1"
+                app:layout_constraintStart_toEndOf="@id/iv_history_food_2"
+                app:layout_constraintTop_toTopOf="@id/iv_history_food_2" />
+
+            <TextView
+                android:id="@+id/tv_history_2_date"
+                style="@style/text_history_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9dp"
+                app:layout_constraintEnd_toStartOf="@id/iv_history_2_delete_icon"
+                app:layout_constraintStart_toStartOf="@id/view_history_2"
+                app:layout_constraintTop_toTopOf="@id/view_history_2"
+                tools:text="2024-07-06" />
+
+            <ImageView
+                android:id="@+id/iv_history_2_delete_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:contentDescription="@string/iv_description_delete"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="@id/tv_history_2_date"
+                app:layout_constraintEnd_toEndOf="@id/view_history_2"
+                app:layout_constraintTop_toTopOf="@id/tv_history_2_date" />
+
+            <TextView
+                android:id="@+id/tv_history_2_food_name"
+                style="@style/text_user_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/pretendard_medium"
+                app:layout_constraintEnd_toEndOf="@+id/tv_history_2_date"
+                app:layout_constraintStart_toStartOf="@id/tv_history_2_date"
+                app:layout_constraintTop_toBottomOf="@id/tv_history_2_date"
+                tools:text="짬뽕" />
+
+            <TextView
+                android:id="@+id/tv_history_2_tag_1"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/view_history_2"
+                app:layout_constraintStart_toStartOf="@+id/tv_history_2_food_name"
+                tools:text="매운맛"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_2_tag_2"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_2_tag_1"
+                app:layout_constraintTop_toTopOf="@id/tv_history_2_tag_1"
+                tools:text="밥"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_2_tag_3"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_2_tag_2"
+                app:layout_constraintTop_toTopOf="@id/tv_history_2_tag_2"
+                tools:text="고기"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_history_food_3"
+                android:layout_width="128dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                android:clipToOutline="true"
+                android:contentDescription="@string/iv_description_other_food_image"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="@id/iv_history_food_2"
+                app:layout_constraintTop_toBottomOf="@id/iv_history_food_2"
+                tools:src="@drawable/img_jjambbong" />
+
+            <View
+                android:id="@+id/view_history_3"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                app:layout_constraintEnd_toEndOf="@id/view_history_2"
+                app:layout_constraintStart_toEndOf="@id/iv_history_food_3"
+                app:layout_constraintTop_toTopOf="@id/iv_history_food_3" />
+
+            <TextView
+                android:id="@+id/tv_history_3_date"
+                style="@style/text_history_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9dp"
+                app:layout_constraintEnd_toStartOf="@id/iv_history_3_delete_icon"
+                app:layout_constraintStart_toStartOf="@id/view_history_3"
+                app:layout_constraintTop_toTopOf="@id/view_history_3"
+                tools:text="2024-07-06" />
+
+            <ImageView
+                android:id="@+id/iv_history_3_delete_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:contentDescription="@string/iv_description_delete"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="@id/tv_history_3_date"
+                app:layout_constraintEnd_toEndOf="@id/view_history_3"
+                app:layout_constraintTop_toTopOf="@id/tv_history_3_date" />
+
+            <TextView
+                android:id="@+id/tv_history_3_food_name"
+                style="@style/text_user_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/pretendard_medium"
+                app:layout_constraintEnd_toEndOf="@+id/tv_history_3_date"
+                app:layout_constraintStart_toStartOf="@id/tv_history_3_date"
+                app:layout_constraintTop_toBottomOf="@id/tv_history_3_date"
+                tools:text="짬뽕" />
+
+            <TextView
+                android:id="@+id/tv_history_3_tag_1"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/view_history_3"
+                app:layout_constraintStart_toStartOf="@+id/tv_history_3_food_name"
+                tools:text="매운맛"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_3_tag_2"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_3_tag_1"
+                app:layout_constraintTop_toTopOf="@id/tv_history_3_tag_1"
+                tools:text="밥"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_3_tag_3"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_3_tag_2"
+                app:layout_constraintTop_toTopOf="@id/tv_history_3_tag_2"
+                tools:text="고기"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_history_food_4"
+                android:layout_width="128dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                android:clipToOutline="true"
+                android:contentDescription="@string/iv_description_other_food_image"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="@id/iv_history_food_3"
+                app:layout_constraintTop_toBottomOf="@id/iv_history_food_3"
+                tools:src="@drawable/img_jjambbong" />
+
+            <View
+                android:id="@+id/view_history_4"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                app:layout_constraintEnd_toEndOf="@id/view_history_3"
+                app:layout_constraintStart_toEndOf="@id/iv_history_food_4"
+                app:layout_constraintTop_toTopOf="@id/iv_history_food_4" />
+
+            <TextView
+                android:id="@+id/tv_history_4_date"
+                style="@style/text_history_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9dp"
+                app:layout_constraintEnd_toStartOf="@id/iv_history_4_delete_icon"
+                app:layout_constraintStart_toStartOf="@id/view_history_4"
+                app:layout_constraintTop_toTopOf="@id/view_history_4"
+                tools:text="2024-07-06" />
+
+            <ImageView
+                android:id="@+id/iv_history_4_delete_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:contentDescription="@string/iv_description_delete"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="@id/tv_history_4_date"
+                app:layout_constraintEnd_toEndOf="@id/view_history_4"
+                app:layout_constraintTop_toTopOf="@id/tv_history_4_date" />
+
+            <TextView
+                android:id="@+id/tv_history_4_food_name"
+                style="@style/text_user_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/pretendard_medium"
+                app:layout_constraintEnd_toEndOf="@+id/tv_history_4_date"
+                app:layout_constraintStart_toStartOf="@id/tv_history_4_date"
+                app:layout_constraintTop_toBottomOf="@id/tv_history_4_date"
+                tools:text="짬뽕" />
+
+            <TextView
+                android:id="@+id/tv_history_4_tag_1"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/view_history_4"
+                app:layout_constraintStart_toStartOf="@+id/tv_history_4_food_name"
+                tools:text="매운맛"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_4_tag_2"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_4_tag_1"
+                app:layout_constraintTop_toTopOf="@id/tv_history_4_tag_1"
+                tools:text="밥"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_4_tag_3"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_4_tag_2"
+                app:layout_constraintTop_toTopOf="@id/tv_history_4_tag_2"
+                tools:text="고기"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_history_food_5"
+                android:layout_width="128dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                android:clipToOutline="true"
+                android:contentDescription="@string/iv_description_other_food_image"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="@id/iv_history_food_4"
+                app:layout_constraintTop_toBottomOf="@id/iv_history_food_4"
+                tools:src="@drawable/img_jjambbong" />
+
+            <View
+                android:id="@+id/view_history_5"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                app:layout_constraintEnd_toEndOf="@id/view_history_4"
+                app:layout_constraintStart_toEndOf="@id/iv_history_food_5"
+                app:layout_constraintTop_toTopOf="@id/iv_history_food_5" />
+
+            <TextView
+                android:id="@+id/tv_history_5_date"
+                style="@style/text_history_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9dp"
+                app:layout_constraintEnd_toStartOf="@id/iv_history_5_delete_icon"
+                app:layout_constraintStart_toStartOf="@id/view_history_5"
+                app:layout_constraintTop_toTopOf="@id/view_history_5"
+                tools:text="2024-07-06" />
+
+            <ImageView
+                android:id="@+id/iv_history_5_delete_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:contentDescription="@string/iv_description_delete"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="@id/tv_history_5_date"
+                app:layout_constraintEnd_toEndOf="@id/view_history_5"
+                app:layout_constraintTop_toTopOf="@id/tv_history_5_date" />
+
+            <TextView
+                android:id="@+id/tv_history_5_food_name"
+                style="@style/text_user_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/pretendard_medium"
+                app:layout_constraintEnd_toEndOf="@+id/tv_history_5_date"
+                app:layout_constraintStart_toStartOf="@id/tv_history_5_date"
+                app:layout_constraintTop_toBottomOf="@id/tv_history_5_date"
+                tools:text="짬뽕" />
+
+            <TextView
+                android:id="@+id/tv_history_5_tag_1"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/view_history_5"
+                app:layout_constraintStart_toStartOf="@+id/tv_history_5_food_name"
+                tools:text="매운맛"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_5_tag_2"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_5_tag_1"
+                app:layout_constraintTop_toTopOf="@id/tv_history_5_tag_1"
+                tools:text="밥"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_5_tag_3"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_5_tag_2"
+                app:layout_constraintTop_toTopOf="@id/tv_history_5_tag_2"
+                tools:text="고기"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_history_food_6"
+                android:layout_width="128dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                android:clipToOutline="true"
+                android:contentDescription="@string/iv_description_other_food_image"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/iv_history_food_5"
+                app:layout_constraintTop_toBottomOf="@id/iv_history_food_5"
+                tools:src="@drawable/img_jjambbong" />
+
+            <View
+                android:id="@+id/view_history_6"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_white_gray_10dp"
+                app:layout_constraintEnd_toEndOf="@id/view_history_5"
+                app:layout_constraintStart_toEndOf="@id/iv_history_food_6"
+                app:layout_constraintTop_toTopOf="@id/iv_history_food_6" />
+
+            <TextView
+                android:id="@+id/tv_history_6_date"
+                style="@style/text_history_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9dp"
+                app:layout_constraintEnd_toStartOf="@id/iv_history_6_delete_icon"
+                app:layout_constraintStart_toStartOf="@id/view_history_6"
+                app:layout_constraintTop_toTopOf="@id/view_history_6"
+                tools:text="2024-07-06" />
+
+            <ImageView
+                android:id="@+id/iv_history_6_delete_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:contentDescription="@string/iv_description_delete"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="@id/tv_history_6_date"
+                app:layout_constraintEnd_toEndOf="@id/view_history_6"
+                app:layout_constraintTop_toTopOf="@id/tv_history_6_date" />
+
+            <TextView
+                android:id="@+id/tv_history_6_food_name"
+                style="@style/text_user_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/pretendard_medium"
+                app:layout_constraintEnd_toEndOf="@+id/tv_history_6_date"
+                app:layout_constraintStart_toStartOf="@id/tv_history_6_date"
+                app:layout_constraintTop_toBottomOf="@id/tv_history_6_date"
+                tools:text="짬뽕" />
+
+            <TextView
+                android:id="@+id/tv_history_6_tag_1"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/view_history_6"
+                app:layout_constraintStart_toStartOf="@+id/tv_history_6_food_name"
+                tools:text="매운맛"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_6_tag_2"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_6_tag_1"
+                app:layout_constraintTop_toTopOf="@id/tv_history_6_tag_1"
+                tools:text="밥"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_history_6_tag_3"
+                style="@style/text_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_history_6_tag_2"
+                app:layout_constraintTop_toTopOf="@id/tv_history_6_tag_2"
+                tools:text="고기"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
