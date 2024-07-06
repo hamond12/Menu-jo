@@ -63,7 +63,7 @@ class MainPageActivity : AppCompatActivity() {
                 1 -> getString(R.string.main_snackbar_not_curious)
                 2 -> getString(R.string.main_snackbar_dawn)
                 3 -> getString(R.string.main_snackbar_diet)
-                else -> getString(R.string.main_snackbar_bbb)
+                else -> getString(R.string.main_snackbar_just_quit)
 
             }
 
