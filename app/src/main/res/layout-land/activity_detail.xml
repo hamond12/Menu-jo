@@ -24,9 +24,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            >
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp">
 
             <TextView
                 android:id="@+id/tv_title_list"

@@ -37,7 +37,7 @@
     <string name="tv_menu_bibimbap">Bibimbap</string>
     <string name="tv_menu_intro_bibimbap">A food that is mixed with various spices such as meat and vegetables in rice</string>
     <string name="tv_menu_soft_tofu_stew">Soft Tofu Stew</string>
-    <string name="tv_menu_intro_tofu_stew">stew made with soft tofu and seasoned</string>
+    <string name="tv_menu_intro_soft_tofu_stew">stew made with soft tofu and seasoned</string>
     <string name="tv_menu_bulgogi">Bulgogi</string>
     <string name="tv_menu_intro_bulgogi">Thinly sliced marinated meat grilled over fire.</string>
     <string name="tv_menu_japchae">Japchae</string>
@@ -114,5 +114,7 @@
     <string name="tv_my_page_favorite_title">Prefer</string>
     <string name="iv_description_recommend_food_image">Today\'s recommended menu image</string>
     <string name="iv_description_other_food_image">Menu image other than recommended menu</string>
+    <string name="text_label_my_history">My Histories</string>
+    <string name="iv_description_delete">icon for delete history</string>
 
 </resources>

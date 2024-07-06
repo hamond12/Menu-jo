@@ -32,7 +32,6 @@
                 style="@style/listname_26"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:text="@string/detail_menu_list_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -199,6 +198,8 @@
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@id/view_food_1"
                 app:layout_constraintTop_toTopOf="@id/view_food_1" />
+
+
 
             <TextView
                 android:id="@+id/tv_food_introduce_1"
