@@ -18,7 +18,7 @@ import com.google.android.material.appbar.MaterialToolbar
 
 class SignInActivity : AppCompatActivity() {
     lateinit var resultLauncher: ActivityResultLauncher<Intent>
-    private lateinit var userData : UserInfo
+    private lateinit var userData: UserInfo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -37,8 +37,6 @@ class SignInActivity : AppCompatActivity() {
         val btnSignIn = findViewById<Button>(R.id.btn_signin_signin)
         val btnSignUp = findViewById<Button>(R.id.btn_signin_signup)
 
-        //로그인데이터
-
         //로그인버튼
         btnSignIn.setOnClickListener {
             val idData = etId.text
@@ -50,25 +48,32 @@ class SignInActivity : AppCompatActivity() {
                     pwdData.isBlank() -> toastSignIn = getString(R.string.common_set_pwd)
                 }
                 Toast.makeText(this, "$toastSignIn", Toast.LENGTH_SHORT).show()
-            }
-            else {
-                if(UserManager.getUser(idData.toString()) == null) {
-                    Toast.makeText(this, getString(R.string.toast_signin_non_user), Toast.LENGTH_SHORT).show()
+            } else {
+                if (UserManager.getUser(idData.toString()) == null) {
+                    Toast.makeText(
+                        this,
+                        getString(R.string.toast_signin_non_user),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return@setOnClickListener
                 }
-                if(UserManager.getUser(idData.toString())?.userPwd != pwdData.toString()) {
-                    Toast.makeText(this, getString(R.string.toast_signin_non_user), Toast.LENGTH_SHORT).show()
+                if (UserManager.getUser(idData.toString())?.userPwd != pwdData.toString()) {
+                    Toast.makeText(
+                        this,
+                        getString(R.string.toast_signin_non_user),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return@setOnClickListener
                 }
                 Toast.makeText(
                     this,
-                    getString(R.string.common_signin)+getString(R.string.common_finish),
+                    getString(R.string.common_signin) + getString(R.string.common_finish),
                     Toast.LENGTH_SHORT
                 ).show()
                 val intent = Intent(this, MainPageActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                intent.putExtra("id",userData.userId)
-                intent.putExtra("name",userData.userName)
+                intent.putExtra("id", userData.userId)
+                intent.putExtra("name", userData.userName)
                 startActivity(intent)
                 overridePendingTransition(R.anim.siginin_to_main, R.anim.none)
             }
@@ -80,12 +85,13 @@ class SignInActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             resultLauncher.launch(intent)
             overridePendingTransition(R.anim.signin_to_signup, R.anim.none)
-            }
+        }
 
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-                    userData = result.data?.getParcelableExtra("userData") ?: UserInfo("","","","",
+                    userData = result.data?.getParcelableExtra("userData") ?: UserInfo(
+                        "", "", "", "",
                         emptyList()
                     )
                     etId.setText(userData.userId)
@@ -94,7 +100,7 @@ class SignInActivity : AppCompatActivity() {
             }
     }
 
-    private fun initToolbar(){
+    private fun initToolbar() {
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_signin)
         setSupportActionBar(toolbar)
         supportActionBar?.title = ""
@@ -103,11 +109,12 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            this.isEnabled = false
-            onBackPressedDispatcher.onBackPressed()
-            overridePendingTransition(R.anim.none, R.anim.mypage_to_main)
+    private val onBackPressedCallback: OnBackPressedCallback =
+        object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                this.isEnabled = false
+                onBackPressedDispatcher.onBackPressed()
+                overridePendingTransition(R.anim.none, R.anim.mypage_to_main)
+            }
         }
-    }
 }

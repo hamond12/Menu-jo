@@ -28,7 +28,7 @@ import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
 
-//    private lateinit var userData: UserInfo
+    //    private lateinit var userData: UserInfo
     private var profileImageUri = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,15 +63,11 @@ class SignUpActivity : AppCompatActivity() {
             findViewById(R.id.cb_mild)
         )
 
-
         //User data
         val nameData = etName.text
         val idData = etId.text
         val pwdData = etPwd.text
         val tagsData = mutableListOf<String>()
-
-//        userData =
-//            UserInfo(nameData.toString(), idData.toString(), pwdData.toString(), "", tagsData)
 
         //Gallery image upload
         val pickMedia =
@@ -102,14 +98,11 @@ class SignUpActivity : AppCompatActivity() {
         getGalleryImage()
 
         //Check box
-        var cbCount = 0
-
         cbList.forEach {
             it.setOnCheckedChangeListener { _, ischecked ->
                 if (it.isChecked) {
-                    cbCount++
                     tagsData += it.text.toString()
-                    if (cbCount == 3) {
+                    if (tagsData.size == 3) {
                         Toast.makeText(
                             this,
                             getString(R.string.toast_signup_favorite_max3),
@@ -118,7 +111,6 @@ class SignUpActivity : AppCompatActivity() {
                         for (i in cbList) if (!i.isChecked) i.isEnabled = false
                     }
                 } else {
-                    cbCount--
                     tagsData -= it.text.toString()
                     for (i in cbList) if (!i.isChecked) i.isEnabled = true
                 }
@@ -145,6 +137,7 @@ class SignUpActivity : AppCompatActivity() {
                     getString(R.string.toast_signup_favorite_min1),
                     Toast.LENGTH_SHORT
                 ).show()
+
                 idData.length < 7 -> etId.error = getString(R.string.et_signup_id)
                 pwdData.length < 7 -> etPwd.error = getString(R.string.et_signup_pwd)
                 pattern1 == false -> etName.error = getString(R.string.et_signup_name_pattern)
@@ -158,7 +151,13 @@ class SignUpActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    val userData = UserInfo(idData.toString(), nameData.toString(), pwdData.toString(), profileImageUri, tagsData)
+                    val userData = UserInfo(
+                        idData.toString(),
+                        nameData.toString(),
+                        pwdData.toString(),
+                        profileImageUri,
+                        tagsData
+                    )
                     UserManager.saveUser(userData)
                     val intent = Intent(this, SignInActivity::class.java)
                     intent.putExtra("userData", userData)
