@@ -24,6 +24,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var foodList: List<FoodInfo>
     private lateinit var randomFood: FoodInfo
     private lateinit var filteredFoodList : List<FoodInfo>
+    private val tagStyleManager = TagStyleManager(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,15 +109,15 @@ class DetailActivity : AppCompatActivity() {
         val tagCount = randomFood.tags.size
 
         when (tagCount) {
-            1 -> setTag(tvDetailTag1, randomFood, 0)
+            1 -> tagStyleManager.setTagOfFood(tvDetailTag1, randomFood, 0)
             2 -> {
-                setTag(tvDetailTag1, randomFood, 0)
-                setTag(tvDetailTag2, randomFood, 1)
+                tagStyleManager.setTagOfFood(tvDetailTag1, randomFood, 0)
+                tagStyleManager.setTagOfFood(tvDetailTag2, randomFood, 1)
             }
             3 -> {
-                setTag(tvDetailTag1, randomFood, 0)
-                setTag(tvDetailTag2, randomFood, 1)
-                setTag(tvDetailTag3, randomFood, 2)
+                tagStyleManager.setTagOfFood(tvDetailTag1, randomFood, 0)
+                tagStyleManager.setTagOfFood(tvDetailTag2, randomFood, 1)
+                tagStyleManager.setTagOfFood(tvDetailTag3, randomFood, 2)
             }
             else -> return
         }
@@ -150,15 +151,15 @@ class DetailActivity : AppCompatActivity() {
         tvFoodIntroduce1.text = getString(filteredFoodList[0].introduce)
         val tagCount1 = filteredFoodList[0].tags.size
         when (tagCount1) {
-            1 -> setTag(tvFood1Tag1, filteredFoodList[0], 0)
+            1 -> tagStyleManager.setTagOfFood(tvFood1Tag1, filteredFoodList[0], 0)
             2 -> {
-                setTag(tvFood1Tag1, filteredFoodList[0], 0)
-                setTag(tvFood1Tag2, filteredFoodList[0], 1)
+                tagStyleManager.setTagOfFood(tvFood1Tag1, filteredFoodList[0], 0)
+                tagStyleManager.setTagOfFood(tvFood1Tag2, filteredFoodList[0], 1)
             }
             3 -> {
-                setTag(tvFood1Tag1, filteredFoodList[0], 0)
-                setTag(tvFood1Tag2, filteredFoodList[0], 1)
-                setTag(tvFood1Tag3, filteredFoodList[0], 2)
+                tagStyleManager.setTagOfFood(tvFood1Tag1, filteredFoodList[0], 0)
+                tagStyleManager.setTagOfFood(tvFood1Tag2, filteredFoodList[0], 1)
+                tagStyleManager.setTagOfFood(tvFood1Tag3, filteredFoodList[0], 2)
             }
             else -> return
         }
@@ -175,15 +176,15 @@ class DetailActivity : AppCompatActivity() {
         tvFoodIntroduce2.text = getString(filteredFoodList[1].introduce)
         val tagCount2 = filteredFoodList[1].tags.size
         when (tagCount2) {
-            1 -> setTag(tvFood2Tag1, filteredFoodList[1], 0)
+            1 -> tagStyleManager.setTagOfFood(tvFood2Tag1, filteredFoodList[1], 0)
             2 -> {
-                setTag(tvFood2Tag1, filteredFoodList[1], 0)
-                setTag(tvFood2Tag2, filteredFoodList[1], 1)
+                tagStyleManager.setTagOfFood(tvFood2Tag1, filteredFoodList[1], 0)
+                tagStyleManager.setTagOfFood(tvFood2Tag2, filteredFoodList[1], 1)
             }
             3 -> {
-                setTag(tvFood2Tag1, filteredFoodList[1], 0)
-                setTag(tvFood2Tag2, filteredFoodList[1], 1)
-                setTag(tvFood2Tag3, filteredFoodList[1], 2)
+                tagStyleManager.setTagOfFood(tvFood2Tag1, filteredFoodList[1], 0)
+                tagStyleManager.setTagOfFood(tvFood2Tag2, filteredFoodList[1], 1)
+                tagStyleManager.setTagOfFood(tvFood2Tag3, filteredFoodList[1], 2)
             }
             else -> return
         }
@@ -200,15 +201,15 @@ class DetailActivity : AppCompatActivity() {
         tvFoodIntroduce3.text = getString(filteredFoodList[2].introduce)
         val tagCount3 = filteredFoodList[2].tags.size
         when (tagCount3) {
-            1 -> setTag(tvFood3Tag1, filteredFoodList[2], 0)
+            1 -> tagStyleManager.setTagOfFood(tvFood3Tag1, filteredFoodList[2], 0)
             2 -> {
-                setTag(tvFood3Tag1, filteredFoodList[2], 0)
-                setTag(tvFood3Tag2, filteredFoodList[2], 1)
+                tagStyleManager.setTagOfFood(tvFood3Tag1, filteredFoodList[2], 0)
+                tagStyleManager.setTagOfFood(tvFood3Tag2, filteredFoodList[2], 1)
             }
             3 -> {
-                setTag(tvFood3Tag1, filteredFoodList[2], 0)
-                setTag(tvFood3Tag2, filteredFoodList[2], 1)
-                setTag(tvFood3Tag3, filteredFoodList[2], 2)
+                tagStyleManager.setTagOfFood(tvFood3Tag1, filteredFoodList[2], 0)
+                tagStyleManager.setTagOfFood(tvFood3Tag2, filteredFoodList[2], 1)
+                tagStyleManager.setTagOfFood(tvFood3Tag3, filteredFoodList[2], 2)
             }
             else -> return
         }
@@ -225,75 +226,19 @@ class DetailActivity : AppCompatActivity() {
         tvFoodIntroduce4.text = getString(filteredFoodList[3].introduce)
         val tagCount4 = filteredFoodList[3].tags.size
         when (tagCount4) {
-            1 -> setTag(tvFood4Tag1, filteredFoodList[3], 0)
+            1 -> tagStyleManager.setTagOfFood(tvFood4Tag1, filteredFoodList[3], 0)
             2 -> {
-                setTag(tvFood4Tag1, filteredFoodList[3], 0)
-                setTag(tvFood4Tag2, filteredFoodList[3], 1)
+                tagStyleManager.setTagOfFood(tvFood4Tag1, filteredFoodList[3], 0)
+                tagStyleManager.setTagOfFood(tvFood4Tag2, filteredFoodList[3], 1)
             }
             3 -> {
-                setTag(tvFood4Tag1, filteredFoodList[3], 0)
-                setTag(tvFood4Tag2, filteredFoodList[3], 1)
-                setTag(tvFood4Tag3, filteredFoodList[3], 2)
+                tagStyleManager.setTagOfFood(tvFood4Tag1, filteredFoodList[3], 0)
+                tagStyleManager.setTagOfFood(tvFood4Tag2, filteredFoodList[3], 1)
+                tagStyleManager.setTagOfFood(tvFood4Tag3, filteredFoodList[3], 2)
             }
             else -> return
         }
     }
-
-    private fun setTag(textView: TextView, food: FoodInfo, index: Int) {
-        textView.apply {
-            visibility = View.VISIBLE
-            text = applyText(food.tags[index])
-            setTextColor(ContextCompat.getColor(context, applyTextColor(food.tags[index])))
-            setBackgroundResource(applyBackgroundByTag(food.tags[index]))
-        }
-    }
-
-    private fun applyText(tag: String): String {
-        return when (tag) {
-            "고기" -> getString(R.string.cb_meat)
-            "해산물" -> getString(R.string.cb_seafood)
-            "밥" -> getString(R.string.cb_rice)
-            "면" -> getString(R.string.cb_noodle)
-            "빵" -> getString(R.string.cb_bread)
-            "매운맛" -> getString(R.string.cb_spicy)
-            "중간맛" -> getString(R.string.cb_normal)
-            "순한맛" -> getString(R.string.cb_mild)
-            "야채" -> getString(R.string.cb_vegetable)
-            else -> ""
-        }
-    }
-
-    private fun applyTextColor(tag: String): Int {
-        return when (tag) {
-            "고기" -> R.color.white
-            "해산물" -> R.color.black
-            "밥" -> R.color.black
-            "면" -> R.color.black
-            "빵" -> R.color.white
-            "매운맛" -> R.color.white
-            "중간맛" -> R.color.white
-            "순한맛" -> R.color.black
-            "야채" -> R.color.white
-            else -> R.color.white
-        }
-    }
-
-    private fun applyBackgroundByTag(tag: String): Int {
-        return when (tag) {
-            "고기" -> R.drawable.bg_tag_dark_brown
-            "해산물" -> R.drawable.bg_tag_skyblue
-            "밥" -> R.drawable.bg_tag_white
-            "면" -> R.drawable.bg_tag_basic
-            "빵" -> R.drawable.bg_tag_brown
-            "매운맛" -> R.drawable.bg_tag_red
-            "중간맛" -> R.drawable.bg_tag_orange
-            "순한맛" -> R.drawable.bg_tag_yellow
-            "야채" -> R.drawable.bg_tag_green
-            else -> R.drawable.bg_tag_white
-        }
-    }
-
-    //date class
 
     private fun initToolBar() {
         val leftIcon = findViewById<ImageView>(R.id.iv_left_icon)

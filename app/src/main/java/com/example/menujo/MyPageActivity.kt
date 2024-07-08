@@ -27,72 +27,7 @@ const val EXTRA_STRING_USER_NAME = "name"
 class MyPageActivity : AppCompatActivity() {
 
     private lateinit var user: UserInfo
-
-    private val tagToStringResourceMap = mapOf(
-        "고기" to R.string.cb_meat,
-        "meat" to R.string.cb_meat,
-        "해산물" to R.string.cb_seafood,
-        "seafood" to R.string.cb_seafood,
-        "밥" to R.string.cb_rice,
-        "rice" to R.string.cb_rice,
-        "면" to R.string.cb_noodle,
-        "noodle" to R.string.cb_noodle,
-        "빵" to R.string.cb_bread,
-        "bread" to R.string.cb_bread,
-        "매운맛" to R.string.cb_spicy,
-        "spicy" to R.string.cb_spicy,
-        "중간맛" to R.string.cb_normal,
-        "normal" to R.string.cb_normal,
-        "순한맛" to R.string.cb_mild,
-        "mild" to R.string.cb_mild,
-        "야채" to R.string.cb_vegetable,
-        "vegetable" to R.string.cb_vegetable
-    )
-
-    private val tagToColorResourceMap = mapOf(
-        "고기" to R.color.white,
-        "meat" to R.color.white,
-        "해산물" to R.color.black,
-        "seafood" to R.color.black,
-        "밥" to R.color.black,
-        "rice" to R.color.black,
-        "면" to R.color.black,
-        "noodle" to R.color.black,
-        "빵" to R.color.white,
-        "bread" to R.color.white,
-        "매운맛" to R.color.white,
-        "spicy" to R.color.white,
-        "중간맛" to R.color.white,
-        "normal" to R.color.white,
-        "순한맛" to R.color.black,
-        "mild" to R.color.black,
-        "야채" to R.color.white,
-        "vegetable" to R.color.white
-    )
-
-    private fun tagToDrawableResourceMap(tag: String): Int {
-        return when (tag) {
-            "고기" -> R.drawable.bg_tag_dark_brown
-            "meat" -> R.drawable.bg_tag_dark_brown
-            "해산물" -> R.drawable.bg_tag_skyblue
-            "seafood" -> R.drawable.bg_tag_skyblue
-            "밥" -> R.drawable.bg_tag_white
-            "rice" -> R.drawable.bg_tag_white
-            "면" -> R.drawable.bg_tag_basic
-            "noodle" -> R.drawable.bg_tag_basic
-            "빵" -> R.drawable.bg_tag_brown
-            "bread" -> R.drawable.bg_tag_brown
-            "매운맛" -> R.drawable.bg_tag_red
-            "spicy" -> R.drawable.bg_tag_red
-            "중간맛" -> R.drawable.bg_tag_orange
-            "normal" -> R.drawable.bg_tag_orange
-            "순한맛" -> R.drawable.bg_tag_yellow
-            "mild" -> R.drawable.bg_tag_yellow
-            "야채" -> R.drawable.bg_tag_green
-            "vegetable" -> R.drawable.bg_tag_green
-            else -> R.drawable.bg_tag_white
-        }
-    }
+    private val tagStyleManager = TagStyleManager(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,7 +41,6 @@ class MyPageActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         setLayout()
-        //navigateToHome()
     }
 
     private fun setLayout() {
@@ -144,15 +78,15 @@ class MyPageActivity : AppCompatActivity() {
         val tagCount = user.tags.size
 
         when (tagCount) {
-            1 -> setTagOfUser(tvTag01, 0)
+            1 -> tagStyleManager.setTagOfUser(tvTag01, user, 0)
             2 -> {
-                setTagOfUser(tvTag01, 0)
-                setTagOfUser(tvTag02, 1)
+                tagStyleManager.setTagOfUser(tvTag01, user, 0)
+                tagStyleManager.setTagOfUser(tvTag02, user, 1)
             }
             3 -> {
-                setTagOfUser(tvTag01, 0)
-                setTagOfUser(tvTag02, 1)
-                setTagOfUser(tvTag03, 2)
+                tagStyleManager.setTagOfUser(tvTag01, user, 0)
+                tagStyleManager.setTagOfUser(tvTag02, user, 1)
+                tagStyleManager.setTagOfUser(tvTag03, user, 2)
             }
             else -> return
         }
@@ -173,15 +107,15 @@ class MyPageActivity : AppCompatActivity() {
         tvFoodIntroduce1.text = historyList[0].date
         val tagCount1 = historyList[0].tags.size
         when (tagCount1) {
-            1 -> setTagOfHistory(tvFood1Tag1, historyList[0], 0)
+            1 -> tagStyleManager.setTagOfHistory(tvFood1Tag1, historyList[0], 0)
             2 -> {
-                setTagOfHistory(tvFood1Tag1, historyList[0], 0)
-                setTagOfHistory(tvFood1Tag2, historyList[0], 1)
+                tagStyleManager.setTagOfHistory(tvFood1Tag1, historyList[0], 0)
+                tagStyleManager.setTagOfHistory(tvFood1Tag2, historyList[0], 1)
             }
             3 -> {
-                setTagOfHistory(tvFood1Tag1, historyList[0], 0)
-                setTagOfHistory(tvFood1Tag2, historyList[0], 1)
-                setTagOfHistory(tvFood1Tag3, historyList[0], 2)
+                tagStyleManager.setTagOfHistory(tvFood1Tag1, historyList[0], 0)
+                tagStyleManager.setTagOfHistory(tvFood1Tag2, historyList[0], 1)
+                tagStyleManager.setTagOfHistory(tvFood1Tag3, historyList[0], 2)
             }
             else -> return
         }
@@ -198,15 +132,15 @@ class MyPageActivity : AppCompatActivity() {
         tvFoodIntroduce2.text = historyList[1].date
         val tagCount2 = historyList[1].tags.size
         when (tagCount2) {
-            1 -> setTagOfHistory(tvFood2Tag1, historyList[1], 0)
+            1 -> tagStyleManager.setTagOfHistory(tvFood2Tag1, historyList[1], 0)
             2 -> {
-                setTagOfHistory(tvFood2Tag1, historyList[1], 0)
-                setTagOfHistory(tvFood2Tag2, historyList[1], 1)
+                tagStyleManager.setTagOfHistory(tvFood2Tag1, historyList[1], 0)
+                tagStyleManager.setTagOfHistory(tvFood2Tag2, historyList[1], 1)
             }
             3 -> {
-                setTagOfHistory(tvFood2Tag1, historyList[1], 0)
-                setTagOfHistory(tvFood2Tag2, historyList[1], 1)
-                setTagOfHistory(tvFood2Tag3, historyList[1], 2)
+                tagStyleManager.setTagOfHistory(tvFood2Tag1, historyList[1], 0)
+                tagStyleManager.setTagOfHistory(tvFood2Tag2, historyList[1], 1)
+                tagStyleManager.setTagOfHistory(tvFood2Tag3, historyList[1], 2)
             }
             else -> return
         }
@@ -223,15 +157,15 @@ class MyPageActivity : AppCompatActivity() {
         tvFoodIntroduce3.text = historyList[2].date
         val tagCount3 = historyList[2].tags.size
         when (tagCount3) {
-            1 -> setTagOfHistory(tvFood3Tag1, historyList[2], 0)
+            1 -> tagStyleManager.setTagOfHistory(tvFood3Tag1, historyList[2], 0)
             2 -> {
-                setTagOfHistory(tvFood3Tag1, historyList[2], 0)
-                setTagOfHistory(tvFood3Tag2, historyList[2], 1)
+                tagStyleManager.setTagOfHistory(tvFood3Tag1, historyList[2], 0)
+                tagStyleManager.setTagOfHistory(tvFood3Tag2, historyList[2], 1)
             }
             3 -> {
-                setTagOfHistory(tvFood3Tag1, historyList[2], 0)
-                setTagOfHistory(tvFood3Tag2, historyList[2], 1)
-                setTagOfHistory(tvFood3Tag3, historyList[2], 2)
+                tagStyleManager.setTagOfHistory(tvFood3Tag1, historyList[2], 0)
+                tagStyleManager.setTagOfHistory(tvFood3Tag2, historyList[2], 1)
+                tagStyleManager.setTagOfHistory(tvFood3Tag3, historyList[2], 2)
             }
             else -> return
         }
@@ -248,15 +182,15 @@ class MyPageActivity : AppCompatActivity() {
         tvFoodIntroduce4.text = historyList[3].date
         val tagCount4 = historyList[3].tags.size
         when (tagCount4) {
-            1 -> setTagOfHistory(tvFood4Tag1, historyList[3], 0)
+            1 -> tagStyleManager.setTagOfHistory(tvFood4Tag1, historyList[3], 0)
             2 -> {
-                setTagOfHistory(tvFood4Tag1, historyList[3], 0)
-                setTagOfHistory(tvFood4Tag2, historyList[3], 1)
+                tagStyleManager.setTagOfHistory(tvFood4Tag1, historyList[3], 0)
+                tagStyleManager.setTagOfHistory(tvFood4Tag2, historyList[3], 1)
             }
             3 -> {
-                setTagOfHistory(tvFood4Tag1, historyList[3], 0)
-                setTagOfHistory(tvFood4Tag2, historyList[3], 1)
-                setTagOfHistory(tvFood4Tag3, historyList[3], 2)
+                tagStyleManager.setTagOfHistory(tvFood4Tag1, historyList[3], 0)
+                tagStyleManager.setTagOfHistory(tvFood4Tag2, historyList[3], 1)
+                tagStyleManager.setTagOfHistory(tvFood4Tag3, historyList[3], 2)
             }
             else -> return
         }
@@ -273,15 +207,15 @@ class MyPageActivity : AppCompatActivity() {
         tvFoodIntroduce5.text = historyList[4].date
         val tagCount5 = historyList[4].tags.size
         when (tagCount5) {
-            1 -> setTagOfHistory(tvFood5Tag1, historyList[4], 0)
+            1 -> tagStyleManager.setTagOfHistory(tvFood5Tag1, historyList[4], 0)
             2 -> {
-                setTagOfHistory(tvFood5Tag1, historyList[4], 0)
-                setTagOfHistory(tvFood5Tag2, historyList[4], 1)
+                tagStyleManager.setTagOfHistory(tvFood5Tag1, historyList[4], 0)
+                tagStyleManager.setTagOfHistory(tvFood5Tag2, historyList[4], 1)
             }
             3 -> {
-                setTagOfHistory(tvFood5Tag1, historyList[4], 0)
-                setTagOfHistory(tvFood5Tag2, historyList[4], 1)
-                setTagOfHistory(tvFood5Tag3, historyList[4], 2)
+                tagStyleManager.setTagOfHistory(tvFood5Tag1, historyList[4], 0)
+                tagStyleManager.setTagOfHistory(tvFood5Tag2, historyList[4], 1)
+                tagStyleManager.setTagOfHistory(tvFood5Tag3, historyList[4], 2)
             }
             else -> return
         }
@@ -298,49 +232,18 @@ class MyPageActivity : AppCompatActivity() {
         tvFoodIntroduce6.text = historyList[5].date
         val tagCount6 = historyList[5].tags.size
         when (tagCount6) {
-            1 -> setTagOfHistory(tvFood6Tag1, historyList[5], 0)
+            1 -> tagStyleManager.setTagOfHistory(tvFood6Tag1, historyList[5], 0)
             2 -> {
-                setTagOfHistory(tvFood6Tag1, historyList[5], 0)
-                setTagOfHistory(tvFood6Tag2, historyList[5], 1)
+                tagStyleManager.setTagOfHistory(tvFood6Tag1, historyList[5], 0)
+                tagStyleManager.setTagOfHistory(tvFood6Tag2, historyList[5], 1)
             }
             3 -> {
-                setTagOfHistory(tvFood6Tag1, historyList[5], 0)
-                setTagOfHistory(tvFood6Tag2, historyList[5], 1)
-                setTagOfHistory(tvFood6Tag3, historyList[5], 2)
+                tagStyleManager.setTagOfHistory(tvFood6Tag1, historyList[5], 0)
+                tagStyleManager.setTagOfHistory(tvFood6Tag2, historyList[5], 1)
+                tagStyleManager.setTagOfHistory(tvFood6Tag3, historyList[5], 2)
             }
             else -> return
         }
-    }
-
-    private fun setTagOfUser(textView: TextView, index: Int) {
-        textView.apply {
-            visibility = View.VISIBLE
-            text = applyText(user.tags[index])
-            setTextColor(ContextCompat.getColor(context, applyTextColor(user.tags[index])))
-            setBackgroundResource(applyBackgroundByTag(user.tags[index]))
-        }
-    }
-
-    private fun setTagOfHistory(textView: TextView, history: HistoryInfo, index: Int) {
-        textView.apply {
-            visibility = View.VISIBLE
-            text = applyText(history.tags[index])
-            setTextColor(ContextCompat.getColor(context, applyTextColor(history.tags[index])))
-            setBackgroundResource(applyBackgroundByTag(history.tags[index]))
-        }
-    }
-
-    private fun applyText(tag: String): String {
-        val resourceId = tagToStringResourceMap[tag.lowercase()]
-        return if (resourceId != null) getString(resourceId) else ""
-    }
-
-    private fun applyTextColor(tag: String): Int {
-        return tagToColorResourceMap[tag.lowercase()] ?: R.color.black
-    }
-
-    private fun applyBackgroundByTag(tag: String): Int {
-        return tagToDrawableResourceMap(tag.lowercase())
     }
 
     private fun initToolbar(){
@@ -360,15 +263,4 @@ class MyPageActivity : AppCompatActivity() {
             overridePendingTransition(R.anim.none, R.anim.mypage_to_main)
         }
     }
-
-    //    private fun navigateToHome() {
-//        val btnNavigateToHome = findViewById<Button>(R.id.btn_navigate_to_home)
-//        btnNavigateToHome.setOnClickListener {
-//            val intent = Intent(this, MainPageActivity::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-//            intent.putExtra(EXTRA_STRING_USER_ID, user.userId)
-//            intent.putExtra(EXTRA_STRING_USER_NAME, user.userName)
-//            startActivity(intent)
-//        }
-//    }
 }
