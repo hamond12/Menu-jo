@@ -22,7 +22,6 @@ import com.example.menujo.data.UserManager
 import com.google.android.material.appbar.MaterialToolbar
 
 const val EXTRA_STRING_USER_ID = "id"
-const val EXTRA_STRING_USER_NAME = "name"
 
 class MyPageActivity : AppCompatActivity() {
 
